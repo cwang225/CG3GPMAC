@@ -74,8 +74,8 @@ Carly:
 * Dialogue system (out of battle)
 * Hub world movement
 * Level selection  
-Alex:
 
+Alex:
 * Combat between units
 * Sigils (AoE)
 * Camera Control  
