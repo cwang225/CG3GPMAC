@@ -51,9 +51,6 @@ We are taking vibe inspirations from Cult of the Lamb because we want to capture
 (we also might do 2d characters in a 3d world?)
 
 ## Gameplay
-
-A paragraph or bulleted list describing how the player will interact with the game, and the key gameplay mechanics that you plan to have implemented in your finalized game. Also use this section to broadly describe the expected user interface and game-controls.
-
 The player will control a cultist who is trying to collect n (5, 7?) magic crystals stored on neighboring planets. They must control a small team of followers and successfully kill/knock out interplanetary alliance forces (?) on n levels by seizing territory strategically using a range of abilities (e.g. sigils placed on the ground which can be activated and have AoE effects.) Other tools include melee and intra-team healing. There will be mana springs across the map which give the holder increased mana regeneration, adding to the territory-control aspect of the game. Mana from springs is distributed across player characters evenly, but mana is not pooled. There will be elevation differences on the map which can be exploited for strategic purposes. Levels are accessible from a hub world, which contains portals to each level. Once all five hub world levels are complete (in a ring around a center) the player is able to summon their god, which turns on them and brings the MC and their companions to a final level. Each member of the player’s team (including the MC) has a unique class giving unique abilities to each member.
 
 Expected user interface and game-controls: the game can be played using either a controller or keyboard. Between battles, they can move around (WASD, joystick) in the hub world to speak to NPC companions. During the battle, the player can switch selection between units, look around the map, and direct units to take actions. The UI will show whose turn it is (player/enemy), unit stats, relevant terrain effects (when hovering/selecting a tile), and when selecting a unit, the list of available actions. There can also be toggleable UI to overlay the tile grid (see Fire Emblem screenshot) with extra information like the range of each enemy.
@@ -66,30 +63,26 @@ Expected user interface and game-controls: the game can be played using either a
 Sketch out a rough idea of what parts of your game you will implement for the next submission, Project Checkpoint 1-2: Basic Mechanics and Scripting involving Unity textbook Chapters 5 through 9. You will come back to update this for each submission based on which things you've accomplished and which need to be prioritized next. This will help you practice thinking ahead as well as reflecting on the progress you've made throughout the semester.
 
 By Oct 1st (Checkpoint 1-2):
-Megan:  Hub
-Carly: Hub
-Alex: asdfghjkl
+Megan:
+* Tile-based map with elevations
+* Units with stats
+* Unit movement
+* Unit selection/control
+* Turn system
+* Enemy AI
+Carly:
+* In-battle UI
+* Dialogue system (out of battle)
+* Hub world movement
+* Level selection
+Alex:
+* Combat between units
+* Sigils (AoE)
+* Camera Control
 
 
-# Must have Mechanics:
-Tile-based map with elevations
-Units with stats (base class)
-that can move on the map
-Unit selection/control
-Combat between units
-Turn system
-Enemy AI
-Sigils
-AoE
-In-battle UI
-Camera control
-Dialogue system (outside of battle)
-Hub world movement
-Level selection (portals)
-
-# Nice to have Mechanics:
-In-battle dialogue
-Cut scenes (for final boss)
-Mana pools
-More sigils
- buffs/debuffs, block movement
+Nice to have Mechanics:
+* In-battle dialogue
+* Cut scenes (for final boss)
+* Mana pools
+* More sigils (buffs/debuffs, block movement)
