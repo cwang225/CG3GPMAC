@@ -60,25 +60,23 @@ Expected user interface and game-controls: the game can be played using either a
 
 ### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
 
-Sketch out a rough idea of what parts of your game you will implement for the next submission, Project Checkpoint 1-2: Basic Mechanics and Scripting involving Unity textbook Chapters 5 through 9. You will come back to update this for each submission based on which things you've accomplished and which need to be prioritized next. This will help you practice thinking ahead as well as reflecting on the progress you've made throughout the semester.
-
-By Oct 1st (Checkpoint 1-2):
-Megan:
+By Oct 1st (Checkpoint 1-2):  
+Megan:  
 * Tile-based map with elevations
 * Units with stats
 * Unit movement
 * Unit selection/control
 * Turn system
-* Enemy AI
-Carly:
+* Enemy AI  
+Carly:  
 * In-battle UI
 * Dialogue system (out of battle)
 * Hub world movement
-* Level selection
-Alex:
+* Level selection  
+Alex:  
 * Combat between units
 * Sigils (AoE)
-* Camera Control
+* Camera Control  
 
 
 Nice to have Mechanics:
