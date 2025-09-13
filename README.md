@@ -67,13 +67,15 @@ Megan:
 * Unit movement
 * Unit selection/control
 * Turn system
-* Enemy AI  
+* Enemy AI
+
 Carly:  
 * In-battle UI
 * Dialogue system (out of battle)
 * Hub world movement
 * Level selection  
-Alex:  
+Alex:
+
 * Combat between units
 * Sigils (AoE)
 * Camera Control  
