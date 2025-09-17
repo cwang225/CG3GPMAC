@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     // The tile data for the current level
-    //[SerializeField] private LevelData levelData;
+    [SerializeField] private LevelData levelData;
     
     // The prefab for our tile visual
     [SerializeField] GameObject tilePrefab;
@@ -15,12 +15,24 @@ public class TileManager : MonoBehaviour
     private Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
     
     // Highlighting tiles
-    private Tile highlightedTile;
+    private Tile _highlightedTile;
 
     void Awake()
     {
         // Create our tilemap from levelData
-        CreateGrid(20, 15);
+        if (levelData == null)
+        {
+            Debug.LogError("LevelData is null");
+            return;
+        }
+
+        foreach (TileData tileData in levelData.tiles)
+        {
+            GameObject tile =  Instantiate(tilePrefab, new Vector3(tileData.coord.x * TileSize, 0.01f + tileData.elevation * 5.0f, tileData.coord.y * TileSize), transform.rotation, transform);
+            Tile tileComponent = tile.GetComponent<Tile>();
+            tileComponent.elevation =  tileData.elevation;
+            tiles.Add(tileData.coord, tileComponent);
+        }
     }
 
     void Update()
@@ -31,31 +43,17 @@ public class TileManager : MonoBehaviour
         {
             Vector2Int tilePos = WorldToTile(hit.point);
 
-            if (highlightedTile)
+            if (_highlightedTile)
             {
-                highlightedTile.Highlight(false);
+                _highlightedTile.Highlight(false);
             }
-            highlightedTile = tiles.TryGetValue(tilePos, out Tile tile) ? tile : null;
-            if (highlightedTile)
+            _highlightedTile = tiles.TryGetValue(tilePos, out Tile tile) ? tile : null;
+            if (_highlightedTile)
             {
-                highlightedTile.Highlight(true);
+                _highlightedTile.Highlight(true);
             }
         }
 
-    }
-    
-    // For testing
-    private void CreateGrid(int width, int height)
-    {
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                GameObject tile =  Instantiate(tilePrefab, new Vector3(i*TileSize, 0.01f, j*TileSize), transform.rotation, transform);
-                tile.GetComponent<Tile>().elevation = Random.Range(0, 3);
-                tiles.Add(new Vector2Int(i, j), tile.GetComponent<Tile>());
-            }
-        }
     }
     
     // Turn on or off visuals for tiles
@@ -63,7 +61,7 @@ public class TileManager : MonoBehaviour
     {
         foreach (Tile tile in tiles.Values)
         {
-            tile.GetComponent<SpriteRenderer>().enabled = toggle;
+            tile.GetComponent<Renderer>().enabled = toggle;
         }
     }
     
