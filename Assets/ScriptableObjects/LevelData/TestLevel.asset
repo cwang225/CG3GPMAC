@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d27e36b603f72242b4e581531cf8aad, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  tiles:
+  - coord: {x: 0, y: 0}
+    elevation: 0
+  - coord: {x: 1, y: 0}
+    elevation: 0
+  - coord: {x: 2, y: 0}
+    elevation: 0
+  - coord: {x: 3, y: 0}
+    elevation: 0
+  - coord: {x: 3, y: 1}
+    elevation: 0
+  - coord: {x: 2, y: 1}
+    elevation: 0
+  - coord: {x: 1, y: 1}
+    elevation: 0
+  - coord: {x: 0, y: 1}
+    elevation: 0
+  - coord: {x: 0, y: 2}
+    elevation: 1
+  - coord: {x: 1, y: 2}
+    elevation: 1
+  - coord: {x: 2, y: 2}
+    elevation: 1
+  - coord: {x: 3, y: 2}
+    elevation: 1
