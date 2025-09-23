@@ -16,6 +16,7 @@ public class TileManager : MonoBehaviour
     private Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
     
     // Highlighting tiles
+    public Tile HoveredTile { get; protected set; }
     private Tile _highlightedTile;
     
     // Pathfinding (cardinal directions)
@@ -48,21 +49,15 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        // Check to see if the mouse is hovering over a tile to highlight it
+        // Check to see if the mouse is hovering over a tile
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Vector2Int tilePos = WorldToTile(hit.point);
 
-            if (_highlightedTile)
-            {
-                _highlightedTile.Highlight(false);
-            }
-            _highlightedTile = tiles.TryGetValue(tilePos, out Tile tile) ? tile : null;
-            if (_highlightedTile)
-            {
-                _highlightedTile.Highlight(true);
-            }
+            HoveredTile = tiles.TryGetValue(tilePos, out Tile tile) ? tile : null;
+
+            HighlightTile();
         }
 
     }
@@ -73,6 +68,19 @@ public class TileManager : MonoBehaviour
         foreach (Tile tile in tiles.Values)
         {
             tile.GetComponent<Renderer>().enabled = toggle;
+        }
+    }
+
+    private void HighlightTile()
+    {
+        if (_highlightedTile)
+        {
+            _highlightedTile.Highlight(false);
+        }
+        _highlightedTile = HoveredTile;
+        if (_highlightedTile)
+        {
+            _highlightedTile.Highlight(true);
         }
     }
     

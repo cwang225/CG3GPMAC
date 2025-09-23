@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
 
     // Tile Data
     [HideInInspector] public Vector2Int coord;
-    public Vector3 Center => new(coord.x, elevation * 5.0f, coord.y);
+    public Vector3 Center => new(coord.x * 10.0f, elevation * 5.0f, coord.y * 10.0f);
     [HideInInspector] public int elevation;
     [HideInInspector] public GameObject content;
     
@@ -43,6 +43,12 @@ public class Tile : MonoBehaviour
     public void ShowMoveable(bool toggle)
     {
         _color = toggle ? canMoveHereColor : defaultColor;
+        SetColor(_color);
+    }
+
+    public void ShowPath(bool toggle)
+    {
+        _color = toggle ? inPathColor : canMoveHereColor;
         SetColor(_color);
     }
 

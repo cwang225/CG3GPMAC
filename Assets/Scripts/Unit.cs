@@ -24,12 +24,13 @@ public class Unit : MonoBehaviour
             target.content = gameObject;
         }
 
+        Match();
     }
 
     // Update visuals for new position/direction
     public void Match()
     {
-        transform.localPosition = tile.Center;
+        transform.position = tile.Center + new Vector3(0,2.5f, 0);
         transform.localEulerAngles = dir.ToEuler();
     }
 }
