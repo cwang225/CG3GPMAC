@@ -5,10 +5,23 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+
     // Tile Data
-    public int elevation;
+    [HideInInspector] public Vector2Int coord;
+    public Vector3 Center => new(coord.x, elevation * 5.0f, coord.y);
+    [HideInInspector] public int elevation;
+    [HideInInspector] public GameObject content;
     
-    // For tile highlight
+    // For pathfinding
+    [HideInInspector] public Tile prev;
+    [HideInInspector] public int distance;
+    
+    // For tile highlighting/coloring
+    [SerializeField] private Color defaultColor;
+    [SerializeField] private Color canMoveHereColor;
+    [SerializeField] private Color inPathColor;
+    
     private MaterialPropertyBlock _block;
     private Renderer _renderer;
     private Color _color;
@@ -17,22 +30,26 @@ public class Tile : MonoBehaviour
     {
         _block = new MaterialPropertyBlock();
         _renderer = GetComponent<Renderer>();
-        _color = _renderer.material.color;
-    }
 
+        _color = defaultColor;
+        SetColor(_color);
+    }
+    
     public void Highlight(bool toggle)
     {
-        if (toggle)
-        {
-            _renderer.GetPropertyBlock(_block);
-            _block.SetColor("_BaseColor", Color.Lerp(_color, Color.white, 0.5f)); // brighter green
-            _renderer.SetPropertyBlock(_block);
-        }
-        else
-        {
-            _renderer.GetPropertyBlock(_block);
-            _block.SetColor("_BaseColor", _color);
-            _renderer.SetPropertyBlock(_block);
-        }
+        SetColor(toggle ? Color.Lerp(_color, Color.white, 0.5f) : _color);
+    }
+
+    public void ShowMoveable(bool toggle)
+    {
+        _color = toggle ? canMoveHereColor : defaultColor;
+        SetColor(_color);
+    }
+
+    private void SetColor(Color color)
+    {
+        _renderer.GetPropertyBlock(_block);
+        _block.SetColor(BaseColor, color);
+        _renderer.SetPropertyBlock(_block);
     }
 }

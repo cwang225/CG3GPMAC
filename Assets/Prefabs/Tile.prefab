@@ -121,3 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf439b886121a324d92dd7b03915826a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coord: {x: 0, y: 0}
+  elevation: 0
+  content: {fileID: 0}
+  prev: {fileID: 0}
+  distance: 0
+  defaultColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.5882353}
+  canMoveHereColor: {r: 0.34451312, g: 1, b: 0.28773582, a: 0.5882353}
+  inPathColor: {r: 1, g: 0.5291431, b: 0, a: 0.5882353}
