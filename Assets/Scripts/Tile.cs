@@ -10,8 +10,8 @@ public class Tile : MonoBehaviour
     // Tile Data
     [HideInInspector] public Vector2Int coord;
     public Vector3 Center => new(coord.x * 10.0f, elevation * 5.0f, coord.y * 10.0f);
-    [HideInInspector] public int elevation;
-    [HideInInspector] public GameObject content;
+    public float elevation;
+    public GameObject content;
     
     // For pathfinding
     [HideInInspector] public Tile prev;
@@ -26,7 +26,7 @@ public class Tile : MonoBehaviour
     private Renderer _renderer;
     private Color _color;
 
-    private void Awake()
+    void Awake()
     {
         _block = new MaterialPropertyBlock();
         _renderer = GetComponent<Renderer>();

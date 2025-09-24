@@ -19,4 +19,12 @@ public static class DirectionsExtensions
     {
         return new Vector3(0, (int)direction * 90, 0);
     }
+
+    public static Vector2Int ToVector2Int(this Directions direction)
+    {
+        return new Vector2Int(
+            direction == Directions.East ? 1 : direction == Directions.West ? -1 : 0,
+            direction == Directions.North ? 1 : direction == Directions.South ? -1 : 0
+            );
+    }
 }
