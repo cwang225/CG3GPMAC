@@ -4,7 +4,9 @@ using UnityEngine;
 [System.Serializable]
 public class TileData {
     public Vector2Int coord;
-    public int elevation;
+    public float elevation;
+    public bool isRamp;
+    public Directions rampDirection;
 }
 
 [CreateAssetMenu(menuName = "Tactics/Level Data", fileName = "NewLevelData")]

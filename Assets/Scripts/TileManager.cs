@@ -18,33 +18,10 @@ public class TileManager : MonoBehaviour
     // Highlighting tiles
     public Tile HoveredTile { get; protected set; }
     private Tile _highlightedTile;
-    
-    // Pathfinding (cardinal directions)
-    private Vector2Int[] dirs = new Vector2Int[4]
-    {
-        new Vector2Int(0, 1),
-        new Vector2Int(0, -1),
-        new Vector2Int(1, 0),
-        new Vector2Int(-1, 0),
-    };
 
     void Awake()
     {
-        // Create our tilemap from levelData
-        if (levelData == null)
-        {
-            Debug.LogError("LevelData is null");
-            return;
-        }
-
-        foreach (TileData tileData in levelData.tiles)
-        {
-            GameObject tile =  Instantiate(tilePrefab, new Vector3(tileData.coord.x * TileSize, 0.01f + tileData.elevation * 5.0f, tileData.coord.y * TileSize), transform.rotation, transform);
-            Tile tileComponent = tile.GetComponent<Tile>();
-            tileComponent.coord = tileData.coord;
-            tileComponent.elevation =  tileData.elevation;
-            tiles.Add(tileData.coord, tileComponent);
-        }
+        Load();
     }
 
     void Update()
@@ -60,6 +37,34 @@ public class TileManager : MonoBehaviour
             HighlightTile();
         }
 
+    }
+    
+    public void Load()
+    {
+        // Create our tilemap from levelData
+        if (levelData == null)
+        {
+            Debug.LogError("LevelData is null");
+            return;
+        }
+
+        foreach (TileData tileData in levelData.tiles)
+        {
+            GameObject tile =  Instantiate(tilePrefab, new Vector3(tileData.coord.x * TileSize, 0.01f + tileData.elevation * 5.0f, tileData.coord.y * TileSize), transform.rotation, transform);
+            Tile tileComponent = tile.GetComponent<Tile>();
+            tileComponent.coord = tileData.coord;
+            tileComponent.elevation =  tileData.elevation;
+
+            // Check for ramp
+            if (tileData.isRamp)
+            {
+                Ramp ramp = tile.AddComponent<Ramp>();
+                ramp.rampDirection = tileData.rampDirection;
+                ramp.Match();
+            }
+            
+            tiles.Add(tileData.coord, tileComponent);
+        }
     }
     
     // Turn on or off visuals for tiles
@@ -111,7 +116,7 @@ public class TileManager : MonoBehaviour
 
             for (int i = 0; i < 4; i++)
             {
-                Tile next = GetTile(tile.coord + dirs[i]);
+                Tile next = GetTile(tile.coord + ((Directions)i).ToVector2Int());
                 if (next == null || next.distance < tile.distance + 1) continue;
 
                 if (predicate(tile, next))

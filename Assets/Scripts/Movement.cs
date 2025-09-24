@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     private bool ExpandSearch(Tile from, Tile to)
     {
         // elevation
+        if (to.elevation >= from.elevation + 1) return false;
+        //later: jumping down restrictions?
         
         // enemies
         if (to.content != null)

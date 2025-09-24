@@ -32,6 +32,9 @@ public class TilemapEditor : Editor
         GUILayout.Label("X: " + current.pos.x);
         GUILayout.Label("Y: " + current.pos.y);
         
+        if (GUILayout.Button("Add/Make Ramp"))
+            current.Ramp();
+        
         if (GUILayout.Button("Reset"))
             current.Reset();
 

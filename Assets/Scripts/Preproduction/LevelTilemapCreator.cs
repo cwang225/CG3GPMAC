@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelTilemapCreator : MonoBehaviour
@@ -65,6 +67,57 @@ public class LevelTilemapCreator : MonoBehaviour
         }
     }
 
+    public void Ramp()
+    {
+        // First, check if we can do that (need to be between two elevations)
+        // Can either be the tile above and below or the one to the left and right
+        Directions? dir = null;
+            
+        if (tiles.ContainsKey(pos + Vector2Int.up) && tiles.ContainsKey(pos + Vector2Int.down))
+        {
+            float diff = tiles[pos + Vector2Int.up].elevation - tiles[pos + Vector2Int.down].elevation;
+            if (diff is 1)
+            {
+                dir = Directions.North;
+            }
+            else if (diff is -1)
+            {
+                dir = Directions.South;
+            }
+        }
+
+        if (tiles.ContainsKey(pos + Vector2Int.left) && tiles.ContainsKey(pos + Vector2Int.right))
+        {
+            float diff = tiles[pos + Vector2Int.left].elevation - tiles[pos + Vector2Int.right].elevation;
+            if (diff is 1)
+            {
+                dir = Directions.West;
+            }
+            else if (diff is -1)
+            {
+                dir = Directions.East;
+            }
+        }
+
+        if (dir == null) return;
+        
+        // Remove a tile if there is one here already
+        RemoveTile();
+        
+        // Place the ramp
+        float ramp_elevation = tiles[pos + ((Directions)dir).ToVector2Int()].elevation - 0.5f;
+        GameObject tile = Instantiate(tilePreviewPrefab,
+            new Vector3(pos.x * 10.0f, 0.01f + ramp_elevation * 5.0f, pos.y * 10.0f), transform.rotation, transform);
+        Ramp ramp = tile.AddComponent<Ramp>();
+        ramp.rampDirection = (Directions)dir;
+        ramp.Match();
+        
+        tiles.Add(pos, tile.GetComponent<Tile>());
+        tiles[pos].elevation = ramp_elevation;
+        
+        Debug.Log("Made ramp with direction " + (Directions)dir);
+    }
+
     public void Save()
     {
         // Transfer our tiles Dictionary into a LevelData
@@ -78,10 +131,13 @@ public class LevelTilemapCreator : MonoBehaviour
 
         foreach (KeyValuePair<Vector2Int, Tile> tile in tiles)
         {
+            Ramp ramp = tile.Value.GetComponent<Ramp>();
             TileData td = new TileData
             {
                 coord = tile.Key,
-                elevation = tile.Value.elevation
+                elevation = tile.Value.elevation,
+                isRamp = ramp != null,
+                rampDirection = ramp ? ramp.rampDirection : Directions.North
             };
             levelData.tiles.Add(td);
         }
