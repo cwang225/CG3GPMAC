@@ -8,8 +8,8 @@ public class StateMachine : MonoBehaviour
         get { return _currentState; }
         set { Transition (value); }
     }
-    protected State _currentState;
-    protected bool _inTransition;
+    private State _currentState;
+    private bool _inTransition;
 
     public virtual T GetState<T>() where T : State
     {
