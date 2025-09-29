@@ -13,6 +13,6 @@ public class LoadBattleState : BattleState
     {
         tileManager.Load(levelData);
         yield return null;
-        //owner.ChangeState<MoveTargetState>();
+        owner.ChangeState<SelectUnitState>();
     }
 }
