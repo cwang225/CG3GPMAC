@@ -3,23 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+ * The BattleState for the player to select which unit they want to take an action on their turn
+ */
 public class SelectUnitState : BattleState
 {
+    private int index;
+
+    public override void Enter()
+    {
+        base.Enter();
+        index = 0;
+        // select the first unit
+    }
+    
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
     {
         // change selected unit (move camera and display its info)
-        print("OnMoveSelection SelectUnitState");
     }
     
     protected override void HandleSelect(InputAction.CallbackContext context)
     {
-        print("OnSelect SelectUnitState");
-        // might want to change this to differentiate between mouse click and enter?
-        GameObject content = owner.hoveredTile.content;
+        if (owner.currentUnit != null)
+        {
+            owner.ChangeState<SelectActionState>();
+        }   
+    }
+
+    protected override void HandleClick(InputAction.CallbackContext context)
+    {
+        GameObject content = HoveredTile.content;
         if (content != null)
         {
             owner.currentUnit = content.GetComponent<Unit>();
-            owner.ChangeState<SelectActionState>();
+            owner.ChangeState<MoveSelectState>();
         }
+    }
+
+    protected override void HandleCancel(InputAction.CallbackContext context)
+    {
+        owner.currentUnit = null;
     }
 }
