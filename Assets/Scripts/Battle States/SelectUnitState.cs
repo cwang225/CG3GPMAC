@@ -24,7 +24,7 @@ public class SelectUnitState : BattleState
     
     protected override void HandleSelect(InputAction.CallbackContext context)
     {
-        if (owner.currentUnit != null)
+        if (owner.CurrentUnit != null)
         {
             owner.ChangeState<SelectActionState>();
         }   
@@ -35,13 +35,13 @@ public class SelectUnitState : BattleState
         GameObject content = HoveredTile.content;
         if (content != null)
         {
-            owner.currentUnit = content.GetComponent<Unit>();
+            owner.CurrentUnit = content.GetComponent<Unit>();
             owner.ChangeState<MoveSelectState>();
         }
     }
 
     protected override void HandleCancel(InputAction.CallbackContext context)
     {
-        owner.currentUnit = null;
+        owner.CurrentUnit = null;
     }
 }

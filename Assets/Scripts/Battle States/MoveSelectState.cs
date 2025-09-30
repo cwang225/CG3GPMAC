@@ -10,7 +10,7 @@ public class MoveSelectState : BattleState
     public override void Enter()
     {
         base.Enter();
-        Movement movement = owner.currentUnit.GetComponent<Movement>();
+        Movement movement = owner.CurrentUnit.GetComponent<Movement>();
         _tiles = movement.GetTilesInRange(tileManager);
         tileManager.ShowTilesAsMoveable(_tiles);
     }

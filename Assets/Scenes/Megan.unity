@@ -539,7 +539,6 @@ MonoBehaviour:
   units: []
   unitPrefab: {fileID: 1045767381724748529, guid: 1afcf4451a5b03d4aa48d17836402fe5,
     type: 3}
-  currentUnit: {fileID: 0}
   currentTile: {fileID: 0}
 --- !u!114 &1478504551
 MonoBehaviour:
