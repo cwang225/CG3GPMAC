@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    // The tile data for the current level
-    [SerializeField] private LevelData levelData;
-    
     // The prefab for our tile visual
     [SerializeField] GameObject tilePrefab;
     private const int TileSize = 10;
@@ -18,11 +15,6 @@ public class TileManager : MonoBehaviour
     // Highlighting tiles
     public Tile HoveredTile { get; protected set; }
     private Tile _highlightedTile;
-
-    void Awake()
-    {
-        Load();
-    }
 
     void Update()
     {
@@ -39,7 +31,7 @@ public class TileManager : MonoBehaviour
 
     }
     
-    public void Load()
+    public void Load(LevelData levelData)
     {
         // Create our tilemap from levelData
         if (levelData == null)

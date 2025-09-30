@@ -28,7 +28,7 @@ public class TilemapEditor : Editor
         if (GUILayout.Button("Load"))
             current.Load();
         GUILayout.Label("Elevation: ");
-        current.elevation = (int)GUI.HorizontalSlider (new Rect (100, 165, 100, 30), current.elevation, 0, 2);
+        current.elevation = (int)GUI.HorizontalSlider (new Rect (100, 185, 100, 30), current.elevation, 0, 2);
         GUILayout.Label("X: " + current.pos.x);
         GUILayout.Label("Y: " + current.pos.y);
         
@@ -37,6 +37,11 @@ public class TilemapEditor : Editor
         
         if (GUILayout.Button("Reset"))
             current.Reset();
+        
+        if (GUILayout.Button("Place Unit"))
+            current.PlaceUnit();
+        if (GUILayout.Button("Remove Unit"))
+            current.RemoveUnit();
 
         if (GUI.changed)
             current.UpdateMarker();
