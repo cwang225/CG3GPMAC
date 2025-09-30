@@ -13,8 +13,6 @@ public static class UnitFactory
         AddAlliance(obj, recipe.alliance);
         AddMovement(obj, recipe.movementRange);
         AddStats(obj, recipe.health, recipe.mana);
-        obj.AddComponent<Health>();
-        obj.AddComponent<Mana>();
         return obj;
     }
     

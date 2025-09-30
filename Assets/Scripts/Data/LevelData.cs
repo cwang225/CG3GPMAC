@@ -9,7 +9,15 @@ public class TileData {
     public Directions rampDirection;
 }
 
+[System.Serializable]
+public class UnitData
+{
+    public Vector2Int coord;
+    public UnitRecipe recipe;
+}
+
 [CreateAssetMenu(menuName = "Tactics/Level Data", fileName = "NewLevelData")]
 public class LevelData : ScriptableObject {
     public List<TileData> tiles = new List<TileData>();
+    public List<UnitData> units = new List<UnitData>();
 }

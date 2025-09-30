@@ -10,21 +10,22 @@ public class LoadBattleState : BattleState
     public override void Enter ()
     {
         base.Enter ();
-        SpawnTestUnits();
         StartCoroutine(Init());
     }
     IEnumerator Init ()
     {
         tileManager.Load(levelData);
-        SpawnTestUnits();
+        SpawnUnits();
         yield return null;
         owner.ChangeState<SelectUnitState>();
     }
 
-    private void SpawnTestUnits()
+    private void SpawnUnits()
     {
-        SpawnUnit(new Vector2Int(0, 0), owner.player);
-        SpawnUnit(new Vector2Int(5, 5), owner.enemy);
+        foreach (UnitData ud in levelData.units)
+        {
+            SpawnUnit(ud.coord, ud.recipe);
+        }
     }
 
     private void SpawnUnit(Vector2Int pos, UnitRecipe recipe)
@@ -33,6 +34,7 @@ public class LoadBattleState : BattleState
         if (tile != null && tile.content == null)
         {
             GameObject instance = UnitFactory.Create(recipe);
+            instance.transform.parent = owner.transform;
             tile.content = instance;
             
             Unit unit = instance.GetComponent<Unit>();
