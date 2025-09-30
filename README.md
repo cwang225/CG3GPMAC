@@ -64,24 +64,48 @@ The player will control a cultist who is trying to collect n (5, 7?) magic cryst
 
 Expected user interface and game-controls: the game can be played using either a controller or keyboard. Between battles, they can move around (WASD, joystick) in the hub world to speak to NPC companions. During the battle, the player can switch selection between units, look around the map, and direct units to take actions. The UI will show whose turn it is (player/enemy), unit stats, relevant terrain effects (when hovering/selecting a tile), and when selecting a unit, the list of available actions. There can also be toggleable UI to overlay the tile grid (see Fire Emblem screenshot) with extra information like the range of each enemy.
 
+The camera perspective we decided on was a top-down camera view for in-battle scenarios, and a 3rd person camera for the hub world.
+
 
 ## Development Plan
 
 ### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
 
-By Oct 1st (Checkpoint 1-2):  
+By Oct 1st (Checkpoint 1-2):
+We’d like to see these things for the upcoming project check-in:
+
+- ~~Add a note in your GDD about the camera perspective you’ll use (both in-battle and hub world).~~
+- ~~Complete one planet/scene (grayboxed).~~
+- ~~Implement one class for the main character.~~
+- ~~Implement one type of enemy unit.~~
+- ~~For level selection, use a simplified menu or hotkeys instead of a hub world.~~
+- ~~Implement one sigil (very basic effect).~~
+- Enemy AI can be extremely simple (even random actions are fine for now). (Player controls enemy for now)
+
+##Additions
+- Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded.
+
+Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+- Player Model
+- Enemy Model
+- Level terrain (one level to start with)
+- NPC Model
+- 2D UI elements (healthbar, sigils, some magic effects)
+- Enemy AI
+
+#Development
+
+##Project Checkpoint 1-2:
+
 Megan:  
 * Tile-based map with elevations
 * Units with stats
 * Unit movement
 * Unit selection/control
 * Turn system
-* Enemy AI
 
 Carly:  
 * In-battle UI
-* Dialogue system (out of battle)
-* Hub world movement
 * Level selection  
 
 Alex:
@@ -95,3 +119,6 @@ Nice to have Mechanics:
 * Cut scenes (for final boss)
 * Mana pools
 * More sigils (buffs/debuffs, block movement)
+* Hub world movement
+* Dialogue system (out of battle)
+* Enemy AI

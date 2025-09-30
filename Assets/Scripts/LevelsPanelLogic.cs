@@ -26,6 +26,12 @@ public class LevelsPanelLogic : MonoBehaviour
         buttons[3] = levelButton4;
         buttons[4] = levelButton5;
         buttons[5] = levelButton6;
+        // levelButton1.onClick.AddListener(() => buttonOnClick(0));
+        // levelButton2.onClick.AddListener(() => buttonOnClick(1));
+        // levelButton3.onClick.AddListener(() => buttonOnClick(2));
+        // levelButton4.onClick.AddListener(() => buttonOnClick(3));
+        // levelButton5.onClick.AddListener(() => buttonOnClick(4));
+        // levelButton6.onClick.AddListener(() => buttonOnClick(5));
         levelButton1.onClick.AddListener(() => buttonOnClick(0));
         levelButton2.onClick.AddListener(() => buttonOnClick(1));
         levelButton3.onClick.AddListener(() => buttonOnClick(2));
