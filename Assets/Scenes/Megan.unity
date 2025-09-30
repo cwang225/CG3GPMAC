@@ -539,6 +539,8 @@ MonoBehaviour:
   units: []
   unitPrefab: {fileID: 1045767381724748529, guid: 1afcf4451a5b03d4aa48d17836402fe5,
     type: 3}
+  player: {fileID: 11400000, guid: 2aefebd9e57d569449e2fcbb2f4b9b45, type: 2}
+  enemy: {fileID: 11400000, guid: a8107c55abc1e2a49acb3d0ae6d32f07, type: 2}
   currentTile: {fileID: 0}
 --- !u!114 &1478504551
 MonoBehaviour:

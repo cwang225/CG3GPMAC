@@ -9,6 +9,9 @@ public class BattleController : StateMachine
     public List<Unit> units = new List<Unit>();
     public GameObject unitPrefab;
 
+    public UnitRecipe player;
+    public UnitRecipe enemy;
+    
     public Unit CurrentUnit { 
         get => _currentUnit;
         set

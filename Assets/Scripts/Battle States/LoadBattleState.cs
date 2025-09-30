@@ -23,16 +23,16 @@ public class LoadBattleState : BattleState
 
     private void SpawnTestUnits()
     {
-        SpawnUnit(new Vector2Int(0, 0));
-        SpawnUnit(new Vector2Int(5, 5));
+        SpawnUnit(new Vector2Int(0, 0), owner.player);
+        SpawnUnit(new Vector2Int(5, 5), owner.enemy);
     }
 
-    private void SpawnUnit(Vector2Int pos)
+    private void SpawnUnit(Vector2Int pos, UnitRecipe recipe)
     {
         Tile tile = tileManager.GetTile(pos);
         if (tile != null && tile.content == null)
         {
-            GameObject instance = Instantiate(owner.unitPrefab, tileManager.GetTile(pos).Center, Quaternion.identity);
+            GameObject instance = UnitFactory.Create(recipe);
             tile.content = instance;
             
             Unit unit = instance.GetComponent<Unit>();
