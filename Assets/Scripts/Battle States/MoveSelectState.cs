@@ -20,6 +20,7 @@ public class MoveSelectState : BattleState
         base.Exit();
         tileManager.ClearTileDisplay();
         _tiles = null;
+        _currentPath = null;
     }
 
     protected override void HandleClick(InputAction.CallbackContext context)
