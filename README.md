@@ -82,7 +82,7 @@ We’d like to see these things for the upcoming project check-in:
 - ~~Implement one sigil (very basic effect).~~
 - Enemy AI can be extremely simple (even random actions are fine for now). (Player controls enemy for now)
 
-##Additions
+## Additions
 - Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded.
 
 Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
@@ -93,9 +93,9 @@ Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 - 2D UI elements (healthbar, sigils, some magic effects)
 - Enemy AI
 
-#Development
+# Development
 
-##Project Checkpoint 1-2:
+## Project Checkpoint 1-2:
 
 Megan:  
 * Tile-based map with elevations
