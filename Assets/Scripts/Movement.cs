@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
     {
         // tween this later, for now just teleporting
         _unit.Place(target);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         _unit.Match();
     }
     

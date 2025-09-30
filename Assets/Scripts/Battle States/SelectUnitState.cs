@@ -15,11 +15,32 @@ public class SelectUnitState : BattleState
         base.Enter();
         index = 0;
         // select the first unit
+        owner.CurrentUnit = units[0];
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
     {
         // change selected unit (move camera and display its info)
+        float value = context.ReadValue<float>();
+
+        if (value > 0)
+        {
+            // Select next
+            if (index < units.Count - 1)
+            {
+                index += 1;
+                owner.CurrentUnit = units[index];
+            }
+        }
+        else if (value < 0)
+        {
+            // Select previous
+            if (index > 0)
+            {
+                index -= 1;
+                owner.CurrentUnit = units[index];
+            }
+        }
     }
     
     protected override void HandleSelect(InputAction.CallbackContext context)
