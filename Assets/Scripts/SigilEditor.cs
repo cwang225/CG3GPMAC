@@ -6,7 +6,13 @@ using UnityEditor;
 [CustomEditor(typeof(LevelSigilEditor))]
 public class SigilEditor : Editor
 {
-    public LevelSigilEditor current;
+    public LevelSigilEditor current {
+        get
+        {
+            return (LevelSigilEditor) target;
+        }
+    }
+    public Tile tile;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -17,6 +23,8 @@ public class SigilEditor : Editor
             current.RemoveSigil();
         if (GUILayout.Button("Deal AOE Damage"))
             current.dealAOEDamageAll();
+        if (GUILayout.Button("Change Tile"))
+            current.currentTile = tile;
     }
     // Start is called before the first frame update
     void Start()

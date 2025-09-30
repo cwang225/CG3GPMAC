@@ -8,8 +8,8 @@ public class Attack : MonoBehaviour
 {
     // public Unit hoveredUnit;
     public Unit target;
-    public Dictionary<AttackType,int> attackRange;
-    public Dictionary<AttackType,int> attackDamages; // for a sigil, this is damage per turn
+    public Dictionary<AttackType,int> attackRange = new Dictionary<AttackType,int>();
+    public Dictionary<AttackType,int> attackDamages = new Dictionary<AttackType,int>(); // for a sigil, this is damage per turn
     // we have attacks which can be of different kinds
     // all of these in one class is probably okay
     public enum AttackType
@@ -22,8 +22,8 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackRange[AttackType.Melee] = 5;
-        attackDamages[AttackType.Melee] = 5;
+        attackRange.Add(AttackType.Melee, 5);
+        attackDamages.Add(AttackType.Melee, 5);
     }
 
     void AttackEnemyMelee()

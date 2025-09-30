@@ -8,7 +8,7 @@ public class LevelSigilEditor : MonoBehaviour
     // Start is called before the first frame update
 
     public Tile currentTile;
-    public Dictionary<Tile,Sigil> sigils;
+    public Dictionary<Tile, Sigil> sigils = new Dictionary<Tile, Sigil>();
     public GameObject prefabSigil;
 
     public void PlaceSigil()
@@ -17,9 +17,12 @@ public class LevelSigilEditor : MonoBehaviour
         Sigil s = gobj.GetComponent<Sigil>();
         Assert.IsNotNull(s);
         s.tile = currentTile;
+        print(s.tile);
+        sigils.Add(s.tile, s);
     }
     public void RemoveSigil()
     {
+        print(currentTile);
         var sigilToRemove = sigils[currentTile];
         Assert.IsNotNull(sigilToRemove);
         sigils[currentTile] = null;
