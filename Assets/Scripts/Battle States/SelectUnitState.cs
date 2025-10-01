@@ -13,9 +13,7 @@ public class SelectUnitState : BattleState
     public override void Enter()
     {
         base.Enter();
-        index = 0;
-        // select the first unit
-        owner.CurrentUnit = units[0];
+        index = -1;
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
@@ -57,7 +55,7 @@ public class SelectUnitState : BattleState
         if (content != null)
         {
             owner.CurrentUnit = content.GetComponent<Unit>();
-            owner.ChangeState<MoveSelectState>();
+            owner.ChangeState<SelectActionState>();
         }
     }
 

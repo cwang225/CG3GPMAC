@@ -9,6 +9,7 @@ public abstract class BattleState : State
     public TileManager tileManager { get { return owner.tileManager; } }
     public LevelData levelData { get { return owner.levelData; } }
     public List<Unit> units { get { return owner.units; } }
+    public AbilityMenuPanelController abilityMenuPanelController { get { return owner.abilityMenuPanelController; }}
     
     public Tile HoveredTile => tileManager.HoveredTile;
     private PlayerInput playerInput;

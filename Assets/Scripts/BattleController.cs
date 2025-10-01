@@ -7,7 +7,7 @@ public class BattleController : StateMachine
     public TileManager tileManager;
     public LevelData levelData;
     public List<Unit> units = new List<Unit>();
-    
+    public AbilityMenuPanelController abilityMenuPanelController;
     public Unit CurrentUnit { 
         get => _currentUnit;
         set
