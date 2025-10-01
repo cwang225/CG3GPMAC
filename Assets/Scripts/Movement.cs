@@ -20,6 +20,32 @@ public class Movement : MonoBehaviour
         Filter(retValue);
         return retValue;
     }
+
+    public IEnumerator Traverse(Tile target)
+    {
+        // animate the movement by going through the path
+        List<Tile> path = new List<Tile>();
+        while (target != null)
+        {
+            path.Insert(0, target);
+            target = target.prev;
+        }
+
+        for (int i = 1; i < path.Count; i++)
+        {
+            Tile to = path[i];
+            // later can add turning and stuff
+            yield return StartCoroutine(Walk(to));
+        }
+    }
+
+    private IEnumerator Walk(Tile target)
+    {
+        // tween this later, for now just teleporting
+        _unit.Place(target);
+        yield return new WaitForSeconds(0.25f);
+        _unit.Match();
+    }
     
     private bool ExpandSearch(Tile from, Tile to)
     {

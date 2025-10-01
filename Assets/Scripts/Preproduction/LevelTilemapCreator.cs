@@ -9,8 +9,10 @@ public class LevelTilemapCreator : MonoBehaviour
     [SerializeField] private GameObject tileSelectionIndicatorPrefab;
     [SerializeField] private GameObject tilePreviewPrefab;
     [SerializeField] private LevelData levelData;
+    [SerializeField] private UnitRecipe unitToPlace;
 
     private Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
+    private Dictionary<Vector2Int, UnitRecipe> units = new Dictionary<Vector2Int, UnitRecipe>();
     
     [HideInInspector] public Vector2Int pos = new Vector2Int();
     [HideInInspector] public int elevation = 0;
@@ -35,6 +37,17 @@ public class LevelTilemapCreator : MonoBehaviour
         {
             Debug.LogError("LevelData is null. Select LevelData object to save to.");
         }
+
+        Clear();
+    }
+
+    public void Clear()
+    {
+        // destroy all children
+        for (int i = this.transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(this.transform.GetChild(i).gameObject);
+        }
     }
 
     public void UpdateMarker()
@@ -51,7 +64,9 @@ public class LevelTilemapCreator : MonoBehaviour
         {
             GameObject tile = Instantiate(tilePreviewPrefab,
                 new Vector3(pos.x * 10.0f, 0.01f + elevation * 5.0f, pos.y * 10.0f), transform.rotation, transform);
-            tiles.Add(pos, tile.GetComponent<Tile>());
+            Tile tileComp = tile.GetComponent<Tile>();
+            tileComp.coord = pos;
+            tiles.Add(pos, tileComp);
             tiles[pos].elevation = elevation;
         }
     }
@@ -64,6 +79,34 @@ public class LevelTilemapCreator : MonoBehaviour
         {
             DestroyImmediate(tiles[pos].gameObject);
             tiles.Remove(pos);
+        }
+    }
+
+    public void PlaceUnit()
+    {
+        if (unitToPlace != null)
+        {
+            if (tiles.ContainsKey(pos) && tiles[pos].content == null)
+            {
+                GameObject instance = UnitFactory.Create(unitToPlace);
+                instance.transform.parent = transform;
+                Unit unit = instance.GetComponent<Unit>();
+                unit.Place(tiles[pos]);
+                units.Add(pos, unitToPlace);
+            }
+        }
+    }
+
+    public void RemoveUnit()
+    {
+        if (tiles.ContainsKey(pos))
+        {
+            GameObject content = tiles[pos].content;
+            if (content != null)
+            {
+                DestroyImmediate(content);
+                units.Remove(pos);
+            }
         }
     }
 
@@ -127,6 +170,7 @@ public class LevelTilemapCreator : MonoBehaviour
             return;
         }
 
+        // TILES
         levelData.tiles.Clear();
 
         foreach (KeyValuePair<Vector2Int, Tile> tile in tiles)
@@ -140,6 +184,19 @@ public class LevelTilemapCreator : MonoBehaviour
                 rampDirection = ramp ? ramp.rampDirection : Directions.North
             };
             levelData.tiles.Add(td);
+        }
+        
+        // UNITS
+        levelData.units.Clear();
+        
+        foreach (KeyValuePair<Vector2Int, UnitRecipe> unit in units)
+        {
+            UnitData ud = new UnitData
+            {
+                coord = unit.Key,
+                recipe = unit.Value
+            };
+            levelData.units.Add(ud);
         }
 
         #if UNITY_EDITOR
@@ -161,6 +218,7 @@ public class LevelTilemapCreator : MonoBehaviour
 
         Reset(); // clear scene first
 
+        //TILES
         foreach (TileData td in levelData.tiles)
         {
             GameObject tile = Instantiate(tilePreviewPrefab,
@@ -168,9 +226,21 @@ public class LevelTilemapCreator : MonoBehaviour
                 transform.rotation, transform);
 
             Tile tileComp = tile.GetComponent<Tile>();
+            tileComp.coord = td.coord;
             tileComp.elevation = td.elevation;
 
             tiles.Add(td.coord, tileComp);
+        }
+        
+        //UNITS
+        foreach (UnitData ud in levelData.units)
+        {
+            GameObject unit = UnitFactory.Create(ud.recipe);
+            unit.transform.parent = transform;
+            Unit unitComp = unit.GetComponent<Unit>();
+            unitComp.Place(tiles[ud.coord]);
+            
+            units.Add(ud.coord, ud.recipe);
         }
 
         Debug.Log($"Loaded {tiles.Count} tiles from {levelData.name}");
@@ -178,13 +248,10 @@ public class LevelTilemapCreator : MonoBehaviour
 
     public void Reset()
     {
-        foreach (var tile in tiles.Values)
-        {
-            if (tile != null)
-                DestroyImmediate(tile.gameObject);
-        }
+        Clear();
 
         tiles.Clear();
+        units.Clear();
         pos = Vector2Int.zero;
         elevation = 0;
         UpdateMarker();
