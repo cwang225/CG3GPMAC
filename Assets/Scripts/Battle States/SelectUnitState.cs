@@ -13,9 +13,7 @@ public class SelectUnitState : BattleState
     public override void Enter()
     {
         base.Enter();
-        index = 0;
-        // select the first unit
-        owner.CurrentUnit = units[0];
+        index = -1;
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
@@ -26,20 +24,14 @@ public class SelectUnitState : BattleState
         if (value > 0)
         {
             // Select next
-            if (index < units.Count - 1)
-            {
-                index += 1;
-                owner.CurrentUnit = units[index];
-            }
+            index = (index + 1) % units.Count;
+            owner.CurrentUnit = units[index];
         }
         else if (value < 0)
         {
             // Select previous
-            if (index > 0)
-            {
-                index -= 1;
-                owner.CurrentUnit = units[index];
-            }
+            index = (index - 1 + units.Count) % units.Count;
+            owner.CurrentUnit = units[index];
         }
     }
     
@@ -57,7 +49,7 @@ public class SelectUnitState : BattleState
         if (content != null)
         {
             owner.CurrentUnit = content.GetComponent<Unit>();
-            owner.ChangeState<MoveSelectState>();
+            owner.ChangeState<SelectActionState>();
         }
     }
 
