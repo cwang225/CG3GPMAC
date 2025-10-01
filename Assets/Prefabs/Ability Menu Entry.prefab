@@ -135,6 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 4931280163683810533}
+  button: {fileID: 1943723090287498650}
+  selectedColor: {r: 1, g: 0.7999631, b: 0, a: 1}
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &7807353111297974558
 GameObject:
   m_ObjectHideFlags: 0

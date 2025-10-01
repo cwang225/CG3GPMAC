@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class AbilityMenuPanelController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class AbilityMenuPanelController : MonoBehaviour
     [SerializeField] GameObject canvas;
     List<AbilityMenuEntry> menuEntries = new List<AbilityMenuEntry>(MenuCount);
     public int selection { get; private set; }
+
+    public UnityEvent selectionConfirmed;
     
     void Awake ()
     {
@@ -32,6 +35,7 @@ public class AbilityMenuPanelController : MonoBehaviour
         entry.transform.SetParent(panel.transform, false);
         entry.transform.localScale = Vector3.one;
         entry.gameObject.SetActive(true);
+        entry.controller = this;
         entry.Reset();
         return entry;
     }
@@ -49,7 +53,7 @@ public class AbilityMenuPanelController : MonoBehaviour
         menuEntries.Clear();
     }
     
-    bool SetSelection (int value)
+    public bool SetSelection (int value)
     {
         if (menuEntries[value].IsLocked)
             return false;
@@ -94,11 +98,12 @@ public class AbilityMenuPanelController : MonoBehaviour
         {
             AbilityMenuEntry entry = Dequeue();
             entry.Title = options[i];
+            entry.optionIndex = i;
             menuEntries.Add(entry);
         }
         SetSelection(0);
         
-        panelFollow.target = target;
+        panelFollow.ChangeTarget(target);
     }
     
     public void Hide ()
@@ -114,5 +119,10 @@ public class AbilityMenuPanelController : MonoBehaviour
         menuEntries[index].IsLocked = value;
         if (value && selection == index)
             Next();
+    }
+
+    public void ConfirmSelection()
+    {
+        selectionConfirmed.Invoke();
     }
 }

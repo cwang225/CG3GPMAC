@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class SelectActionState : BattleState
@@ -10,6 +11,14 @@ public class SelectActionState : BattleState
     {
         base.Enter();
         LoadMenu();
+        abilityMenuPanelController.selectionConfirmed.AddListener(SelectAction);
+    }
+
+
+    public override void Exit() { 
+        base.Exit();
+        abilityMenuPanelController.selectionConfirmed.RemoveListener(SelectAction);
+        abilityMenuPanelController.Hide();
     }
 
     void LoadMenu()
@@ -23,6 +32,7 @@ public class SelectActionState : BattleState
         
         abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions);
         // lock movement or attack based on the units turn
+        
     }
 
     void SelectAction()
@@ -60,7 +70,6 @@ public class SelectActionState : BattleState
 
     protected override void HandleCancel(InputAction.CallbackContext context)
     {
-        abilityMenuPanelController.Hide();
         owner.ChangeState<SelectUnitState>();
     }
 }

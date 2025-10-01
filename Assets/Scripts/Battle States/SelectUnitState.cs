@@ -24,20 +24,14 @@ public class SelectUnitState : BattleState
         if (value > 0)
         {
             // Select next
-            if (index < units.Count - 1)
-            {
-                index += 1;
-                owner.CurrentUnit = units[index];
-            }
+            index = (index + 1) % units.Count;
+            owner.CurrentUnit = units[index];
         }
         else if (value < 0)
         {
             // Select previous
-            if (index > 0)
-            {
-                index -= 1;
-                owner.CurrentUnit = units[index];
-            }
+            index = (index - 1 + units.Count) % units.Count;
+            owner.CurrentUnit = units[index];
         }
     }
     

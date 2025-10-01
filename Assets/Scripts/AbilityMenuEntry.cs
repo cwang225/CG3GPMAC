@@ -2,67 +2,106 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.UI;
 
-public class AbilityMenuEntry : MonoBehaviour
+public class AbilityMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     [SerializeField] TextMeshProUGUI label;
-    
+    [SerializeField] Button button;
+
+    [SerializeField] Color selectedColor;
+    [SerializeField] Color defaultColor;
+
+    public int optionIndex;
+    public AbilityMenuPanelController controller;
+
     public string Title
     {
         get { return label.text; }
         set { label.text = value; }
     }
-    
+
+    [System.Flags]
     enum States
     {
-        None,
-        Selected,
-        Locked 
+        None = 0,
+        Selected = 1 << 0,
+        Locked = 1 << 1
     }
-    
+
     public bool IsLocked
     {
-        get => (State == States.Locked);
+        get { return (State & States.Locked) != States.None; }
         set
         {
-            State = States.Locked;
+            if (value)
+            {
+                State |= States.Locked;
+                button.interactable = false;
+            }
+            
+            else
+            {
+                State &= ~States.Locked;
+                button.interactable = true;
+            }
         }
     }
+
     public bool IsSelected
     {
-        get => (State == States.Selected);
+        get { return (State & States.Selected) != States.None; }
         set
         {
-            State = States.Locked;
+            if (value)
+                State |= States.Selected;
+            else
+                State &= ~States.Selected;
         }
     }
+
     States State
-    { 
-        get { return _state; }
+    {
+        get { return state; }
         set
         {
-            if (_state == value)
+            if (state == value)
                 return;
-            _state = value;
-		
+            state = value;
+
             if (IsLocked)
             {
-                // lock the button and make the text grey
+                // make text grey
+                label.color = defaultColor;
             }
             else if (IsSelected)
             {
-                // unlock the button and make the text yellow
+                // make text yellow
+                label.color = selectedColor;
             }
             else
             {
-                // unlock the button make the text default
+                // make text default
+                label.color = defaultColor;
             }
         }
     }
-    States _state;
+    States state;
 
     public void Reset()
     {
         State = States.None;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        controller.SetSelection(optionIndex);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        controller.ConfirmSelection();
     }
 }

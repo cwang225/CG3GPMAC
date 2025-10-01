@@ -14,8 +14,9 @@ public class UIFollowWorldObject : MonoBehaviour
         _mainCam = Camera.main;
     }
 
-    void Update()
+    public void ChangeTarget(Transform newTarget)
     {
+        target = newTarget;
         Vector3 screenPos = _mainCam.WorldToScreenPoint(target.position + offset);
         screenPos.z = 0;
         _rectTransform.position = screenPos;
