@@ -31,6 +31,8 @@ public class CameraMovement : MonoBehaviour
         gameObject.transform.Rotate(0, angle, 0);
         gameObject.transform.Translate(targetUnit.transform.position);
     }
+    // TODO: look into how to get held input with the new input system
+    // also: make an in-inspector GUI
     public void OnChangeCameraPosition()
     {
         if (Input.GetButtonDown("Left Arrow"))

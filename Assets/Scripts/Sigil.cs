@@ -54,7 +54,7 @@ public class Sigil : MonoBehaviour
             if (unitComp != null)
             {
                 print("appending unit to entitiesInRange");
-                entitiesInRange.Append(c.gameObject);
+                entitiesInRange.Add(c.gameObject);
             }
         }
     }
