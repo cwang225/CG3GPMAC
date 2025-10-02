@@ -113,6 +113,16 @@ MoveSelectState allows the player select where to move within range and displays
 
 
 ### Camera, Combat, and Sigils (Alex)
+#### Summary of changes
+This portion of the project consists of a script to allow the user to configure the camera position, i.e. to focus on individual units as desired (which will eventually be hooked up to user controls - for now the controls are in the inspector.) The camera can rotate around the selected unit (player or enemy) and the distance from which the unit is viewed is configurable (to do: change the height and downward tilt of the camera.) It also consists of a way for units to attack other units directly with a specific attack type and parameters like damage. It does a distance check to make sure the attack's range lines up with the intended attack. (to do: kill enemies below 0 health and add per-attack parameters, e.g. for spells that do damage over time.) The third component of my portion of the submission is the sigils, which are game board elements that do AoE damage every turn that an opposing unit is standing in it. The current iteration of a sigil checks if a unit is in a sphere and when `dealAOEDamage()` is called (which would be every turn) units standing inside it that are not aligned with the sigil's alliance are damaged (to do: give sigils an alignment.)
+
+#### Testing submission
+
+To test the camera, select a unit to focus on. (Ignore the alliance and rotate speed parameters for this submission.) Uncheck "focus on all" to view that unit. The distance and angle from which the unit is viewed can be changed with the `Distance` and `Angle` parameters.
+
+To test the attacking, move a friendly unit within range of an enemy unit (5 blocks taxicab distance, but tested with the units touching), select the enemy unit to target and set it as such in the `Attack` script, then press `Attack target from unit` in the inspector. The opposing unit's health will drop accordingly.
+
+To test the sigils, select a tile that a unit is on in the LevelSigilEditor (a script on a game object, which should be SigilManager; there are controls in the inspector.) Select the Sigil prefab where prompted to select one in the LevelSigilEditor inspector UI and press "place sigil". It will appear as a sphere which corresponds to its area of effect. If one exists on the selected tile, it can be removed and AoE damage can be dealt to any units in range with the button. It can also be migrated to another tile.
 
 ### Level Selection (Carly)
 Level selection is navigated by pressing 'X' and having the levelselection menu pop up. Each level can be selected and will be highlighted upon selection. A play button pops up when a level is selected.
