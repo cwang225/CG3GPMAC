@@ -7,15 +7,19 @@ using UnityEngine.UI;
 
 public class LevelsPanelLogic : MonoBehaviour
 {
+    // Gameobject for the entire panel
     public GameObject levelsPanel;
+
+    // Buttons for the levels
     public Button levelButton1;
     public Button levelButton2;
     public Button levelButton3;
     public Button levelButton4;
     public Button levelButton5;
     public Button levelButton6;
+    
+    //play button for the next scene
     public GameObject playButton;
-    // public int currKey = (int)KeyCode.Alpha1; // keycode for 1
     Boolean isLevelPanelActive = false;
     private Button[] buttons = new Button[6];
 
@@ -53,6 +57,7 @@ public class LevelsPanelLogic : MonoBehaviour
             }
             else
             {
+                buttonOnClick(7);
                 levelsPanel.SetActive(false);
             }
             isLevelPanelActive = !isLevelPanelActive;
