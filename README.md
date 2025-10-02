@@ -108,8 +108,8 @@ The battle is controlled by BattleController, a state machine that will handle a
 <img width="809" height="442" alt="Screenshot 2025-10-01 221802" src="https://github.com/user-attachments/assets/38d4e193-6c28-4fd2-952c-1876352fcb0a" />
 
 MoveSelectState allows the player select where to move within range and displays the paths that can be taken. Finally, MoveSequenceState animates the unit to the new position and returns back to the ability menu.
-<img width="873" height="483" alt="Screenshot 2025-10-01 221826" src="https://github.com/user-attachments/assets/ea114646-469f-447f-9001-0afb959c8d0a" />
-<img width="801" height="442" alt="Screenshot 2025-10-01 221835" src="https://github.com/user-attachments/assets/5d651e81-32db-4ef5-b987-ef22fc46c4bc" />
+<img width="425" height="240" alt="Screenshot 2025-10-01 221826" src="https://github.com/user-attachments/assets/ea114646-469f-447f-9001-0afb959c8d0a" />
+<img width="400" height="220" alt="Screenshot 2025-10-01 221835" src="https://github.com/user-attachments/assets/5d651e81-32db-4ef5-b987-ef22fc46c4bc" />
 
 
 ### Camera, Combat, and Sigils (Alex)
