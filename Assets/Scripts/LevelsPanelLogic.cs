@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelsPanelLogic : MonoBehaviour
@@ -82,7 +83,7 @@ public class LevelsPanelLogic : MonoBehaviour
     // placeholder function to allow user to mimic going to the level selected
     public void goToLevel()
     {
-
+        SceneManager.LoadScene("Megan");
         Debug.Log("going to new level :3");
     }
 

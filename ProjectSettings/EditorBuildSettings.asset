@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/CarlyLevelSelection.unity
+    guid: f8cc71e8d25c4fd40b8772468bd2f04f
+  - enabled: 1
+    path: Assets/Scenes/Megan.unity
+    guid: 0c01bb447d55680458b58ecb02f4039f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7f3618f5eaae52c4ebed90e590c5ddd5,
       type: 2}
