@@ -101,13 +101,16 @@ By Oct 13:
 ## Project Checkpoint 1-2:
 ### Basic Levels and Tactics (Megan)
 For battle, levels are loaded in through LevelData which is created in the Level Editor scene using the editor Megan created. This holds the data for all the tiles, ramps, and their elevations for the level, as well as each unit and it's starting position. Each unit is loaded in by UnitFactory, which takes in the unit data from a scriptable object (name, health, mana, movement range) and sets up the gameobject for it. The tiles are held in the TileManager which also manages highlighting them to show things like movement and ability range. 
-(level creator screenshot) (loaded level screenshot)
+
+<img width="1550" height="530" alt="Screenshot 2025-10-01 221952" src="https://github.com/user-attachments/assets/33653be1-668d-4d77-9819-3a5b9059eaf3" />
 
 The battle is controlled by BattleController, a state machine that will handle all of the game states. Right now, it starts with LoadBattleState to load in the level data and initialize the scene, then it goes to UnitSelectState where the player can scroll between or click units to select them. Once selected, the BattleController enters SelectAbilityState and the ability menu pops up for the unit, which for now is just Move or Attack. Once again scrolling or clicking within the menu will allow the player to select the ability to use.
-(ability menu screenshot)
+<img width="809" height="442" alt="Screenshot 2025-10-01 221802" src="https://github.com/user-attachments/assets/38d4e193-6c28-4fd2-952c-1876352fcb0a" />
 
 MoveSelectState allows the player select where to move within range and displays the paths that can be taken. Finally, MoveSequenceState animates the unit to the new position and returns back to the ability menu.
-(move select screenshot) (move screenshot)
+<img width="873" height="483" alt="Screenshot 2025-10-01 221826" src="https://github.com/user-attachments/assets/ea114646-469f-447f-9001-0afb959c8d0a" />
+<img width="801" height="442" alt="Screenshot 2025-10-01 221835" src="https://github.com/user-attachments/assets/5d651e81-32db-4ef5-b987-ef22fc46c4bc" />
+
 
 ### Camera, Combat, and Sigils (Alex)
 
