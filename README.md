@@ -126,7 +126,7 @@ To test the sigils, select a tile that a unit is on in the LevelSigilEditor (a s
 
 ### Level Selection (Carly)
 Level selection is navigated by pressing 'X' and having the levelselection menu pop up. Each level can be selected and will be highlighted upon selection. A play button pops up when a level is selected.
-![Uploading ezgif.com-animated-gif-maker.gif…]()
+![ezgif com-optimize](https://github.com/user-attachments/assets/ed8e7ee1-15d3-4b7c-a958-d668ae64cc3a)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
