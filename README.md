@@ -85,7 +85,8 @@ We’d like to see these things for the upcoming project check-in:
 - Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded.
 - Megan: Level Editor for quick & easy creation of the 5 levels during production, setup for object pooling
 
-Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+By Oct 13:
 - Player Model (Carly)
 - Enemy Model (Carly)
 - Level terrain (one level to start with) (Carly)
@@ -111,7 +112,12 @@ MoveSelectState allows the player select where to move within range and displays
 ### Camera, Combat, and Sigils (Alex)
 
 ### Level Selection (Carly)
-
 ## Running Instructions
-Run the CarlyLevelSelection scene. Click on any level and enter to enter the test level. 
+Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
+- Scrollwheel or left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
+- Click on a unit to select it
+- Click on an action to select it
+- Hover over tile to move to and click to move
+- E to select if using scrollwheel/keyboard
+- Right click or Q to cancel
