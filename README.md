@@ -82,7 +82,7 @@ We’d like to see these things for the upcoming project check-in:
 - Enemy AI can be extremely simple (even random actions are fine for now). (Player controls enemy for now)
 
 ## Additions
-- Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded.
+- Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded/graphic.
 - Megan: Level Editor for quick & easy creation of the 5 levels during production, setup for object pooling
 
 ### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
@@ -112,6 +112,9 @@ MoveSelectState allows the player select where to move within range and displays
 ### Camera, Combat, and Sigils (Alex)
 
 ### Level Selection (Carly)
+Level selection is navigated by pressing 'X' and having the levelselection menu pop up. Each level can be selected and will be highlighted upon selection. A play button pops up when a level is selected.
+![Uploading ezgif.com-animated-gif-maker.gif…]()
+
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
