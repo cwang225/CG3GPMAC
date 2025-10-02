@@ -25,15 +25,29 @@ public class CameraMovement : MonoBehaviour
         if (focusingOnAll)
         {
             gameObject.transform.position = initTransform.position; // is this wasteful?
+            gameObject.transform.rotation = initTransform.rotation;
             return;
         }
-        gameObject.transform.position = new Vector3(0,targetUnit.GetComponent<CapsuleCollider>().height,-distance);
+        /* gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        gameObject.transform.position = new Vector3(-distance,targetUnit.GetComponent<CapsuleCollider>().height,0);
         gameObject.transform.Rotate(0, angle, 0);
-        gameObject.transform.Translate(targetUnit.transform.position);
+        gameObject.transform.Translate(targetUnit.transform.position); */
+
+        gameObject.transform.position = targetUnit.gameObject.transform.position;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.Translate(0, 0, -distance);
+        gameObject.transform.RotateAround(targetUnit.gameObject.transform.position, Vector3.up, angle);
+        // gameObject.transform.Rotate(0, angle, 0);
+
+        /*gameObject.transform.position = new Vector3(0, 0, 0);
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.Translate(0, 0, distance);
+        gameObject.transform.RotateAround */
+
     }
     // TODO: look into how to get held input with the new input system
     // also: make an in-inspector GUI
-    public void OnChangeCameraPosition()
+    /* public void OnChangeCameraPosition()
     {
         if (Input.GetButtonDown("Left Arrow"))
         {
@@ -57,7 +71,7 @@ public class CameraMovement : MonoBehaviour
                 distance++;
             }
         }
-    }
+    } */
     public void OnToggleCameraMode()
     {
         if (focusingOnAll)

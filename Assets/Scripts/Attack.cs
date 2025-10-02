@@ -7,8 +7,8 @@ using UnityEngine.Assertions;
 public class Attack : MonoBehaviour
 {
     // public Unit hoveredUnit;
-    public Unit target;
-    public Dictionary<AttackType,int> attackRange = new Dictionary<AttackType,int>();
+    public Unit attackTarget;
+    public Dictionary<AttackType, int> attackRange = new Dictionary<AttackType, int>();
     public Dictionary<AttackType,int> attackDamages = new Dictionary<AttackType,int>(); // for a sigil, this is damage per turn
     // we have attacks which can be of different kinds
     // all of these in one class is probably okay
@@ -24,18 +24,22 @@ public class Attack : MonoBehaviour
     {
         attackRange.Add(AttackType.Melee, 5);
         attackDamages.Add(AttackType.Melee, 5);
+        availableAttacks.Add(AttackType.Melee);
     }
 
-    void AttackEnemyMelee()
+    public void AttackEnemyMelee()
     {
         Assert.IsTrue(availableAttacks.Contains(AttackType.Melee));
         var unitComp = gameObject.GetComponent<Unit>();
-        int xDist = target.tile.coord.x - unitComp.tile.coord.x;
-        int yDist = target.tile.coord.y - unitComp.tile.coord.y;
+        Debug.Log(unitComp);
+        Debug.Log(attackTarget);
+        int xDist = attackTarget.tile.coord.x - unitComp.tile.coord.x;
+        int yDist = attackTarget.tile.coord.y - unitComp.tile.coord.y;
         // for now assert, but later display an error
+        Debug.Log(attackRange);
         Assert.IsTrue(xDist + yDist <= attackRange[AttackType.Melee]);
         // do some animation probably later
-        Health targetHealth = target.GetComponent<Health>();
+        Health targetHealth = attackTarget.GetComponent<Health>();
         targetHealth.Damage(attackDamages[AttackType.Melee]);
     }
     void OnSelectTarget() {
@@ -48,7 +52,7 @@ public class Attack : MonoBehaviour
             {
                 var unitComp = obj.GetComponent<Unit>();
                 Assert.IsTrue(unitComp != null);
-                target = unitComp;
+                attackTarget = unitComp;
             }
         }
     }
