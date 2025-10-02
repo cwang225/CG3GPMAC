@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-    [SerializeField] private int maxMana;
+    public int maxMana;
     private int currentMana;
 
     public void Add(int amount)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class Unit : MonoBehaviour
     // What tile the unit is on and which direction it's facing
     public Tile tile { get;  set; }
     public Directions dir;
+    public Selectable selection;
+
+    private void Awake()
+    {
+        selection = GetComponent<Selectable>();
+    }
 
     public void Place(Tile target)
     {

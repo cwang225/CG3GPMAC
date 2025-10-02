@@ -55,43 +55,63 @@ https://open.spotify.com/track/54shhL9vif2iwUXg0lNpQX?si=c38c116cf93f4d51
 ### Vibes: Cult of the Lamb
 
 We are taking vibe inspirations from Cult of the Lamb because we want to capture the occult vibe and the mix of cute characters/graphics with dark story and themes. 
-(we also might do 2d characters in a 3d world?)
 
 ![alt text](https://helios-i.mashable.com/imagery/articles/02BfYn2jOsd2dELqTuCLLGk/hero-image.fill.size_1248x702.v1662612724.png)
 
 ## Gameplay
-The player will control a cultist who is trying to collect n (5, 7?) magic crystals stored on neighboring planets. They must control a small team of followers and successfully kill/knock out interplanetary alliance forces (?) on n levels by seizing territory strategically using a range of abilities (e.g. sigils placed on the ground which can be activated and have AoE effects.) Other tools include melee and intra-team healing. There will be mana springs across the map which give the holder increased mana regeneration, adding to the territory-control aspect of the game. Mana from springs is distributed across player characters evenly, but mana is not pooled. There will be elevation differences on the map which can be exploited for strategic purposes. Levels are accessible from a hub world, which contains portals to each level. Once all five hub world levels are complete (in a ring around a center) the player is able to summon their god, which turns on them and brings the MC and their companions to a final level. Each member of the player’s team (including the MC) has a unique class giving unique abilities to each member.
+The player will control a cultist who is trying to collect 5 magic crystals stored on neighboring planets. They must control a small team of followers and successfully kill/knock out interplanetary alliance forces on 5 levels by seizing territory strategically using a range of abilities (e.g. sigils placed on the ground which can be activated and have AoE effects.) Other tools include melee and intra-team healing. There will be mana springs across the map which give the holder increased mana regeneration, adding to the territory-control aspect of the game. Mana from springs is distributed across player characters evenly, but mana is not pooled. There will be elevation differences on the map which can be exploited for strategic purposes. Levels are accessible from a hub world, which contains portals to each level. Once all five hub world levels are complete (in a ring around a center) the player is able to summon their god, which turns on them and brings the MC and their companions to a final level. Each member of the player’s team (including the MC) has a unique class giving unique abilities to each member.
 
 Expected user interface and game-controls: the game can be played using either a controller or keyboard. Between battles, they can move around (WASD, joystick) in the hub world to speak to NPC companions. During the battle, the player can switch selection between units, look around the map, and direct units to take actions. The UI will show whose turn it is (player/enemy), unit stats, relevant terrain effects (when hovering/selecting a tile), and when selecting a unit, the list of available actions. There can also be toggleable UI to overlay the tile grid (see Fire Emblem screenshot) with extra information like the range of each enemy.
+
+The camera perspective we decided on was a top-down camera view for in-battle scenarios, and a 3rd person camera for the hub world.
 
 
 ## Development Plan
 
 ### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9)
 
-By Oct 1st (Checkpoint 1-2):  
-Megan:  
-* Tile-based map with elevations
-* Units with stats
-* Unit movement
-* Unit selection/control
-* Turn system
-* Enemy AI
+By Oct 1st (Checkpoint 1-2):
+We’d like to see these things for the upcoming project check-in:
 
-Carly:  
-* In-battle UI
-* Dialogue system (out of battle)
-* Hub world movement
-* Level selection  
+- ~~Add a note in your GDD about the camera perspective you’ll use (both in-battle and hub world).~~
+- ~~Complete one planet/scene (grayboxed).~~
+- ~~Implement one class for the main character.~~
+- ~~Implement one type of enemy unit.~~
+- ~~For level selection, use a simplified menu or hotkeys instead of a hub world.~~
+- ~~Implement one sigil (very basic effect).~~
+- Enemy AI can be extremely simple (even random actions are fine for now). (Player controls enemy for now)
 
-Alex:
-* Combat between units
-* Sigils (AoE)
-* Camera Control  
+## Additions
+- Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded.
+- Megan: Level Editor for quick & easy creation of the 5 levels during production, setup for object pooling
 
+Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+- Player Model (Carly)
+- Enemy Model (Carly)
+- Level terrain (one level to start with) (Carly)
+- NPC Model (Carly)
+- 2D UI elements (healthbar, sigils, some magic effects) (Carly)
+- Finished gameplay loop (rounds, turns, end level conditions) (Megan)
+- Enemy AI (Megan)
+- Integrate combat into the battle controller/state machine (Megan)
 
-Nice to have Mechanics:
-* In-battle dialogue
-* Cut scenes (for final boss)
-* Mana pools
-* More sigils (buffs/debuffs, block movement)
+# Development
+
+## Project Checkpoint 1-2:
+### Basic Levels and Tactics (Megan)
+For battle, levels are loaded in through LevelData which is created in the Level Editor scene using the editor Megan created. This holds the data for all the tiles, ramps, and their elevations for the level, as well as each unit and it's starting position. Each unit is loaded in by UnitFactory, which takes in the unit data from a scriptable object (name, health, mana, movement range) and sets up the gameobject for it. The tiles are held in the TileManager which also manages highlighting them to show things like movement and ability range. 
+(level creator screenshot) (loaded level screenshot)
+
+The battle is controlled by BattleController, a state machine that will handle all of the game states. Right now, it starts with LoadBattleState to load in the level data and initialize the scene, then it goes to UnitSelectState where the player can scroll between or click units to select them. Once selected, the BattleController enters SelectAbilityState and the ability menu pops up for the unit, which for now is just Move or Attack. Once again scrolling or clicking within the menu will allow the player to select the ability to use.
+(ability menu screenshot)
+
+MoveSelectState allows the player select where to move within range and displays the paths that can be taken. Finally, MoveSequenceState animates the unit to the new position and returns back to the ability menu.
+(move select screenshot) (move screenshot)
+
+### Camera, Combat, and Sigils (Alex)
+
+### Level Selection (Carly)
+
+## Running Instructions
+Run the CarlyLevelSelection scene. Click on any level and enter to enter the test level. 
+Controls:
