@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform initTransform;
+    public Vector3 initTransformPos;
+    public Quaternion initTransformRot;
     public Unit targetUnit;
     public Alliance targetAlliance;
     public bool focusingOnAll;
@@ -15,7 +16,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initTransform = gameObject.transform;
+        initTransformPos = gameObject.transform.position;
+        initTransformRot = gameObject.transform.rotation;
 
     }
 
@@ -24,8 +26,8 @@ public class CameraMovement : MonoBehaviour
     {
         if (focusingOnAll)
         {
-            gameObject.transform.position = initTransform.position; // is this wasteful?
-            gameObject.transform.rotation = initTransform.rotation;
+            gameObject.transform.position = initTransformPos; // is this wasteful?
+            gameObject.transform.rotation = initTransformRot;
             return;
         }
         /* gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
