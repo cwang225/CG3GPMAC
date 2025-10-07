@@ -1,9 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: The state after selecting a unit, allowing the player to select which action to take (move, attack, skill)
+ */
 public class SelectActionState : BattleState
 {
     private List<string> menuOptions;

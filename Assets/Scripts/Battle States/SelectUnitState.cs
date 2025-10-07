@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-/*
- * The BattleState for the player to select which unit they want to take an action on their turn
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: State allowing player to select which of their units to act
  */
 public class SelectUnitState : BattleState
 {

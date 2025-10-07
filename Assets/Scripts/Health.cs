@@ -1,8 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 09/22/25
+ * Summary: The health of a Unit or other object.
+ */
 public class Health : MonoBehaviour
 {
     public int maxHealth;

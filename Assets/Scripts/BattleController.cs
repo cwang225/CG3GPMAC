@@ -1,13 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: The main state machine that loads and controls a battle/level
+ */
 public class BattleController : StateMachine
 {
+    [Header("Hook up for Level")]
     public TileManager tileManager;
     public LevelData levelData;
-    public List<Unit> units = new List<Unit>();
     public AbilityMenuPanelController abilityMenuPanelController;
+    
+    [HideInInspector] public List<Unit> units = new List<Unit>();
     public Unit CurrentUnit { 
         get => _currentUnit;
         set
@@ -27,7 +33,7 @@ public class BattleController : StateMachine
     }
 
     private Unit _currentUnit;
-    public Tile currentTile;
+    [HideInInspector] public Tile currentTile;
 
     void Start()
     {

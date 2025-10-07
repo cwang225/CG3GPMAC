@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: Static class to instantiate Units with all the proper components based off their recipe (data)
+ */
 public static class UnitFactory
 {
     public static GameObject Create (UnitRecipe recipe)

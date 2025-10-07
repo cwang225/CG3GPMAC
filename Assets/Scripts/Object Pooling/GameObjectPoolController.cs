@@ -1,7 +1,11 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-
+/**
+ * Author: Megan Lincicum (derived from Jonathon Parham, used with MIT license)
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: Creates a pool of objects to draw from (rather than create/delete repeatedly, for performance)
+ */
 public class PoolData
 {
 	public GameObject prefab;

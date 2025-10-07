@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 09/22/25
+ * Summary: The mana of a Unit or other object.
+ */
 public class Mana : MonoBehaviour
 {
     public int maxMana;

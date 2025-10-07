@@ -1,9 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-/*
- * The BattleState that initializes the battle
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: The first state in a battle, loads the LevelData and initializes TileManager
  */
 public class LoadBattleState : BattleState
 {
@@ -12,6 +13,7 @@ public class LoadBattleState : BattleState
         base.Enter ();
         StartCoroutine(Init());
     }
+    // IEnumerator necessary so that next state doesn't enter until everything loaded
     IEnumerator Init ()
     {
         tileManager.Load(levelData);

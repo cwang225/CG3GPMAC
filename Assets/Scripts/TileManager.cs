@@ -2,7 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/15/25
+ * Date Last Updated: 10/06/25
+ * Summary: Holds the grid of tiles in a battle, manages highlighting and pathfinding.
+ */
 public class TileManager : MonoBehaviour
 {
     // The prefab for our tile visual
@@ -18,7 +23,11 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        // Check to see if the mouse is hovering over a tile
+        CheckHoveredTile();
+    }
+
+    private void CheckHoveredTile()
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -28,7 +37,6 @@ public class TileManager : MonoBehaviour
 
             HighlightTile();
         }
-
     }
     
     public void Load(LevelData levelData)
@@ -59,15 +67,6 @@ public class TileManager : MonoBehaviour
         }
     }
     
-    // Turn on or off visuals for tiles
-    private void ToggleVisuals(bool toggle)
-    {
-        foreach (Tile tile in tiles.Values)
-        {
-            tile.GetComponent<Renderer>().enabled = toggle;
-        }
-    }
-
     private void HighlightTile()
     {
         if (_highlightedTile)

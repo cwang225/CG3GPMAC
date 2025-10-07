@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 09/22/25
+ * Summary: Useful functions for working with Directions
+ */
 public static class DirectionsExtensions
 {
     public static Directions GetDirection(this Tile t1, Tile t2)

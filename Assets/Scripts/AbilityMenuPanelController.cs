@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: UI for an Ability Menu which holds options such as Move, Attack, etc. 
+ */
 public class AbilityMenuPanelController : MonoBehaviour
 {
     const string EntryPoolKey = "AbilityMenuPanel.Entry";
