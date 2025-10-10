@@ -95,9 +95,9 @@ public class AbilityMenuPanelController : MonoBehaviour
         }
     }
     
-    public void Show (Transform target, List<string> options)
+    public void Show (Transform target, List<string> options, bool[] lockedStates = null)
     {
-        canvas.SetActive(true);
+        canvas.SetActive(false);
         Clear ();
         for (int i = 0; i < options.Count; ++i)
         {
@@ -105,11 +105,16 @@ public class AbilityMenuPanelController : MonoBehaviour
             entry.Title = options[i];
             entry.optionIndex = i;
             entry.Reset();
+            
+            if (lockedStates != null && i < lockedStates.Length)
+                entry.IsLocked = lockedStates[i];
+            
             menuEntries.Add(entry);
         }
         SetSelection(0);
         
         panelFollow.ChangeTarget(target);
+        canvas.SetActive(true);
     }
     
     public void Hide ()

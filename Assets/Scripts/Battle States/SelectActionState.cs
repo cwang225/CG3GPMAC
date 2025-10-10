@@ -32,11 +32,15 @@ public class SelectActionState : BattleState
             menuOptions.Add("Attack");
         }
         
-        abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions);
         // lock movement or attack based on the units turn
         Turn turn = owner.CurrentUnit.GetComponent<Turn>();
-        if (!turn.CanMove) abilityMenuPanelController.SetLocked(0, true);
-        if (!turn.CanAct) abilityMenuPanelController.SetLocked(1, true);
+        bool[] locks =
+        {
+            !turn.CanMove,
+            !turn.CanAct
+        };
+        
+        abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions, locks);
         
         // maybe here we check if all options are locked, and go to select unit state instead
         if (!(turn.CanMove || turn.CanAct)) owner.ChangeState<SelectUnitState>();

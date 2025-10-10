@@ -95,6 +95,8 @@ public class AbilityMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerCli
     public void Reset()
     {
         State = States.None;
+        button.interactable = true;
+        label.color = defaultColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
