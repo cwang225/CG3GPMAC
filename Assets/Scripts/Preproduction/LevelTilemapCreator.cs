@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -18,7 +15,7 @@ public class LevelTilemapCreator : MonoBehaviour
     [Header("Level to Save/Load")]
     [SerializeField] private LevelData levelData;
     
-    [Header("Unit to Place")]
+    [Header("Unit Placement")]
     [SerializeField] private UnitRecipe unitToPlace;
 
     private Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
@@ -27,13 +24,15 @@ public class LevelTilemapCreator : MonoBehaviour
     [HideInInspector] public Vector2Int pos = new Vector2Int();
     [HideInInspector] public int elevation = 0;
     
+    [Header("Controls")]
+    
     Transform marker
     {
         get
         {
             if (_marker == null)
             {
-                GameObject instance = Instantiate(tileSelectionIndicatorPrefab) as GameObject;
+                GameObject instance = Instantiate(tileSelectionIndicatorPrefab, transform, true) as GameObject;
                 _marker = instance.transform;
             }
             return _marker;

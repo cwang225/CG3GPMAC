@@ -13,6 +13,13 @@ public class Health : MonoBehaviour
     
     public UnityEvent OnDeath;
 
+    void Awake()
+    {
+        if (OnDeath == null)
+        {
+            OnDeath = new UnityEvent();
+        }
+}
 
     public void Damage(int amount)
     {

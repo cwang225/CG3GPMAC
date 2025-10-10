@@ -3,7 +3,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/01/25
+ * Date Last Updated: 10/09/25
  * Summary: The main state machine that loads and controls a battle/level
  */
 public class BattleController : StateMachine
@@ -31,12 +31,16 @@ public class BattleController : StateMachine
                 _currentUnit.selection.SetSelected(true);
         }
     }
-
     private Unit _currentUnit;
     [HideInInspector] public Tile currentTile;
 
     void Start()
     {
         ChangeState<LoadBattleState>();
+    }
+
+    public void CheckForGameOver()
+    {
+        // if all units in a faction (Player, Enemy) are dead, the game ends
     }
 }

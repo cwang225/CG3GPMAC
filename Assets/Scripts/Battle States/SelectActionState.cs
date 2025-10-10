@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/01/25
+ * Date Last Updated: 10/07/25
  * Summary: The state after selecting a unit, allowing the player to select which action to take (move, attack, skill)
  */
 public class SelectActionState : BattleState
@@ -34,7 +34,12 @@ public class SelectActionState : BattleState
         
         abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions);
         // lock movement or attack based on the units turn
+        Turn turn = owner.CurrentUnit.GetComponent<Turn>();
+        if (!turn.CanMove) abilityMenuPanelController.SetLocked(0, true);
+        if (!turn.CanAct) abilityMenuPanelController.SetLocked(1, true);
         
+        // maybe here we check if all options are locked, and go to select unit state instead
+        if (!(turn.CanMove || turn.CanAct)) owner.ChangeState<SelectUnitState>();
     }
 
     void SelectAction()

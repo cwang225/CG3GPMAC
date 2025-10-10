@@ -104,6 +104,7 @@ public class AbilityMenuPanelController : MonoBehaviour
             AbilityMenuEntry entry = Dequeue();
             entry.Title = options[i];
             entry.optionIndex = i;
+            entry.Reset();
             menuEntries.Add(entry);
         }
         SetSelection(0);

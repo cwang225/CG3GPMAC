@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 /**
@@ -34,7 +32,7 @@ public class TilemapEditor : Editor
             current.RemoveTile();
         
         GUILayout.Label("Elevation: ");
-        current.elevation = (int)GUI.HorizontalSlider (new Rect (100, 185, 100, 30), current.elevation, 0, 2);
+        current.elevation = (int)GUI.HorizontalSlider (new Rect (80, 270, 100, 30), current.elevation, 0, 2);
         GUILayout.Label("X: " + current.pos.x);
         GUILayout.Label("Y: " + current.pos.y);
         
