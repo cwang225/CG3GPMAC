@@ -84,6 +84,7 @@ We’d like to see these things for the upcoming project check-in:
 ## Additions
 - Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded/graphic.
 - Megan: Level Editor for quick & easy creation of the 5 levels during production, setup for object pooling
+- Alex: Rudimentary Sigil Editor for adding sigils manually to the terrain.
 
 ### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 By Oct 13:
@@ -91,10 +92,13 @@ By Oct 13:
 - Enemy Model (Carly)
 - Level terrain (one level to start with) (Carly)
 - NPC Model (Carly)
-- 2D UI elements (healthbar, sigils, some magic effects) (Carly)
+- 2D UI elements (healthbar) (Carly)
 - Finished gameplay loop (rounds, turns, end level conditions) (Megan)
 - Enemy AI (Megan)
 - Integrate combat into the battle controller/state machine (Megan)
+- Create Sigil visuals (Alex)
+- Create Cell visuals (not terrain) (Alex)
+- Create Magic visuals (Alex)
 
 # Development
 
