@@ -97,3 +97,7 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+ProjectSettings/ShaderGraphSettings.asset
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json

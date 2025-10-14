@@ -40,4 +40,9 @@ public class Unit : MonoBehaviour
         transform.position = tile.Center + new Vector3(0,2.5f, 0);
         transform.localEulerAngles = dir.ToEuler();
     }
+
+    public static implicit operator Unit(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }

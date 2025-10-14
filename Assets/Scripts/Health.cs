@@ -9,8 +9,7 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public int maxHealth;
-    private int currentHealth;
-    
+    public int currentHealth;
     public UnityEvent OnDeath;
 
     void Awake()
