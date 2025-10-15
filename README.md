@@ -132,8 +132,14 @@ Level selection is navigated by pressing 'X' and having the levelselection menu 
 ![ezgif com-optimize](https://github.com/user-attachments/assets/ed8e7ee1-15d3-4b7c-a958-d668ae64cc3a)
 
 ## Project Part 2: 3D Scenes and Models  
+### Unit Models and Terrain (Carly)
 
+### Sigil Textures and Magic (Alex)
 
+### Game Logic and Integrated Combat/Sigils (Megan)
+Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
+Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object. (show an ability menu)
+The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed. (show preview of placing a sigil)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
@@ -144,3 +150,4 @@ Controls:
 - Hover over tile and click to select tile for movement or ability
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
+- Right click/Q while not selecting a unit to end the current turn and reset moves/actions
