@@ -55,7 +55,7 @@ public class SelectActionState : BattleState
                 owner.ChangeState<MoveSelectState>();
                 break;
             case 1: // Attack
-                owner.ability = GetComponentInChildren<Ability>(); // base attack is above other abilities in hierarchy
+                owner.ability = owner.CurrentUnit.GetComponentInChildren<Ability>(); // base attack is above other abilities in hierarchy
                 owner.ChangeState<AbilityTargetSelectState>();
                 break;
             case 2: // Magic (ability)

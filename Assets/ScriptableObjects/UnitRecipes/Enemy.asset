@@ -17,5 +17,6 @@ MonoBehaviour:
   movementRange: 2
   health: 60
   mana: 0
+  baseAttackRanged: 1
   abilities:
   - Grenade

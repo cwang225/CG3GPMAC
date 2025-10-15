@@ -8,12 +8,11 @@ using UnityEngine.InputSystem;
  */
 public class ConfirmAbilityTargetState :  BattleState
 {
-
     public override void Enter()
     {
         base.Enter();
-        print("Confirm Ability State");
-        
+        tileManager.HighlightTilesRed(owner.ability.tilesInArea);
+        // show the preview for each target
     }
 
     public override void Exit()
@@ -25,6 +24,7 @@ public class ConfirmAbilityTargetState :  BattleState
     
     protected override void HandleClick(InputAction.CallbackContext context)
     {
+        owner.turn.hasActed = true;
         owner.ChangeState<PerformAbilityState>();
     }
     

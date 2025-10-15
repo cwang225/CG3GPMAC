@@ -16,6 +16,10 @@ public class Ability : MonoBehaviour
     private AbilityEffectTarget _targeter;
     private AbilityEffect _effect;
 
+    [HideInInspector] public List<Tile> tilesInArea;
+    [HideInInspector] public List<Tile> targetsInArea;
+
+
     private void Awake()
     {
         _range = GetComponent<AbilityRange>();
@@ -55,10 +59,10 @@ public class Ability : MonoBehaviour
         return _mana.currentMana >= manaCost;
     }
 
-    public void Perform(List<Tile> targets)
+    public void Perform()
     {
-        for (int i = 0; i < targets.Count; i++)
-            _effect.Apply(targets[i]);
+        for (int i = 0; i < targetsInArea.Count; i++)
+            _effect.Apply(targetsInArea[i]);
 
         _mana.Drain(manaCost);
     }

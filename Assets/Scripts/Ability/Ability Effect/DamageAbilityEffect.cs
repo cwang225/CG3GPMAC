@@ -1,7 +1,4 @@
-
-
 using UnityEngine;
-
 /**
  * Author: Megan Lincicum
  * Date Created: 10/15/25
@@ -19,7 +16,7 @@ public class DamageAbilityEffect : AbilityEffect
     
     public override void Apply(Tile target)
     {
-        Health targetHealth = target.GetComponent<Health>();
+        Health targetHealth = target.content.GetComponent<Health>();
         int damage = Predict(target);
         targetHealth.Damage(damage);
     }

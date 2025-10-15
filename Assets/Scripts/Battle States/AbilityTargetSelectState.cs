@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class AbilityTargetSelectState : BattleState
 {
     private List<Tile> _tilesInRange;
-    private List<Tile> _tilesInArea;
 
     public override void Enter()
     {
@@ -27,11 +26,10 @@ public class AbilityTargetSelectState : BattleState
     {
         if (_tilesInRange.Contains(HoveredTile))
         {
-            List<Tile> targets = owner.ability.GetTargetsInArea(_tilesInArea);
-            if (targets.Count > 0)
+            owner.ability.targetsInArea = owner.ability.GetTargetsInArea(owner.ability.tilesInArea);
+            if (owner.ability.targetsInArea.Count > 0)
             {
                 owner.currentTile = HoveredTile;
-                owner.turn.hasActed = true;
                 owner.ChangeState<ConfirmAbilityTargetState>();
             }
         }
@@ -64,7 +62,7 @@ public class AbilityTargetSelectState : BattleState
     {
         tileManager.ClearTileDisplay();
         tileManager.ShowTilesAsMoveable(_tilesInRange);
-        _tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
-        tileManager.HighlightTilesRed(_tilesInArea);
+        owner.ability.tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
+        tileManager.HighlightTilesRed(owner.ability.tilesInArea);
     }
 }
