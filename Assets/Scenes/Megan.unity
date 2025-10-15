@@ -590,6 +590,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 3129667089780373046, guid: 4db969cee2eaeac4893daa00ccdb886a,
     type: 3}
+--- !u!1001 &1064636276
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2330017
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098906055545692056, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587037109410317602, guid: b141e2690fcb2a848a316588b77f8133,
+        type: 3}
+      propertyPath: m_Name
+      value: magic bolt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b141e2690fcb2a848a316588b77f8133, type: 3}
 --- !u!1 &1478504548
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +1052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c483fc7bdcd255418d1714a85f4dd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initTransform: {fileID: 0}
+  initTransformPos: {x: 0, y: 0, z: 0}
+  initTransformRot: {x: 0, y: 0, z: 0, w: 0}
   targetUnit: {fileID: 0}
   targetAlliance: {fileID: 0}
   focusingOnAll: 1
@@ -1071,3 +1140,4 @@ SceneRoots:
   - {fileID: 104814705}
   - {fileID: 748189357899577977}
   - {fileID: 1662617857}
+  - {fileID: 1064636276}
