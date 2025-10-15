@@ -104,6 +104,13 @@ By Oct 13:
 
 ### Project Part 3: Visual Effects  
 By Oct 31:  
+- Lighting (Carly)
+- Crystals (model + glow) (Alex)
+- Dialogue system (Alex)
+- Dialogue states in BattleController (Megan)
+- End of Battle Conditions (Megan)
+- Enemy AI (Megan)
+- Magic particles
 
 # Development
 
