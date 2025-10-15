@@ -485,8 +485,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileManager: {fileID: 0}
   levelData: {fileID: 11400000, guid: 14af30ba1c410104c821e20eeb02dcc1, type: 2}
-  units: []
   abilityMenuPanelController: {fileID: 1642745916}
+  units: []
+  turn: {fileID: 0}
+  ability: {fileID: 0}
   currentTile: {fileID: 0}
 --- !u!4 &881609030
 Transform:
