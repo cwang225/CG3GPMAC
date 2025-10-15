@@ -8,8 +8,12 @@ using UnityEngine;
  */
 public class Ability : MonoBehaviour
 {
+    [Header("Cost")]
     public int manaCost;
     private Mana _mana;
+
+    [Header("Highlight Color")]
+    public Color highlightColor;
 
     private AbilityRange _range;
     private AbilityArea _area;

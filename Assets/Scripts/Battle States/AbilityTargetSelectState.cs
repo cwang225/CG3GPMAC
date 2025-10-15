@@ -55,14 +55,14 @@ public class AbilityTargetSelectState : BattleState
     private void ShowRange()
     {
         _tilesInRange = owner.ability.GetTilesInRange(tileManager);
-        tileManager.ShowTilesAsMoveable(_tilesInRange); // change to showing for attack
+        tileManager.HighlightTiles(_tilesInRange, "Range");
     }
 
     private void ShowArea(Tile target)
     {
         tileManager.ClearTileDisplay();
-        tileManager.ShowTilesAsMoveable(_tilesInRange);
+        tileManager.HighlightTiles(_tilesInRange, "Range");
         owner.ability.tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
-        tileManager.HighlightTilesRed(owner.ability.tilesInArea);
+        tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
     }
 }

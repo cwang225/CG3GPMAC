@@ -700,6 +700,9 @@ MonoBehaviour:
   tileOverlayPrefab: {fileID: 3129667089780373046, guid: 4db969cee2eaeac4893daa00ccdb886a,
     type: 3}
   tileSelectIndicator: {fileID: 412633675}
+  moveColor: {r: 0.08284855, g: 1, b: 0, a: 0.5686275}
+  pathColor: {r: 1, g: 0.5883081, b: 0, a: 0.5686275}
+  rangeColor: {r: 1, g: 1, b: 1, a: 0.5686275}
 --- !u!1 &1478504548
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +753,7 @@ MonoBehaviour:
   abilityMenuPanelController: {fileID: 233167834}
   units: []
   turn: {fileID: 0}
+  ability: {fileID: 0}
   currentTile: {fileID: 0}
 --- !u!114 &1478504551
 MonoBehaviour:

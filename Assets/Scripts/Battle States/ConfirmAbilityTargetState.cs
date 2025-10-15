@@ -11,7 +11,7 @@ public class ConfirmAbilityTargetState :  BattleState
     public override void Enter()
     {
         base.Enter();
-        tileManager.HighlightTilesRed(owner.ability.tilesInArea);
+        tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
         // show the preview for each target
     }
 

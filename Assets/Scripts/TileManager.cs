@@ -10,8 +10,15 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     // The prefab for our tile visual
+    [Header("Tile Overlay")]
     [SerializeField] GameObject tileOverlayPrefab;
     [SerializeField] Transform tileSelectIndicator;
+
+    [Header("Highlight Colors")]
+    [SerializeField] Color moveColor;
+    [SerializeField] Color pathColor;
+    [SerializeField] Color rangeColor;
+
     private const int TileSize = 10;
     
     // The actual Tiles used during gameplay
@@ -168,27 +175,42 @@ public class TileManager : MonoBehaviour
         (a, b) = (b, a);
     }
 
-    public void ShowTilesAsMoveable(List<Tile> tiles)
+    public void HighlightTiles(List<Tile> tiles, Color color)
     {
         for (int i = 0; i < tiles.Count; i++)
         {
-            tiles[i].ShowMoveable(true);
+            tiles[i].ChangeColor(color);
+        }
+    }
+    public void HighlightTiles(List<Tile> tiles, String key)
+    {
+        Color color;
+        switch (key) {
+            case "Move":
+                color = moveColor;
+                break;
+            case "Path":
+                color = pathColor;
+                break;
+            case "Range":
+                color = rangeColor;
+                break;
+            default:
+                print("Invalid highlight color key");
+                return;
+        }
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].ChangeColor(color);
         }
     }
 
-    public void HighlightTilesRed(List<Tile> tiles)
-    {
-        for (int i = 0; i < tiles.Count; i++)
-        {
-            tiles[i].ShowPath(true);
-        }
-    }
 
     public void ClearTileDisplay()
     {
         foreach (Tile tile in tiles.Values)
         {
-            tile.ShowMoveable(false);
+            tile.ResetColor();
         }
     }
 }
