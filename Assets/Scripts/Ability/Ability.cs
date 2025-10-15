@@ -17,7 +17,7 @@ public class Ability : MonoBehaviour
 
     private AbilityRange _range;
     private AbilityArea _area;
-    private AbilityEffectTarget _targeter;
+    private AbilityEffectTarget[] _targeters;
     private AbilityEffect _effect;
 
     [HideInInspector] public List<Tile> tilesInArea;
@@ -28,7 +28,7 @@ public class Ability : MonoBehaviour
     {
         _range = GetComponent<AbilityRange>();
         _area = GetComponent<AbilityArea>();
-        _targeter = GetComponent<AbilityEffectTarget>();
+        _targeters = GetComponents<AbilityEffectTarget>();
         _effect = GetComponent<AbilityEffect>();
     }
 
@@ -52,12 +52,21 @@ public class Ability : MonoBehaviour
         List<Tile> ret = new List<Tile>();
         for (int i = 0; i < tiles.Count; i++)
         {
-            if (_targeter.IsTarget(tiles[i]))
+            if (IsTarget(tiles[i]))
                 ret.Add(tiles[i]);
         }
         return ret;
     }
 
+    private bool IsTarget(Tile target)
+    {
+        for (int i = 0; i < _targeters.Length; i++)
+        {
+            if (!_targeters[i].IsTarget(target))
+                return false;
+        }
+        return true;
+    }
     public bool CanPerform()
     {
         return _mana.currentMana >= manaCost;
