@@ -134,7 +134,21 @@ Level selection is navigated by pressing 'X' and having the levelselection menu 
 ## Project Part 2: 3D Scenes and Models  
 ### Unit Models and Terrain (Carly)
 
-### Sigil Textures and Magic (Alex)
+### Sigil, Tile, and Magic Visuals (Alex)
+#### Summary of changes
+This portion of the project modifies the Sigil prefab to have a floor texture and a particle system. When sigils are placed, they have a static (i.e. not animated) texture over their area of effect. They also have small inverted crosses which emanate upwards for a short while before being deleted.
+
+The tiles have also been modified to have a box column textured with a static texture (right now, a deepslate texture from Minecraft) which extends far below the tiles (with the idea that the camera would not show under the tile's base.)
+
+I also added a magic bolt visual but it is currently not incorporated into the game. It is available as a prefab.
+
+#### How to test
+
+For the Sigil prefab, using the SigilManager while the game is running to select a tile at random, then the prefab (the sigil prefab in the Prefabs folder, which will appear as a red ring) and then clicking "Place Sigil" will show the visuals. Viewing the scene in the Scene tab instead of the Game tab is recommended for this.
+
+For the tiles, just running the game and viewing the battlefield in the Scene tab is sufficient to see the columns added below the tiles.
+
+For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
 
 ### Game Logic and Integrated Combat/Sigils (Megan)
 Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
