@@ -150,6 +150,10 @@ For the tiles, just running the game and viewing the battlefield in the Scene ta
 
 For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
 
+#### Screenshots (and gif)
+
+![](https://i.ibb.co/cXJSVDYc/2025-10-15-16-04-45-online-video-cutter-com.gif)
+
 ### Game Logic and Integrated Combat/Sigils (Megan)
 Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
 Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object. (show an ability menu)
