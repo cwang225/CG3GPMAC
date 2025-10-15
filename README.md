@@ -81,24 +81,36 @@ We’d like to see these things for the upcoming project check-in:
 - ~~Implement one sigil (very basic effect).~~
 - Enemy AI can be extremely simple (even random actions are fine for now). (Player controls enemy for now)
 
-## Additions
+### Checkpoint 1-2 Additions
 - Carly: Several basic Game UI scenes were created based off of fire emblem gameplay found online. Most UI controls are keyboard binded/graphic.
 - Megan: Level Editor for quick & easy creation of the 5 levels during production, setup for object pooling
 - Alex: Rudimentary Sigil Editor for adding sigils manually to the terrain.
 
 ### Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 By Oct 13:
-- Player Model (Carly)
-- Enemy Model (Carly)
-- Level terrain (one level to start with) (Carly)
-- NPC Model (Carly)
+- ~~Player Model (Carly)~~
+- ~~Enemy Model (Carly)~~
+- ~~Level terrain (one level to start with) (Carly)~~
+- ~~NPC Model (Carly)~~
 - 2D UI elements (healthbar) (Carly)
-- Finished gameplay loop (rounds, turns, end level conditions) (Megan)
+- ~~Finished gameplay loop (rounds, turns, end level conditions) (Megan)~~ (minus end level conditions)
 - Enemy AI (Megan)
-- Integrate combat into the battle controller/state machine (Megan)
-- Create Sigil visuals (Alex)
-- Create Cell visuals (not terrain) (Alex)
-- Create Magic visuals (Alex)
+- ~~Integrate combat into the battle controller/state machine (Megan)~~
+- ~~Create Sigil visuals (Alex)~~
+- ~~Create Cell visuals (not terrain) (Alex)~~
+- ~~Create Magic visuals (Alex)~~  
+
+### Part 2 Additions  
+
+### Project Part 3: Visual Effects  
+By Oct 31:  
+- Lighting (Carly)
+- Crystals (model + glow) (Alex)
+- Dialogue system (Alex)
+- Dialogue states in BattleController (Megan)
+- End of Battle Conditions (Megan)
+- Enemy AI (Megan)
+- Magic particles
 
 # Development
 
@@ -117,23 +129,44 @@ MoveSelectState allows the player select where to move within range and displays
 
 
 ### Camera, Combat, and Sigils (Alex)
-#### Summary of changes
 This portion of the project consists of a script to allow the user to configure the camera position, i.e. to focus on individual units as desired (which will eventually be hooked up to user controls - for now the controls are in the inspector.) The camera can rotate around the selected unit (player or enemy) and the distance from which the unit is viewed is configurable (to do: change the height and downward tilt of the camera.) It also consists of a way for units to attack other units directly with a specific attack type and parameters like damage. It does a distance check to make sure the attack's range lines up with the intended attack. (to do: kill enemies below 0 health and add per-attack parameters, e.g. for spells that do damage over time.) The third component of my portion of the submission is the sigils, which are game board elements that do AoE damage every turn that an opposing unit is standing in it. The current iteration of a sigil checks if a unit is in a sphere and when `dealAOEDamage()` is called (which would be every turn) units standing inside it that are not aligned with the sigil's alliance are damaged (to do: give sigils an alignment.)
 
 ![](https://i.ibb.co/p6VmvX72/sigil-cg3dgp-10125.png)
 ![](https://i.ibb.co/1tf1zLTn/camera-cg3dgp-10125.png)
 
-#### Testing submission
-
-To test the camera, select a unit to focus on. (Ignore the alliance and rotate speed parameters for this submission.) Uncheck "focus on all" to view that unit. The distance and angle from which the unit is viewed can be changed with the `Distance` and `Angle` parameters.
-
-To test the attacking, move a friendly unit within range of an enemy unit (5 blocks taxicab distance, but tested with the units touching), select the enemy unit to target and set it as such in the `Attack` script, then press `Attack target from unit` in the inspector. The opposing unit's health will drop accordingly.
-
-To test the sigils, select a tile that a unit is on in the LevelSigilEditor (a script on a game object, which should be SigilManager; there are controls in the inspector.) Select the Sigil prefab where prompted to select one in the LevelSigilEditor inspector UI and press "place sigil". It will appear as a sphere which corresponds to its area of effect. If one exists on the selected tile, it can be removed and AoE damage can be dealt to any units in range with the button. It can also be migrated to another tile.
-
 ### Level Selection (Carly)
 Level selection is navigated by pressing 'X' and having the levelselection menu pop up. Each level can be selected and will be highlighted upon selection. A play button pops up when a level is selected.
 ![ezgif com-optimize](https://github.com/user-attachments/assets/ed8e7ee1-15d3-4b7c-a958-d668ae64cc3a)
+
+## Project Part 2: 3D Scenes and Models  
+### Unit Models and Terrain (Carly)
+
+### Sigil, Tile, and Magic Visuals (Alex)
+#### Summary of changes
+This portion of the project modifies the Sigil prefab to have a floor texture and a particle system. When sigils are placed, they have a static (i.e. not animated) texture over their area of effect. They also have small inverted crosses which emanate upwards for a short while before being deleted.
+
+The tiles have also been modified to have a box column textured with a static texture (right now, a deepslate texture from Minecraft) which extends far below the tiles (with the idea that the camera would not show under the tile's base.)
+
+I also added a magic bolt visual but it is currently not incorporated into the game. It is available as a prefab.
+
+#### How to test
+
+For the Sigil prefab, using the SigilManager while the game is running to select a tile at random, then the prefab (the sigil prefab in the Prefabs folder, which will appear as a red ring) and then clicking "Place Sigil" will show the visuals. Viewing the scene in the Scene tab instead of the Game tab is recommended for this.
+
+For the tiles, just running the game and viewing the battlefield in the Scene tab is sufficient to see the columns added below the tiles.
+
+For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
+
+#### Screenshots (and gif)
+
+![](https://i.ibb.co/cXJSVDYc/2025-10-15-16-04-45-online-video-cutter-com.gif)
+![](https://i.ibb.co/srL2V9x/cg3dgp-projpart2-github-tilevisual.png)
+![](https://i.ibb.co/svTDZYMb/cg3dgp-projpart2-github-magicbolt.png)
+
+### Game Logic and Integrated Combat/Sigils (Megan)
+Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
+Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object. (show an ability menu)
+The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed. (show preview of placing a sigil)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
@@ -141,6 +174,7 @@ Controls:
 - Scrollwheel or left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
 - Click on an action to select it
-- Hover over tile to move to and click to move
+- Hover over tile and click to select tile for movement or ability
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
+- Right click/Q while not selecting a unit to end the current turn and reset moves/actions

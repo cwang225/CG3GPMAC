@@ -5,11 +5,18 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Assertions;
 
+// This implements the basic functionality for the sigil,
+// in particular snapping to a tile and dealing AoE damage to units in its range.
+// Currently it does damage to units without regard to team affiliation.
 public class Sigil : MonoBehaviour
 {
+    // The tile that the sigil is snapping to.
     public Tile tile;
+    // The radius of the sphere in which units will be damaged by the sigil.
     public int range;
+    // The list of entities inside the sphere of effect.
     public List<GameObject> entitiesInRange;
+    // The amount of damage the sigil will do per-invocation of AoE damage,
     public int damage;
     // Start is called before the first frame update
     void Start()
