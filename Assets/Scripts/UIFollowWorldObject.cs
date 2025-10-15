@@ -1,5 +1,10 @@
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: Script to position UI relative to world space of an object
+ */
 public class UIFollowWorldObject : MonoBehaviour
 {
     public Transform target;

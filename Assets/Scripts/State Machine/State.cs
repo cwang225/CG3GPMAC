@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: Base state for a state machine.
+ */
 public abstract class State : MonoBehaviour
 {
     public virtual void Enter()

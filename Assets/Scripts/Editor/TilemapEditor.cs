@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/15/25
+ * Date Last Updated: 10/06/25
+ * Summary: The Editor GUI that interfaces with LevelTilemapCreator, allowing easy creation of LevelData during production.
+ */
 [CustomEditor(typeof(LevelTilemapCreator))]
 public class TilemapEditor : Editor
 {
-    
     public LevelTilemapCreator current
     {
         get
@@ -19,29 +21,31 @@ public class TilemapEditor : Editor
     {
         DrawDefaultInspector();
 
-        if (GUILayout.Button("Place Tile"))
-            current.PlaceTile();
-        if (GUILayout.Button("Remove Tile"))
-            current.RemoveTile();
         if (GUILayout.Button("Save"))
             current.Save();
         if (GUILayout.Button("Load"))
             current.Load();
+        
+        if (GUILayout.Button("Place Tile"))
+            current.PlaceTile();
+        if (GUILayout.Button("Remove Tile"))
+            current.RemoveTile();
+        
         GUILayout.Label("Elevation: ");
-        current.elevation = (int)GUI.HorizontalSlider (new Rect (100, 185, 100, 30), current.elevation, 0, 2);
+        current.elevation = (int)GUI.HorizontalSlider (new Rect (80, 270, 100, 30), current.elevation, 0, 2);
         GUILayout.Label("X: " + current.pos.x);
         GUILayout.Label("Y: " + current.pos.y);
         
         if (GUILayout.Button("Add/Make Ramp"))
             current.Ramp();
         
-        if (GUILayout.Button("Reset"))
-            current.Reset();
-        
         if (GUILayout.Button("Place Unit"))
             current.PlaceUnit();
         if (GUILayout.Button("Remove Unit"))
             current.RemoveUnit();
+        
+        if (GUILayout.Button("Reset"))
+            current.Reset();
 
         if (GUI.changed)
             current.UpdateMarker();

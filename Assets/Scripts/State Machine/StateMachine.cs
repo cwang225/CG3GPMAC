@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: Generic base for a state machine using separate MonoBehaviors for each state (see State)
+ */
 public class StateMachine : MonoBehaviour
 {
     public virtual State CurrentState { 	

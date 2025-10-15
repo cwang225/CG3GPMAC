@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   model: Enemy
+  alliance: 1
   movementRange: 2
   health: 60
   mana: 0
-  alliance: 1
+  abilities:
+  - Grenade

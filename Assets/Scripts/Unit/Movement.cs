@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 10/06/25
+ * Summary: Movement component for units, facilitates pathfinding based on range and animates to new position.
+ */
 public class Movement : MonoBehaviour
 {
     public int range;
@@ -14,13 +19,43 @@ public class Movement : MonoBehaviour
         _alliance = GetComponent<Alliance>().type;
     }
 
+    /*
+     * Pathfinding
+     */
     public List<Tile> GetTilesInRange(TileManager tileManager)
     {
-        List<Tile> retValue = tileManager.Search(_unit.tile, ExpandSearch);
+        List<Tile> retValue = tileManager.Search(_unit.tile, MovementRestrictions);
         Filter(retValue);
         return retValue;
     }
+    
+    private bool MovementRestrictions(Tile from, Tile to)
+    {
+        // elevation
+        if (to.elevation >= from.elevation + 1) return false;
+        //later: jumping down restrictions?
+        
+        // enemies
+        if (to.content != null)
+        {
+            Alliance otherAlliance = to.content.GetComponent<Alliance>();
+            if (otherAlliance != null && otherAlliance.type != _alliance) 
+                return false;
+        }
+        
+        return (from.distance + 1) <= range;
+    }
 
+    private void Filter(List<Tile> tiles)
+    {
+        for (int i = tiles.Count - 1; i >= 0; --i)
+            if (tiles[i].content != null)
+                tiles.RemoveAt(i);
+    }
+    
+    /*
+     * Movement animation
+     */
     public IEnumerator Traverse(Tile target)
     {
         // animate the movement by going through the path
@@ -45,29 +80,5 @@ public class Movement : MonoBehaviour
         _unit.Place(target);
         yield return new WaitForSeconds(0.25f);
         _unit.Match();
-    }
-    
-    private bool ExpandSearch(Tile from, Tile to)
-    {
-        // elevation
-        if (to.elevation >= from.elevation + 1) return false;
-        //later: jumping down restrictions?
-        
-        // enemies
-        if (to.content != null)
-        {
-            Alliance otherAlliance = to.content.GetComponent<Alliance>();
-            if (otherAlliance != null && otherAlliance.type != _alliance) 
-                return false;
-        }
-        
-        return (from.distance + 1) <= range;
-    }
-
-    private void Filter(List<Tile> tiles)
-    {
-        for (int i = tiles.Count - 1; i >= 0; --i)
-            if (tiles[i].content != null)
-                tiles.RemoveAt(i);
     }
 }

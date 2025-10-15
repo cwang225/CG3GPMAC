@@ -1,12 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/15/25
+ * Date Last Updated: 10/15/25
+ * Summary: Holds the grid of tiles in a battle, manages highlighting and pathfinding.
+ */
 public class TileManager : MonoBehaviour
 {
     // The prefab for our tile visual
-    [SerializeField] GameObject tilePrefab;
+    [SerializeField] GameObject tileOverlayPrefab;
+    [SerializeField] Transform tileSelectIndicator;
     private const int TileSize = 10;
     
     // The actual Tiles used during gameplay
@@ -15,10 +20,15 @@ public class TileManager : MonoBehaviour
     // Highlighting tiles
     public Tile HoveredTile { get; protected set; }
     private Tile _highlightedTile;
+    private Tile _selectedTile;
 
     void Update()
     {
-        // Check to see if the mouse is hovering over a tile
+        CheckHoveredTile();
+    }
+
+    private void CheckHoveredTile()
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -28,7 +38,6 @@ public class TileManager : MonoBehaviour
 
             HighlightTile();
         }
-
     }
     
     public void Load(LevelData levelData)
@@ -42,7 +51,7 @@ public class TileManager : MonoBehaviour
 
         foreach (TileData tileData in levelData.tiles)
         {
-            GameObject tile =  Instantiate(tilePrefab, new Vector3(tileData.coord.x * TileSize, 0.01f + tileData.elevation * 5.0f, tileData.coord.y * TileSize), transform.rotation, transform);
+            GameObject tile =  Instantiate(tileOverlayPrefab, TileToWorld(tileData.coord, tileData.elevation), transform.rotation, transform);
             Tile tileComponent = tile.GetComponent<Tile>();
             tileComponent.coord = tileData.coord;
             tileComponent.elevation =  tileData.elevation;
@@ -59,15 +68,6 @@ public class TileManager : MonoBehaviour
         }
     }
     
-    // Turn on or off visuals for tiles
-    private void ToggleVisuals(bool toggle)
-    {
-        foreach (Tile tile in tiles.Values)
-        {
-            tile.GetComponent<Renderer>().enabled = toggle;
-        }
-    }
-
     private void HighlightTile()
     {
         if (_highlightedTile)
@@ -80,6 +80,18 @@ public class TileManager : MonoBehaviour
             _highlightedTile.Highlight(true);
         }
     }
+
+    public void SelectTile(Tile tile)
+    {
+        if (_selectedTile == null) tileSelectIndicator.gameObject.SetActive(true);
+        tileSelectIndicator.position = TileToWorld(tile.coord, tile.elevation);
+    }
+
+    public void DeselectTile()
+    {
+        _selectedTile = null;
+        tileSelectIndicator.gameObject.SetActive(false);
+    }
     
     // For coordinates
     private Vector2Int WorldToTile(Vector3 worldPos)
@@ -87,6 +99,14 @@ public class TileManager : MonoBehaviour
         int tileX = Mathf.FloorToInt((worldPos.x + TileSize / 2f) / TileSize);
         int tileZ = Mathf.FloorToInt((worldPos.z + TileSize / 2f) / TileSize);
         return new Vector2Int(tileX, tileZ);
+    }
+
+    private Vector3 TileToWorld(Vector2Int tilePos, float elevation)
+    {
+        float tileX = tilePos.x * TileSize;
+        float tileZ = tilePos.y * TileSize;
+        float tileY = 0.01f + elevation * 5.0f;
+        return new Vector3(tileX, tileY, tileZ);
     }
 
     // Pathfinding - returns all tiles that can be moved to based on predicate
@@ -153,6 +173,14 @@ public class TileManager : MonoBehaviour
         for (int i = 0; i < tiles.Count; i++)
         {
             tiles[i].ShowMoveable(true);
+        }
+    }
+
+    public void HighlightTilesRed(List<Tile> tiles)
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].ShowPath(true);
         }
     }
 

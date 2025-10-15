@@ -2,7 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/15/25
+ * Date Last Updated: 09/15/25
+ * Summary: Data and visualization of a tile in the battle grid
+ */
 public class Tile : MonoBehaviour
 {
     private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
@@ -18,6 +23,7 @@ public class Tile : MonoBehaviour
     [HideInInspector] public int distance;
     
     // For tile highlighting/coloring
+    [Header("Highlight Colors")]
     [SerializeField] private Color defaultColor;
     [SerializeField] private Color canMoveHereColor;
     [SerializeField] private Color inPathColor;

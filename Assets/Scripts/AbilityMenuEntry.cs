@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: UI for an option within an Ability Menu (i.e. Move, Attack, Heal)
+ */
 public class AbilityMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     [SerializeField] TextMeshProUGUI label;
@@ -93,6 +95,8 @@ public class AbilityMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerCli
     public void Reset()
     {
         State = States.None;
+        button.interactable = true;
+        label.color = defaultColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

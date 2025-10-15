@@ -1,8 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 09/22/25
+ * Summary: Rotates a ramp correctly based on its direction.
+ */
 public class Ramp : MonoBehaviour
 {
     public Directions rampDirection;

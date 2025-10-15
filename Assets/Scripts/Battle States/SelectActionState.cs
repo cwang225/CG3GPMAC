@@ -1,9 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/15/25
+ * Summary: The state after selecting a unit, allowing the player to select which action to take (move, attack, skill)
+ */
 public class SelectActionState : BattleState
 {
     private List<string> menuOptions;
@@ -25,14 +27,24 @@ public class SelectActionState : BattleState
     {
         if (menuOptions == null)
         {
-            menuOptions = new List<string>(2);
+            menuOptions = new List<string>(3);
             menuOptions.Add("Move");
             menuOptions.Add("Attack");
+            menuOptions.Add("Magic");
         }
         
-        abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions);
         // lock movement or attack based on the units turn
+        bool[] locks =
+        {
+            !owner.turn.CanMove,
+            !owner.turn.CanAct,
+            !owner.turn.CanAct
+        };
         
+        abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions, locks);
+        
+        // maybe here we check if all options are locked, and go to select unit state instead
+        if (!(owner.turn.CanMove || owner.turn.CanAct)) owner.ChangeState<SelectUnitState>();
     }
 
     void SelectAction()
@@ -43,7 +55,11 @@ public class SelectActionState : BattleState
                 owner.ChangeState<MoveSelectState>();
                 break;
             case 1: // Attack
-                //owner.ChangeState<AttackSelectState>();
+                owner.ability = GetComponentInChildren<Ability>(); // base attack is above other abilities in hierarchy
+                owner.ChangeState<AbilityTargetSelectState>();
+                break;
+            case 2: // Magic (ability)
+                owner.ChangeState<SelectAbilityState>();
                 break;
         }
     }

@@ -1,14 +1,21 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/15/25
+ * Date Last Updated: 10/06/25
+ * Summary: A Level Creator for use during production, places tiles and units and saves the data to a LevelData.
+ */
 public class LevelTilemapCreator : MonoBehaviour
 {
+    [Header("Prefabs")]
     [SerializeField] private GameObject tileSelectionIndicatorPrefab;
     [SerializeField] private GameObject tilePreviewPrefab;
+    
+    [Header("Level to Save/Load")]
     [SerializeField] private LevelData levelData;
+    
+    [Header("Unit Placement")]
     [SerializeField] private UnitRecipe unitToPlace;
 
     private Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
@@ -17,13 +24,15 @@ public class LevelTilemapCreator : MonoBehaviour
     [HideInInspector] public Vector2Int pos = new Vector2Int();
     [HideInInspector] public int elevation = 0;
     
+    [Header("Controls")]
+    
     Transform marker
     {
         get
         {
             if (_marker == null)
             {
-                GameObject instance = Instantiate(tileSelectionIndicatorPrefab) as GameObject;
+                GameObject instance = Instantiate(tileSelectionIndicatorPrefab, transform, true) as GameObject;
                 _marker = instance.transform;
             }
             return _marker;
