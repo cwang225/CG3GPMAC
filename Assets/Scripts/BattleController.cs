@@ -25,10 +25,10 @@ public class BattleController : StateMachine
                 _currentUnit.selection.SetSelected(false);
 
             _currentUnit = value;
-            turn = _currentUnit.GetComponent<Turn>();
 
             // Select new unit if any
-            if (_currentUnit != null) { 
+            if (_currentUnit != null) {
+                turn = _currentUnit.GetComponent<Turn>();
                 _currentUnit.selection.SetSelected(true);
                 tileManager.SelectTile(_currentUnit.tile);
             }
@@ -37,6 +37,8 @@ public class BattleController : StateMachine
     }
     private Unit _currentUnit;
     [HideInInspector] public Turn turn;
+    [HideInInspector] public Ability ability;
+
     [HideInInspector] public Tile currentTile;
 
     void Start()

@@ -749,6 +749,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: 14af30ba1c410104c821e20eeb02dcc1, type: 2}
   abilityMenuPanelController: {fileID: 233167834}
   units: []
+  turn: {fileID: 0}
   currentTile: {fileID: 0}
 --- !u!114 &1478504551
 MonoBehaviour:
@@ -1094,7 +1095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c483fc7bdcd255418d1714a85f4dd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initTransform: {fileID: 0}
+  initTransformPos: {x: 0, y: 0, z: 0}
+  initTransformRot: {x: 0, y: 0, z: 0, w: 0}
   targetUnit: {fileID: 0}
   targetAlliance: {fileID: 0}
   focusingOnAll: 1

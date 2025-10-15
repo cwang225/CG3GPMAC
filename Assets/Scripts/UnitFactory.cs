@@ -1,8 +1,9 @@
+using System.Linq;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/07/25
+ * Date Last Updated: 10/15/25
  * Summary: Static class to instantiate Units with all the proper components based off their recipe (data)
  */
 public static class UnitFactory
@@ -17,6 +18,8 @@ public static class UnitFactory
         AddAlliance(obj, recipe.alliance);
         AddMovement(obj, recipe.movementRange);
         AddStats(obj, recipe.health, recipe.mana);
+        AddAttack(obj, recipe.baseAttackRanged);
+        AddAbilities(obj, recipe.abilities);
         return obj;
     }
     
@@ -50,5 +53,28 @@ public static class UnitFactory
         Mana mana =  obj.AddComponent<Mana>();
         health.maxHealth = maxHealth;
         mana.maxMana = maxMana;
+    }
+
+    static void AddAttack(GameObject obj, bool isRanged)
+    {
+        string name = isRanged ? "BaseRanagedAttack" : "BaseMeleeAttack";
+        GameObject instance = InstantiatePrefab("Abilities/" + name);
+        instance.name = name;
+        instance.transform.SetParent(obj.transform);
+    }
+
+    static void AddAbilities(GameObject obj, string[] abilities)
+    {
+        GameObject catalog = new GameObject("Ability Catalog");
+        catalog.transform.SetParent(obj.transform);
+        catalog.AddComponent<AbilityCatalog>();
+
+        for (int i = 0; i < abilities.Count(); i++)
+        {
+            string abilityName = abilities[i];
+            GameObject ability = InstantiatePrefab("Abilities/" + abilityName);
+            ability.name = abilityName;
+            ability.transform.SetParent(catalog.transform);
+        }
     }
 }

@@ -1,3 +1,6 @@
+
+using UnityEngine;
+
 /**
  * Author: Megan Lincicum
  * Date Created: 10/15/25
@@ -6,10 +9,12 @@
  */
 public class HealAbilityEffect : AbilityEffect
 {
+    [SerializeField] private int healAmount;
+
     public override int Predict(Tile target)
     {
         // health formula?
-        return 1;
+        return healAmount;
     }
     
     public override void Apply(Tile target)

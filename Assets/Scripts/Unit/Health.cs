@@ -3,7 +3,7 @@ using UnityEngine.Events;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/22/25
- * Date Last Updated: 09/22/25
+ * Date Last Updated: 10/15/25
  * Summary: The health of a Unit or other object.
  */
 public class Health : MonoBehaviour
@@ -18,7 +18,12 @@ public class Health : MonoBehaviour
         {
             OnDeath = new UnityEvent();
         }
-}
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void Damage(int amount)
     {

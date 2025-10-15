@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/15/25
- * Date Last Updated: 10/12/25
+ * Date Last Updated: 10/15/25
  * Summary: Holds the grid of tiles in a battle, manages highlighting and pathfinding.
  */
 public class TileManager : MonoBehaviour
@@ -174,6 +173,14 @@ public class TileManager : MonoBehaviour
         for (int i = 0; i < tiles.Count; i++)
         {
             tiles[i].ShowMoveable(true);
+        }
+    }
+
+    public void HighlightTilesRed(List<Tile> tiles)
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].ShowPath(true);
         }
     }
 
