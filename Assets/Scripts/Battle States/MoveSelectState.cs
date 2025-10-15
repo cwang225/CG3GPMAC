@@ -1,8 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/14/25
+ * Summary: The state after the player has chosen to move, allowing them to select which tile to move to
+ */
 public class MoveSelectState : BattleState
 {
     private List<Tile> _tiles;
@@ -28,6 +31,7 @@ public class MoveSelectState : BattleState
         if (_tiles.Contains(HoveredTile))
         {
             owner.currentTile = HoveredTile;
+            owner.turn.hasMoved = true;
             owner.ChangeState<MoveSequenceState>();
         }
     }

@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/01/25
+ * Summary: UI for an Ability Menu which holds options such as Move, Attack, etc. 
+ */
 public class AbilityMenuPanelController : MonoBehaviour
 {
     const string EntryPoolKey = "AbilityMenuPanel.Entry";
@@ -90,20 +95,26 @@ public class AbilityMenuPanelController : MonoBehaviour
         }
     }
     
-    public void Show (Transform target, List<string> options)
+    public void Show (Transform target, List<string> options, bool[] lockedStates = null)
     {
-        canvas.SetActive(true);
+        canvas.SetActive(false);
         Clear ();
         for (int i = 0; i < options.Count; ++i)
         {
             AbilityMenuEntry entry = Dequeue();
             entry.Title = options[i];
             entry.optionIndex = i;
+            entry.Reset();
+            
+            if (lockedStates != null && i < lockedStates.Length)
+                entry.IsLocked = lockedStates[i];
+            
             menuEntries.Add(entry);
         }
         SetSelection(0);
         
         panelFollow.ChangeTarget(target);
+        canvas.SetActive(true);
     }
     
     public void Hide ()

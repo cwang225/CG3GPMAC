@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   model: Player
+  alliance: 0
   movementRange: 3
   health: 100
   mana: 100
-  alliance: 0
+  abilities:
+  - Damage Sigil
+  - Heal Self
+  - Heal Other

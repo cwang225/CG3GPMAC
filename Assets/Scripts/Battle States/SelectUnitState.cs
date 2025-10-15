@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-/*
- * The BattleState for the player to select which unit they want to take an action on their turn
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/01/25
+ * Date Last Updated: 10/09/25
+ * Summary: State allowing player to select which of their units to act
  */
 public class SelectUnitState : BattleState
 {
@@ -14,6 +14,19 @@ public class SelectUnitState : BattleState
     {
         base.Enter();
         index = -1;
+        CheckPlayerTurnEnd();
+    }
+
+    void CheckPlayerTurnEnd()
+    {
+        // Turn ends if all units have made their actions
+        foreach (Unit unit in units)
+        {
+            Turn turn = unit.GetComponent<Turn>();
+            if (turn.CanAct) return;
+        }
+        
+        owner.ChangeState<EndPlayerTurnState>();
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
@@ -55,6 +68,14 @@ public class SelectUnitState : BattleState
 
     protected override void HandleCancel(InputAction.CallbackContext context)
     {
-        owner.CurrentUnit = null;
+        if (owner.CurrentUnit != null)
+        {
+            owner.CurrentUnit = null;
+        }
+        else
+        {
+            // we should pop up a prompt for ending the turn in case they do it on accident, but for now:
+            owner.ChangeState<EndPlayerTurnState>();
+        }
     }
 }
