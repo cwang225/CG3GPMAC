@@ -153,6 +153,8 @@ For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or po
 #### Screenshots (and gif)
 
 ![](https://i.ibb.co/cXJSVDYc/2025-10-15-16-04-45-online-video-cutter-com.gif)
+![](https://i.ibb.co/srL2V9x/cg3dgp-projpart2-github-tilevisual.png)
+![](https://i.ibb.co/svTDZYMb/cg3dgp-projpart2-github-magicbolt.png)
 
 ### Game Logic and Integrated Combat/Sigils (Megan)
 Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
