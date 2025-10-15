@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/07/25
+ * Date Last Updated: 10/14/25
  * Summary: The state after the player has chosen to move, allowing them to select which tile to move to
  */
 public class MoveSelectState : BattleState
@@ -31,7 +31,7 @@ public class MoveSelectState : BattleState
         if (_tiles.Contains(HoveredTile))
         {
             owner.currentTile = HoveredTile;
-            owner.CurrentUnit.GetComponent<Turn>().hasMoved = true; // todo better way to get current turn?
+            owner.turn.hasMoved = true;
             owner.ChangeState<MoveSequenceState>();
         }
     }

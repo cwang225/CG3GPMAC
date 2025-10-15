@@ -3,7 +3,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/12/25
+ * Date Last Updated: 10/14/25
  * Summary: The main state machine that loads and controls a battle/level
  */
 public class BattleController : StateMachine
@@ -25,6 +25,7 @@ public class BattleController : StateMachine
                 _currentUnit.selection.SetSelected(false);
 
             _currentUnit = value;
+            turn = _currentUnit.GetComponent<Turn>();
 
             // Select new unit if any
             if (_currentUnit != null) { 
@@ -35,6 +36,7 @@ public class BattleController : StateMachine
         }
     }
     private Unit _currentUnit;
+    [HideInInspector] public Turn turn;
     [HideInInspector] public Tile currentTile;
 
     void Start()
