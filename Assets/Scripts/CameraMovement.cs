@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// This script is used to manipulate the camera in-game.
+// Currently its parameters are only accessible via the inspector, i.e.
+// there is not yet an in-game UI that interfaces with this.
 public class CameraMovement : MonoBehaviour
-{
+{   
+    // The initial position of the camera, as in before the game starts.
     public Vector3 initTransformPos;
+    // The initial rotation of the camera.
     public Quaternion initTransformRot;
+    // The unit towards which to focus the camera
     public Unit targetUnit;
+    // (unused - edit this if this changes)
     public Alliance targetAlliance;
+    // Whether the camera is focusing on a unit or the whole scene
     public bool focusingOnAll;
+    // The speed at which to rotate around the player as the input button is held (currently unused)
     public int rotateSpeed;
+    // The distance from the target unit to hover.
     public float distance;
+    // The angle from which to view the target player.
     public float angle;
     // Start is called before the first frame update
     void Start()
@@ -79,7 +90,9 @@ public class CameraMovement : MonoBehaviour
         if (focusingOnAll)
         {
             focusingOnAll = false;
-        } else {
+        }
+        else
+        {
             focusingOnAll = true;
         }
     }

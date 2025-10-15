@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+// This script is used for preproduction. It can be used to test sigils.
 [CustomEditor(typeof(LevelSigilEditor))]
 public class SigilEditor : Editor
 {
-    public LevelSigilEditor current {
+    public LevelSigilEditor current
+    {
         get
         {
-            return (LevelSigilEditor) target;
+            return (LevelSigilEditor)target;
         }
     }
+    // The tile to spawn new sigils on or delete sigils on.
     public Tile tile;
+    // An override for the inspector GUI that allows buttons for testing.
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
