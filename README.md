@@ -168,10 +168,12 @@ The player will select an ability to use, then click on which unit they want to 
 
 ### Models and UI (Carly)
 4 initial models were made for the game so far. All models were made using Blender, and did not use any outside assets. Materials video was referred to when trying to create certain textures, but was eventually scrapped. All models have a rigidbody element. All models consist of the same simple shapes. All of the model face texture was also drawn digitally.
-<img width="441" height="553" alt="mcPhoto" src="https://github.com/user-attachments/assets/48d4a563-b2ad-4666-a71a-6f9051052ba7" />
+<div>
+  <img width="441" height="553" alt="mcPhoto" src="https://github.com/user-attachments/assets/48d4a563-b2ad-4666-a71a-6f9051052ba7" />
 <img width="275" height="474" alt="npcPhoto" src="https://github.com/user-attachments/assets/14e69655-3479-419d-bdfb-f6f36fc380f7" />
 <img width="552" height="625" alt="enemyPhoto" src="https://github.com/user-attachments/assets/65fea4ed-b302-4414-9eb4-9a688a3d0f13" />
 <img width="311" height="450" alt="catPhoto" src="https://github.com/user-attachments/assets/5bdd0d47-cdb6-40f0-97aa-53f0b3ca5bb8" />
+</div>
 
 UI features were digitally drawn, including the new level selection view. The functionality remains the same. Other UI scenes were added as well, such as an end turn scene.
 ![ezgif com-optimize (1)](https://github.com/user-attachments/assets/812cc598-f3f5-4aa8-bfa4-9b97ee5eac00)
