@@ -19,6 +19,8 @@ public class Ability : MonoBehaviour
     private AbilityArea _area;
     private AbilityEffectTarget[] _targeters;
     private AbilityEffect _effect;
+    private Sigil _sigil;
+    [HideInInspector] public bool isSigil => _sigil != null;
 
     [HideInInspector] public List<Tile> tilesInArea;
     [HideInInspector] public List<Tile> targetsInArea;
@@ -30,6 +32,7 @@ public class Ability : MonoBehaviour
         _area = GetComponent<AbilityArea>();
         _targeters = GetComponents<AbilityEffectTarget>();
         _effect = GetComponent<AbilityEffect>();
+        _sigil = GetComponent<Sigil>();
     }
 
     private void Start()
@@ -78,5 +81,26 @@ public class Ability : MonoBehaviour
             _effect.Apply(targetsInArea[i]);
 
         _mana.Drain(manaCost);
+    }
+
+    public void PreviewSigil(Tile target)
+    {
+        if (!isSigil)
+            return;
+        _sigil.Preview(target);
+    }
+
+    public void HideSigil()
+    {
+        if (!isSigil)
+            return;
+        _sigil.HidePreview();
+    }
+
+    public GameObject PlaceSigil(Tile target)
+    {
+        if (!isSigil)
+            return null;
+        return _sigil.Place(target);
     }
 }

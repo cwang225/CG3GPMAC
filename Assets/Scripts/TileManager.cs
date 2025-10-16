@@ -101,14 +101,14 @@ public class TileManager : MonoBehaviour
     }
     
     // For coordinates
-    private Vector2Int WorldToTile(Vector3 worldPos)
+    public static Vector2Int WorldToTile(Vector3 worldPos)
     {
         int tileX = Mathf.FloorToInt((worldPos.x + TileSize / 2f) / TileSize);
         int tileZ = Mathf.FloorToInt((worldPos.z + TileSize / 2f) / TileSize);
         return new Vector2Int(tileX, tileZ);
     }
 
-    private Vector3 TileToWorld(Vector2Int tilePos, float elevation)
+    public static Vector3 TileToWorld(Vector2Int tilePos, float elevation)
     {
         float tileX = tilePos.x * TileSize;
         float tileZ = tilePos.y * TileSize;

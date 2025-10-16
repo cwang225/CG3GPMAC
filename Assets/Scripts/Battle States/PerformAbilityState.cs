@@ -18,7 +18,16 @@ public class PerformAbilityState : BattleState
     IEnumerator Animate ()
     {
         owner.ability.Perform();
+
+        GameObject sigil = null;
+        if (owner.ability.isSigil)
+            sigil = owner.ability.PlaceSigil(owner.currentTile);
+
         yield return new WaitForSeconds(1);
+
+        if (sigil != null)
+            Destroy(sigil);
+
         owner.ChangeState<SelectActionState>();
     }
 }

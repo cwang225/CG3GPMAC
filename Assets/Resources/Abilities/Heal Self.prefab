@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCost: 5
-  highlightColor: {r: 0.100000024, g: 1, b: 0, a: 0.5686275}
+  highlightColor: {r: 0.100000024, g: 1, b: 0, a: 0.34117648}
   tilesInArea: []
   targetsInArea: []
 --- !u!114 &4560050567847982059

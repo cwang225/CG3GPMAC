@@ -20,6 +20,8 @@ public class AbilityTargetSelectState : BattleState
     {
         base.Exit();
         tileManager.ClearTileDisplay();
+        if (owner.ability.isSigil)
+            owner.ability.HideSigil();
     }
     
     protected override void HandleClick(InputAction.CallbackContext context)
@@ -48,7 +50,11 @@ public class AbilityTargetSelectState : BattleState
         // preview the area of effect
         if (_tilesInRange.Contains(HoveredTile))
         {
-            ShowArea(HoveredTile);
+            UpdateArea(HoveredTile);
+            if (owner.ability.isSigil)
+                owner.ability.PreviewSigil(HoveredTile);
+            else
+                ShowArea();
         }
     }
 
@@ -58,11 +64,15 @@ public class AbilityTargetSelectState : BattleState
         tileManager.HighlightTiles(_tilesInRange, "Range");
     }
 
-    private void ShowArea(Tile target)
+    private void UpdateArea(Tile target)
+    {
+        owner.ability.tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
+    }
+
+    private void ShowArea()
     {
         tileManager.ClearTileDisplay();
         tileManager.HighlightTiles(_tilesInRange, "Range");
-        owner.ability.tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
         tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
     }
 }

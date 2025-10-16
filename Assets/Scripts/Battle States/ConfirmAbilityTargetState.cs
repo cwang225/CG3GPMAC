@@ -11,6 +11,8 @@ public class ConfirmAbilityTargetState :  BattleState
     {
         base.Enter();
         tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
+        if (owner.ability.isSigil)
+            owner.ability.PreviewSigil(owner.currentTile);
         // show the preview for each target
     }
 
@@ -18,9 +20,11 @@ public class ConfirmAbilityTargetState :  BattleState
     {
         base.Exit();
         tileManager.ClearTileDisplay();
+        if (owner.ability.isSigil)
+            owner.ability.HideSigil();
     }
 
-    
+
     protected override void HandleClick(InputAction.CallbackContext context)
     {
         owner.turn.hasActed = true;
