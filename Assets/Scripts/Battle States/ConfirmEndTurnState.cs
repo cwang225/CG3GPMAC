@@ -10,7 +10,6 @@ public class ConfirmEndTurnState : BattleState
    public override void Enter()
     {
         base.Enter();
-        print("Confirm End Turn State");
         owner.endTurnDialog.Show();
         owner.endTurnDialog.HookupEndTurn(ConfirmEndTurn);
         owner.endTurnDialog.HookupCancel(CancelEndTurn);
@@ -19,7 +18,6 @@ public class ConfirmEndTurnState : BattleState
     public override void Exit()
     {
         base.Exit();
-        print("Leaving Confirm End Turn State");
         owner.endTurnDialog.Hide();
     }
 
