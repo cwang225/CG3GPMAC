@@ -3,32 +3,32 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/14/25
+ * Date Last Updated: 10/15/25
  * Summary: The state after the player has chosen to move, allowing them to select which tile to move to
  */
 public class MoveSelectState : BattleState
 {
-    private List<Tile> _tiles;
+    private List<Tile> _tilesInRange;
     private List<Tile> _currentPath;
     public override void Enter()
     {
         base.Enter();
         Movement movement = owner.CurrentUnit.GetComponent<Movement>();
-        _tiles = movement.GetTilesInRange(tileManager);
-        tileManager.ShowTilesAsMoveable(_tiles);
+        _tilesInRange = movement.GetTilesInRange(tileManager);
+        tileManager.HighlightTiles(_tilesInRange, "Move");
     }
 
     public override void Exit()
     {
         base.Exit();
         tileManager.ClearTileDisplay();
-        _tiles = null;
+        _tilesInRange = null;
         _currentPath = null;
     }
 
     protected override void HandleClick(InputAction.CallbackContext context)
     {
-        if (_tiles.Contains(HoveredTile))
+        if (_tilesInRange.Contains(HoveredTile))
         {
             owner.currentTile = HoveredTile;
             owner.turn.hasMoved = true;
@@ -44,7 +44,7 @@ public class MoveSelectState : BattleState
     void Update()
     {
         // show the path
-        if (_tiles.Contains(HoveredTile))
+        if (_tilesInRange.Contains(HoveredTile))
         {
             if (_currentPath != null) ClearPathDisplay(_currentPath);
             _currentPath = DisplayPath(HoveredTile);
@@ -53,10 +53,8 @@ public class MoveSelectState : BattleState
     
     void ClearPathDisplay(List<Tile> tiles)
     {
-        foreach (Tile tile in tiles)
-        {
-            tile.ShowPath(false);
-        }
+        tileManager.ClearTileDisplay();
+        tileManager.HighlightTiles(_tilesInRange, "Move");
     }
 
     List<Tile> DisplayPath(Tile target)
@@ -65,9 +63,10 @@ public class MoveSelectState : BattleState
         while (target != null)
         {
             path.Add(target);
-            target.ShowPath(true);
             target = target.prev;
         }
+
+        tileManager.HighlightTiles(path, "Path");
 
         return path;
     }

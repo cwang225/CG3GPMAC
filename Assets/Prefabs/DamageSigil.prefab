@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2399763013517501881}
-  - component: {fileID: -1046739687501237618}
   - component: {fileID: 5166506996626838737}
   - component: {fileID: 3233742491572070813}
   - component: {fileID: 244923026652972589}
   m_Layer: 0
-  m_Name: Sigil
+  m_Name: DamageSigil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,22 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &-1046739687501237618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7447237926528276325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1558bbee892d34b9fb92d8f3141823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tile: {fileID: 0}
-  range: 15
-  entitiesInRange: []
-  damage: 25
 --- !u!212 &5166506996626838737
 SpriteRenderer:
   m_ObjectHideFlags: 0

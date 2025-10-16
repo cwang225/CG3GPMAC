@@ -17,7 +17,8 @@ MonoBehaviour:
   movementRange: 3
   health: 100
   mana: 100
+  baseAttackRanged: 0
   abilities:
   - Damage Sigil
   - Heal Self
-  - Heal Other
+  - Heal Sigil

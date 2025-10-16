@@ -57,10 +57,10 @@ public static class UnitFactory
 
     static void AddAttack(GameObject obj, bool isRanged)
     {
-        string name = isRanged ? "BaseRanagedAttack" : "BaseMeleeAttack";
+        string name = isRanged ? "BaseRangedAttack" : "BaseMeleeAttack";
         GameObject instance = InstantiatePrefab("Abilities/" + name);
         instance.name = name;
-        instance.transform.SetParent(obj.transform);
+        instance.transform.SetParent(obj.transform, false);
     }
 
     static void AddAbilities(GameObject obj, string[] abilities)
@@ -74,7 +74,7 @@ public static class UnitFactory
             string abilityName = abilities[i];
             GameObject ability = InstantiatePrefab("Abilities/" + abilityName);
             ability.name = abilityName;
-            ability.transform.SetParent(catalog.transform);
+            ability.transform.SetParent(catalog.transform, false);
         }
     }
 }

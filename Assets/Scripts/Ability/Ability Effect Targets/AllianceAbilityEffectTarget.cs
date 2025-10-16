@@ -29,11 +29,11 @@ public class AllianceAbilityEffectTarget : AbilityEffectTarget
     {
         if (target == Target.Ally)
         {
-            return alliance == GetComponentInParent<Alliance>();
+            return alliance.type == GetComponentInParent<Alliance>().type;
         }
         else
         {
-            return alliance != GetComponentInParent<Alliance>();
+            return alliance.type != GetComponentInParent<Alliance>().type;
         }
     }
 }
