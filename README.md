@@ -92,9 +92,8 @@ By Oct 13:
 - ~~Enemy Model (Carly)~~
 - ~~Level terrain (one level to start with) (Carly)~~
 - ~~NPC Model (Carly)~~
-- 2D UI elements (healthbar) (Carly)
+- ~~2D UI elements (healthbar) (Carly)~~
 - ~~Finished gameplay loop (rounds, turns, end level conditions) (Megan)~~ (minus end level conditions)
-- Enemy AI (Megan)
 - ~~Integrate combat into the battle controller/state machine (Megan)~~
 - ~~Create Sigil visuals (Alex)~~
 - ~~Create Cell visuals (not terrain) (Alex)~~
@@ -109,6 +108,7 @@ By Oct 31:
 - Dialogue system (Alex)
 - Dialogue states in BattleController (Megan)
 - End of Battle Conditions (Megan)
+- Display unit info panel (Megan)
 - Enemy AI (Megan)
 - Magic particles
 
@@ -156,9 +156,15 @@ I also added a magic bolt visual but it is currently not incorporated into the g
 ![](https://i.ibb.co/svTDZYMb/cg3dgp-projpart2-github-magicbolt.png)
 
 ### Game Logic and Integrated Combat/Sigils (Megan)
-Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts. (show locked menu)  
-Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object. (show an ability menu)
-The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed. (show preview of placing a sigil)
+Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts.  
+<img width="89" height="74" alt="image" src="https://github.com/user-attachments/assets/aedf3d7c-50d1-490d-b9fe-bc65dc312686" />  
+Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a mana cost, a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object.  
+<img width="109" height="92" alt="image" src="https://github.com/user-attachments/assets/a16f1bcb-7b30-40b2-8418-f3e23b0770cf" />  
+The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed.  
+<img width="129" height="103" alt="image" src="https://github.com/user-attachments/assets/0be14ffa-96da-4455-acc8-808768e109f7" />
+<img width="57" height="47" alt="image" src="https://github.com/user-attachments/assets/a7e29bb8-625a-47bd-8b60-97a41a2adcea" />  
+
+
 
 ### Models and UI (Carly)
 4 initial models were made for the game so far. All models were made using Blender, and did not use any outside assets. Materials video was referred to when trying to create certain textures, but was eventually scrapped. All models have a rigidbody element. All models consist of the same simple shapes. All of the model face texture was also drawn digitally.
