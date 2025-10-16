@@ -157,12 +157,12 @@ I also added a magic bolt visual but it is currently not incorporated into the g
 
 ### Game Logic and Integrated Combat/Sigils (Megan)
 Units can make one move and one action on their turn, but they may only move if they haven't already acted. Actions in the action menu will now lock to reflect this. Once each unit has acted or the player chooses to end the round, play switches to the enemies (who don't do anything yet) and then the next round starts.  
-<img width="89" height="74" alt="image" src="https://github.com/user-attachments/assets/aedf3d7c-50d1-490d-b9fe-bc65dc312686" />
-Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a mana cost, a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object.
-<img width="109" height="92" alt="image" src="https://github.com/user-attachments/assets/a16f1bcb-7b30-40b2-8418-f3e23b0770cf" />
-The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed.
+<img width="89" height="74" alt="image" src="https://github.com/user-attachments/assets/aedf3d7c-50d1-490d-b9fe-bc65dc312686" />  
+Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a mana cost, a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object.  
+<img width="109" height="92" alt="image" src="https://github.com/user-attachments/assets/a16f1bcb-7b30-40b2-8418-f3e23b0770cf" />  
+The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed.  
 <img width="129" height="103" alt="image" src="https://github.com/user-attachments/assets/0be14ffa-96da-4455-acc8-808768e109f7" />
-<img width="57" height="47" alt="image" src="https://github.com/user-attachments/assets/a7e29bb8-625a-47bd-8b60-97a41a2adcea" />
+<img width="57" height="47" alt="image" src="https://github.com/user-attachments/assets/a7e29bb8-625a-47bd-8b60-97a41a2adcea" />  
 
 
 
