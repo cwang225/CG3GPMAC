@@ -75,7 +75,7 @@ public class SelectUnitState : BattleState
         else
         {
             // we should pop up a prompt for ending the turn in case they do it on accident, but for now:
-            owner.ChangeState<EndPlayerTurnState>();
+            owner.ChangeState<ConfirmEndTurnState>();
         }
     }
 }

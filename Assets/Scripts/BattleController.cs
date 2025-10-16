@@ -12,6 +12,7 @@ public class BattleController : StateMachine
     public TileManager tileManager;
     public LevelData levelData;
     public AbilityMenuPanelController abilityMenuPanelController;
+    public EndTurnDialog endTurnDialog;
     
     [HideInInspector] public List<Unit> units = new List<Unit>();
     public Unit CurrentUnit { 
