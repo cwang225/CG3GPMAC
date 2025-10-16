@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
     private IEnumerator Turn(Directions dir)
     {
         _unit.dir = dir;
-        yield return new WaitForSeconds(0.25f);
         _unit.Match();
+        yield return new WaitForSeconds(0.25f);
     }
 }
