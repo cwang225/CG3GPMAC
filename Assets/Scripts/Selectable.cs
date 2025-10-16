@@ -13,12 +13,12 @@ public class Selectable : MonoBehaviour
 
     void Awake()
     {
-        _renderer = GetComponent<Renderer>();
-        _outlineMat = _renderer.materials[1];
+        //_renderer = GetComponent<Renderer>();
+        //_outlineMat = _renderer.materials[1];
     }
 
     public void SetSelected(bool selected)
     {
-        _outlineMat.SetFloat(Enabled, selected ? 1f : 0f);
+        //_outlineMat.SetFloat(Enabled, selected ? 1f : 0f);
     }
 }
