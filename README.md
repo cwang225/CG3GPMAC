@@ -149,14 +149,6 @@ The tiles have also been modified to have a box column textured with a static te
 
 I also added a magic bolt visual but it is currently not incorporated into the game. It is available as a prefab.
 
-#### How to test
-
-For the Sigil prefab, using the SigilManager while the game is running to select a tile at random, then the prefab (the sigil prefab in the Prefabs folder, which will appear as a red ring) and then clicking "Place Sigil" will show the visuals. Viewing the scene in the Scene tab instead of the Game tab is recommended for this.
-
-For the tiles, just running the game and viewing the battlefield in the Scene tab is sufficient to see the columns added below the tiles.
-
-For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
-
 #### Screenshots (and gif)
 
 ![](https://i.ibb.co/cXJSVDYc/2025-10-15-16-04-45-online-video-cutter-com.gif)
@@ -168,6 +160,11 @@ Units can make one move and one action on their turn, but they may only move if 
 Attacks, magic, and sigils are now integrated into the battle controller. Each is a type of Ability, which I've created to be modular for ease of creation. Each ability has a type of range (i.e. radius, line, self), a type of area of effect (single target, radius, all in range), a target (ally, enemy, any ko'd unit), and an effect (damage, heal, status effect). Using this, I've created some starter abilities such as base attacks (melee/ranged), healing (heal self, heal others, heal sigil), damage sigils and grenades for the enemies. The abilities each unit has can be specified in the UnitRecipe scriptable object. (show an ability menu)
 The player will select an ability to use, then click on which unit they want to target or where they want to place the sigil. They will then confirm their placement (and in the near future it will also display info here like previewing the damage done) and the action will be performed. (show preview of placing a sigil)
 
+### Models and UI (Carly)
+4 initial models were made for the game so far. All models were made using Blender, and did not use any outside assets. Materials video was referred to when trying to create certain textures, but was eventually scrapped. All models have a rigidbody element. All models consist of the same simple shapes. All of the model face texture was also drawn digitally.
+
+UI features were digitally drawn, including the new level selection view. The functionality remains the same. Other UI scenes were added as well, such as an end turn scene.
+
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
@@ -178,3 +175,11 @@ Controls:
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
+
+#### How to test Sigils
+
+For the Sigil prefab, using the SigilManager while the game is running to select a tile at random, then the prefab (the sigil prefab in the Prefabs folder, which will appear as a red ring) and then clicking "Place Sigil" will show the visuals. Viewing the scene in the Scene tab instead of the Game tab is recommended for this.
+
+For the tiles, just running the game and viewing the battlefield in the Scene tab is sufficient to see the columns added below the tiles.
+
+For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
