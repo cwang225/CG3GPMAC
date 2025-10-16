@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class AbilityTargetSelectState : BattleState
 {
     private List<Tile> _tilesInRange;
-    private List<Tile> _tilesInArea;
 
     public override void Enter()
     {
@@ -21,17 +20,18 @@ public class AbilityTargetSelectState : BattleState
     {
         base.Exit();
         tileManager.ClearTileDisplay();
+        if (owner.ability.isSigil)
+            owner.ability.HideSigil();
     }
     
     protected override void HandleClick(InputAction.CallbackContext context)
     {
         if (_tilesInRange.Contains(HoveredTile))
         {
-            List<Tile> targets = owner.ability.GetTargetsInArea(_tilesInArea);
-            if (targets.Count > 0)
+            owner.ability.targetsInArea = owner.ability.GetTargetsInArea(owner.ability.tilesInArea);
+            if (owner.ability.targetsInArea.Count > 0)
             {
                 owner.currentTile = HoveredTile;
-                owner.turn.hasActed = true;
                 owner.ChangeState<ConfirmAbilityTargetState>();
             }
         }
@@ -50,21 +50,29 @@ public class AbilityTargetSelectState : BattleState
         // preview the area of effect
         if (_tilesInRange.Contains(HoveredTile))
         {
-            ShowArea(HoveredTile);
+            UpdateArea(HoveredTile);
+            if (owner.ability.isSigil)
+                owner.ability.PreviewSigil(HoveredTile);
+            else
+                ShowArea();
         }
     }
 
     private void ShowRange()
     {
         _tilesInRange = owner.ability.GetTilesInRange(tileManager);
-        tileManager.ShowTilesAsMoveable(_tilesInRange); // change to showing for attack
+        tileManager.HighlightTiles(_tilesInRange, "Range");
     }
 
-    private void ShowArea(Tile target)
+    private void UpdateArea(Tile target)
+    {
+        owner.ability.tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
+    }
+
+    private void ShowArea()
     {
         tileManager.ClearTileDisplay();
-        tileManager.ShowTilesAsMoveable(_tilesInRange);
-        _tilesInArea = owner.ability.GetTilesInArea(tileManager, target);
-        tileManager.HighlightTilesRed(_tilesInArea);
+        tileManager.HighlightTiles(_tilesInRange, "Range");
+        tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
     }
 }

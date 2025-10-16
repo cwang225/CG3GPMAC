@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
@@ -8,23 +7,27 @@ using UnityEngine.InputSystem;
  */
 public class ConfirmAbilityTargetState :  BattleState
 {
-
     public override void Enter()
     {
         base.Enter();
-        print("Confirm Ability State");
-        
+        tileManager.HighlightTiles(owner.ability.tilesInArea, owner.ability.highlightColor);
+        if (owner.ability.isSigil)
+            owner.ability.PreviewSigil(owner.currentTile);
+        // show the preview for each target
     }
 
     public override void Exit()
     {
         base.Exit();
         tileManager.ClearTileDisplay();
+        if (owner.ability.isSigil)
+            owner.ability.HideSigil();
     }
 
-    
+
     protected override void HandleClick(InputAction.CallbackContext context)
     {
+        owner.turn.hasActed = true;
         owner.ChangeState<PerformAbilityState>();
     }
     

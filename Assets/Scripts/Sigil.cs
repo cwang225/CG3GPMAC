@@ -1,68 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.Assertions;
-
-// This implements the basic functionality for the sigil,
-// in particular snapping to a tile and dealing AoE damage to units in its range.
-// Currently it does damage to units without regard to team affiliation.
+/**
+ * Author: Megan Lincicum
+ * Date Created: 10/15/25
+ * Date Last Updated: 10/15/25
+ * Summary: Holds/displays the visual for a sigil
+ */
 public class Sigil : MonoBehaviour
 {
-    // The tile that the sigil is snapping to.
-    public Tile tile;
-    // The radius of the sphere in which units will be damaged by the sigil.
-    public int range;
-    // The list of entities inside the sphere of effect.
-    public List<GameObject> entitiesInRange;
-    // The amount of damage the sigil will do per-invocation of AoE damage,
-    public int damage;
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField] GameObject prefab;
+    private GameObject _preview;
 
-    }
-
-    void OnDrawGizmos()
+    public void Preview(Tile target)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range);
-    }
-
-    public void dealAOEDamage()
-    {
-        // get a list of entities at tiles within a certain distance
-        // based on traversibility
-        // it would be easier to do a radius maybe
-        foreach (GameObject ent in entitiesInRange)
+        // lower alpha for the preview
+        if (_preview == null)
         {
-            print("attempting to damage unit");
-            var lifecomp = ent.GetComponent<Health>();
-            lifecomp.Damage(damage);
-            print("unit " + ent + " now at life " + lifecomp);
+            _preview = Instantiate(prefab, transform);
+
+            SpriteRenderer sprite = _preview.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(1, 1, 1, 0.7f);        
+        }
+
+        _preview.transform.position = TileManager.TileToWorld(target.coord, target.elevation);
+    }
+
+    public void HidePreview()
+    {
+        if (_preview != null)
+        {
+            Destroy(_preview);
+            _preview = null;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject Place(Tile target)
     {
-        gameObject.transform.position = tile.transform.position;
-        // TODO: figure out how to make this a cylinder
-        Collider[] collidersInRange = Physics.OverlapSphere(gameObject.transform.position, range);
-        print("length of colliders in Sigil.Update(): " + collidersInRange.Length);
-        print("len of collidersInRange: " + collidersInRange.Length);
-        entitiesInRange.Clear();
-        foreach (Collider c in collidersInRange)
+        // full alpha for the real deal
+        GameObject obj = _preview;
+        if (_preview == null)
         {
-            // XXX: this is almost certainly where we're not detecting units
-            var unitComp = c.gameObject.GetComponent<Unit>();
-            print("unitComp: " + unitComp);
-            if (unitComp != null)
-            {
-                print("appending unit to entitiesInRange");
-                entitiesInRange.Add(c.gameObject);
-            }
+            obj = Instantiate(prefab, transform);
         }
+
+        SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
+        sprite.color = Color.white;
+        obj.transform.position = TileManager.TileToWorld(target.coord, target.elevation);
+
+        _preview = null;
+
+        return obj;
     }
 }
