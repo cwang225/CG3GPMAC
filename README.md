@@ -166,6 +166,18 @@ The player will select an ability to use, then click on which unit they want to 
 
 
 
+### Terrain, Models and UI (Carly)
+4 initial models were made for the game so far. All models were made using Blender, and did not use any outside assets. Materials video was referred to when trying to create certain textures, but was eventually scrapped. All models have a rigidbody element. All models consist of the same simple shapes. All of the model face texture was also drawn digitally. The model for the main character was given a special gem becajse it signifies his mission of hunting the crystal.
+<div>
+  <img width="441" height="553" alt="mcPhoto" src="https://github.com/user-attachments/assets/48d4a563-b2ad-4666-a71a-6f9051052ba7" />
+<img width="275" height="474" alt="npcPhoto" src="https://github.com/user-attachments/assets/14e69655-3479-419d-bdfb-f6f36fc380f7" />
+<img width="552" height="625" alt="enemyPhoto" src="https://github.com/user-attachments/assets/65fea4ed-b302-4414-9eb4-9a688a3d0f13" />
+<img width="311" height="450" alt="catPhoto" src="https://github.com/user-attachments/assets/5bdd0d47-cdb6-40f0-97aa-53f0b3ca5bb8" />
+</div>
+The terrain surround the game was modeled using the Unity Terrain asset and a free rock repeating pattern.
+UI features were digitally drawn, including the new level selection view. The functionality remains the same. Other UI scenes were added as well, such as an end turn scene.
+![ezgif com-optimize (1)](https://github.com/user-attachments/assets/812cc598-f3f5-4aa8-bfa4-9b97ee5eac00)
+
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
@@ -176,3 +188,11 @@ Controls:
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
+
+#### How to test Sigils
+
+For the Sigil prefab, using the SigilManager while the game is running to select a tile at random, then the prefab (the sigil prefab in the Prefabs folder, which will appear as a red ring) and then clicking "Place Sigil" will show the visuals. Viewing the scene in the Scene tab instead of the Game tab is recommended for this.
+
+For the tiles, just running the game and viewing the battlefield in the Scene tab is sufficient to see the columns added below the tiles.
+
+For the magic bolt, just viewing the "magic bolt" prefab in the inspector, or possibly adding it to the scene to see it in context, is sufficient.
