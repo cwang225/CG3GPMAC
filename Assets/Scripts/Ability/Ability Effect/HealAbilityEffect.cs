@@ -19,7 +19,7 @@ public class HealAbilityEffect : AbilityEffect
     
     public override void Apply(Tile target)
     {
-        Health targetHealth = target.GetComponent<Health>();
+        Health targetHealth = target.content.GetComponent<Health>();
         int heal = Predict(target);
         targetHealth.Heal(heal);
     }

@@ -8,20 +8,31 @@ using UnityEngine;
  */
 public class Ability : MonoBehaviour
 {
+    [Header("Cost")]
     public int manaCost;
     private Mana _mana;
 
+    [Header("Highlight Color")]
+    public Color highlightColor;
+
     private AbilityRange _range;
     private AbilityArea _area;
-    private AbilityEffectTarget _targeter;
+    private AbilityEffectTarget[] _targeters;
     private AbilityEffect _effect;
+    private Sigil _sigil;
+    [HideInInspector] public bool isSigil => _sigil != null;
+
+    [HideInInspector] public List<Tile> tilesInArea;
+    [HideInInspector] public List<Tile> targetsInArea;
+
 
     private void Awake()
     {
         _range = GetComponent<AbilityRange>();
         _area = GetComponent<AbilityArea>();
-        _targeter = GetComponent<AbilityEffectTarget>();
+        _targeters = GetComponents<AbilityEffectTarget>();
         _effect = GetComponent<AbilityEffect>();
+        _sigil = GetComponent<Sigil>();
     }
 
     private void Start()
@@ -44,22 +55,52 @@ public class Ability : MonoBehaviour
         List<Tile> ret = new List<Tile>();
         for (int i = 0; i < tiles.Count; i++)
         {
-            if (_targeter.IsTarget(tiles[i]))
+            if (IsTarget(tiles[i]))
                 ret.Add(tiles[i]);
         }
         return ret;
     }
 
+    private bool IsTarget(Tile target)
+    {
+        for (int i = 0; i < _targeters.Length; i++)
+        {
+            if (!_targeters[i].IsTarget(target))
+                return false;
+        }
+        return true;
+    }
     public bool CanPerform()
     {
         return _mana.currentMana >= manaCost;
     }
 
-    public void Perform(List<Tile> targets)
+    public void Perform()
     {
-        for (int i = 0; i < targets.Count; i++)
-            _effect.Apply(targets[i]);
+        for (int i = 0; i < targetsInArea.Count; i++)
+            _effect.Apply(targetsInArea[i]);
 
         _mana.Drain(manaCost);
+    }
+
+    public void PreviewSigil(Tile target)
+    {
+        if (!isSigil)
+            return;
+        _sigil.Preview(target);
+    }
+
+    public void HideSigil()
+    {
+        if (!isSigil)
+            return;
+        _sigil.HidePreview();
+    }
+
+    public GameObject PlaceSigil(Tile target)
+    {
+        if (!isSigil)
+            return null;
+        return _sigil.Place(target);
     }
 }

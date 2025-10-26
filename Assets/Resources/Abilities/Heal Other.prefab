@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8531052000879517718}
   - component: {fileID: 6586336499091872180}
   - component: {fileID: 3650809059318439596}
+  - component: {fileID: -4044148270602488450}
   m_Layer: 0
   m_Name: Heal Other
   m_TagString: Untagged
@@ -49,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCost: 7
+  highlightColor: {r: 0.09665048, g: 1, b: 0, a: 0.34117648}
+  tilesInArea: []
+  targetsInArea: []
 --- !u!114 &8654053991352055926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,3 +105,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 10
+--- !u!114 &-4044148270602488450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6663512471339744785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd65d6c05638e0b43b8878133ab73b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

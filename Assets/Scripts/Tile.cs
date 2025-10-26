@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/15/25
- * Date Last Updated: 09/15/25
+ * Date Last Updated: 10/15/25
  * Summary: Data and visualization of a tile in the battle grid
  */
 public class Tile : MonoBehaviour
@@ -23,10 +23,8 @@ public class Tile : MonoBehaviour
     [HideInInspector] public int distance;
     
     // For tile highlighting/coloring
-    [Header("Highlight Colors")]
+    [Header("Unhighlighted Color")]
     [SerializeField] private Color defaultColor;
-    [SerializeField] private Color canMoveHereColor;
-    [SerializeField] private Color inPathColor;
     
     private MaterialPropertyBlock _block;
     private Renderer _renderer;
@@ -46,16 +44,15 @@ public class Tile : MonoBehaviour
         SetColor(toggle ? Color.Lerp(_color, Color.white, 0.5f) : _color);
     }
 
-    public void ShowMoveable(bool toggle)
+    public void ResetColor()
     {
-        _color = toggle ? canMoveHereColor : defaultColor;
-        SetColor(_color);
+        ChangeColor(defaultColor);
     }
 
-    public void ShowPath(bool toggle)
+    public void ChangeColor(Color color)
     {
-        _color = toggle ? inPathColor : canMoveHereColor;
-        SetColor(_color);
+        _color = color;
+        SetColor(color);
     }
 
     private void SetColor(Color color)
