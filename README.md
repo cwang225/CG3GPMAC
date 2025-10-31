@@ -103,14 +103,17 @@ By Oct 13:
 
 ### Project Part 3: Visual Effects  
 By Oct 31:  
-- Lighting (Carly)
-- Crystals (model + glow) (Alex)
-- Dialogue system (Alex)
-- Dialogue states in BattleController (Megan)
-- End of Battle Conditions (Megan)
-- Display unit info panel (Megan)
-- Enemy AI (Megan)
-- Magic particles
+- ~~Lighting (Carly)~~
+- ~~Crystals (model + glow) (Alex)~~
+- ~~Dialogue system (Alex)~~
+- ~~End of Battle Conditions (Megan)~~
+- ~~Enemy AI (Megan)~~
+- ~~Magic particles~~
+
+### Project Checkpoint 3-4: Sound, UI, and Animation
+By Nov 14:  
+- Interpolate movement and attack animations (Megan)
+- 
 
 # Development
 
@@ -177,6 +180,14 @@ The player will select an ability to use, then click on which unit they want to 
 The terrain surround the game was modeled using the Unity Terrain asset and a free rock repeating pattern.
 UI features were digitally drawn, including the new level selection view. The functionality remains the same. Other UI scenes were added as well, such as an end turn scene.
 ![ezgif com-optimize (1)](https://github.com/user-attachments/assets/812cc598-f3f5-4aa8-bfa4-9b97ee5eac00)
+
+## Project Part 3: Lighting and Viusal Effects
+### Ability Particles, KOs & Battle End, and Enemy AI (Megan)  
+Particles were added to most abilities (from https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565#description) and will play when the ability is performed. In the future, hopefully we can make them render on top of everything else for a better cartoon effect, and they will be tweaked for rotation and position. [screenshot]
+Units are now Knocked Out (KOd) when their health reaches zero, and they are no longer able to take turns and are shown as lying down for now. Later, fun death animation will be added and the unit will become grayed out on death to be clear. [screen shot]
+In addition, the battle can now be won or lost. The player wins a level when all of the enemy units are KOd, and loses the battle when all friendly units are KOd. [screen shot]
+Finally, some placeholder Enemy AI was put in. The Enemies will simply try to move towards the closest foe and then attack if there is a foe in range.
+
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
