@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -46,7 +47,9 @@ public class LoadBattleState : BattleState
             Health health = unit.GetComponent<Health>();
             health.OnDeath.AddListener(owner.CheckForGameOver);
             
-            units.Add(unit);
+            if (!units.ContainsKey(recipe.alliance))
+                units.Add(recipe.alliance, new List<Unit>());
+            units[recipe.alliance].Add(unit);
         }
     }
 }

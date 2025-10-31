@@ -13,7 +13,7 @@ public class BattleController : StateMachine
     public LevelData levelData;
     public AbilityMenuPanelController abilityMenuPanelController;
     
-    [HideInInspector] public List<Unit> units = new List<Unit>();
+    [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
         get => _currentUnit;
         set

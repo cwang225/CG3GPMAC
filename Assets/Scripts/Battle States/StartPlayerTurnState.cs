@@ -15,7 +15,7 @@ public class StartPlayerTurnState : BattleState
 
     IEnumerator Setup()
     {
-        foreach (Unit unit in units)
+        foreach (Unit unit in units[Alliances.Player])
         {
             Turn turn = unit.GetComponent<Turn>();
             turn.ResetTurn();

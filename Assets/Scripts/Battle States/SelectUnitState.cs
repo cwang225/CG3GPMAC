@@ -20,7 +20,7 @@ public class SelectUnitState : BattleState
     void CheckPlayerTurnEnd()
     {
         // Turn ends if all units have made their actions
-        foreach (Unit unit in units)
+        foreach (Unit unit in units[Alliances.Player])
         {
             Turn turn = unit.GetComponent<Turn>();
             if (turn.CanAct) return;
@@ -38,13 +38,13 @@ public class SelectUnitState : BattleState
         {
             // Select next
             index = (index + 1) % units.Count;
-            owner.CurrentUnit = units[index];
+            owner.CurrentUnit = units[Alliances.Player][index];
         }
         else if (value < 0)
         {
             // Select previous
             index = (index - 1 + units.Count) % units.Count;
-            owner.CurrentUnit = units[index];
+            owner.CurrentUnit = units[Alliances.Player][index];
         }
     }
     
@@ -61,8 +61,15 @@ public class SelectUnitState : BattleState
         GameObject content = HoveredTile.content;
         if (content != null)
         {
-            owner.CurrentUnit = content.GetComponent<Unit>();
-            owner.ChangeState<SelectActionState>();
+            Unit unit = content.GetComponent<Unit>();
+            Alliance alliance = unit.GetComponent<Alliance>();
+            if (alliance != null && alliance.type == Alliances.Player)
+            {
+                owner.CurrentUnit = unit;
+                owner.ChangeState<SelectActionState>();
+            }
+            
+            // LATER: Should still be able to click on enemies to display their stats
         }
     }
 
