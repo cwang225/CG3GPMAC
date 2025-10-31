@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7144161298020109249}
   - component: {fileID: 9133201097752691191}
   - component: {fileID: 9216691914062529353}
+  - component: {fileID: 2089425282793252645}
   m_Layer: 0
   m_Name: Whirlwind Slash
   m_TagString: Untagged
@@ -104,3 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+--- !u!114 &2089425282793252645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658701560176306064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b8bdcdc78b263439824ef34bc0b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 3802302459956397560, guid: b3416c8b2e3c7804b8c061dc4a36fc43,
+    type: 3}
+  animationTime: 0
