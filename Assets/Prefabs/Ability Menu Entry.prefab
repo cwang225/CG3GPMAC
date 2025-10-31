@@ -138,6 +138,8 @@ MonoBehaviour:
   button: {fileID: 1943723090287498650}
   selectedColor: {r: 1, g: 0.7999631, b: 0, a: 1}
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
+  optionIndex: 0
+  controller: {fileID: 0}
 --- !u!1 &7807353111297974558
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,8 +232,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0

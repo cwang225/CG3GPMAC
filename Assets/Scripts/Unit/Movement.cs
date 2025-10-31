@@ -4,7 +4,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/22/25
- * Date Last Updated: 10/06/25
+ * Date Last Updated: 10/15/25
  * Summary: Movement component for units, facilitates pathfinding based on range and animates to new position.
  */
 public class Movement : MonoBehaviour
@@ -68,8 +68,11 @@ public class Movement : MonoBehaviour
 
         for (int i = 1; i < path.Count; i++)
         {
+            Tile from = path[i - 1];
             Tile to = path[i];
-            // later can add turning and stuff
+            Directions dir = to.GetDirection(from);
+            if (_unit.dir != dir)
+                yield return StartCoroutine(Turn(dir));
             yield return StartCoroutine(Walk(to));
         }
     }
@@ -80,5 +83,12 @@ public class Movement : MonoBehaviour
         _unit.Place(target);
         yield return new WaitForSeconds(0.25f);
         _unit.Match();
+    }
+
+    private IEnumerator Turn(Directions dir)
+    {
+        _unit.dir = dir;
+        _unit.Match();
+        yield return new WaitForSeconds(0.25f);
     }
 }

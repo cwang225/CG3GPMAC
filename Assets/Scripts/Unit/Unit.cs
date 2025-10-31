@@ -1,8 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Author: Megan Lincicum
+ * Date Created: 09/22/25
+ * Date Last Updated: 10/15/25
+ * Summary: Unit class which holds data for where it is and allows it to be animated across tiles
+ */
 public class Unit : MonoBehaviour
 {
     // What tile the unit is on and which direction it's facing
@@ -39,10 +42,5 @@ public class Unit : MonoBehaviour
     {
         transform.position = tile.Center + new Vector3(0,2.5f, 0);
         transform.localEulerAngles = dir.ToEuler();
-    }
-
-    public static implicit operator Unit(GameObject v)
-    {
-        throw new NotImplementedException();
     }
 }
