@@ -54,11 +54,11 @@ public class BattleController : StateMachine
         // LATER: make win conditions and lose conditions something checkable from level setup
         if (CheckWinCondition()) 
         {
-            ChangeState<PlayerWinState>();
+            QueueState<PlayerWinState>();
         } 
         else if (CheckLoseCondition())
         {
-            ChangeState<PlayerLoseState>();
+            QueueState<PlayerLoseState>();
         }
     }
 
