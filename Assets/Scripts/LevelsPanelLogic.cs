@@ -93,8 +93,19 @@ public class LevelsPanelLogic : MonoBehaviour
     // placeholder function to allow user to mimic going to the level selected
     public void goToLevel()
     {
-        SceneManager.LoadScene("Megan");
-        Debug.Log("going to new level :3");
+        Unity.Mathematics.Random random = new Unity.Mathematics.Random();
+
+        // Generate a random integer between 1 (inclusive) and 7 (exclusive).
+        // This effectively generates numbers from 1 to 6.
+        int diceRoll = random.NextInt(1, 7);
+        if (diceRoll <= 3)
+        {
+            SceneManager.LoadScene("purplePlanet");
+        } else
+        {
+            SceneManager.LoadScene("redPlanet");
+        }
+        
     }
 
     void OnDestroy()
