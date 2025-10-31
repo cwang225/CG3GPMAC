@@ -3,7 +3,7 @@ using UnityEngine.Events;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/22/25
- * Date Last Updated: 10/30/25
+ * Date Last Updated: 10/31/25
  * Summary: The health of a Unit or other object.
  */
 public class Health : MonoBehaviour
@@ -31,7 +31,13 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             OnKO.Invoke();
+
+            // LATER: this shouldn't be done here
+            // make the unit look fallen over
+            transform.Rotate(90, 0, 0);
+            transform.position = transform.position - new Vector3(0, 2.5f, 0);
         }
     }
 
