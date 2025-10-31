@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8022779767785501867}
   - component: {fileID: 2485234744564705450}
   - component: {fileID: 8011216091502395701}
+  - component: {fileID: 897236073475270171}
   m_Layer: 0
   m_Name: BaseRangedAttack
   m_TagString: Untagged
@@ -104,3 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+--- !u!114 &897236073475270171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327904629063428956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b8bdcdc78b263439824ef34bc0b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
+    type: 3}
+  animationTime: 0
