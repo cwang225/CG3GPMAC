@@ -199,3 +199,6 @@ Controls:
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
+
+### Dialogue (Alex)
+I added dialogue popups which can be triggered by other game elements. Right now the dialogue is stored in a list of sequences of headshots and text directly in the C# source, and displays via the UI. The dialogue dialog has a "next" button which can be used to advance the dialogue and when it's clicked a final time it closes the dialog.
