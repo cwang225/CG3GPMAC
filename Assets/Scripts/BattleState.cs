@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/07/25
+ * Date Last Updated: 10/30/25
  * Summary: Base state for the BattleController
  */
 public abstract class BattleState : State

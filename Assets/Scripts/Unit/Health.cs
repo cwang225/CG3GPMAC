@@ -3,20 +3,21 @@ using UnityEngine.Events;
 /**
  * Author: Megan Lincicum
  * Date Created: 09/22/25
- * Date Last Updated: 10/15/25
+ * Date Last Updated: 10/30/25
  * Summary: The health of a Unit or other object.
  */
 public class Health : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
-    public UnityEvent OnDeath;
+    public bool KOd => currentHealth == 0;
+    public UnityEvent OnKO;
 
     void Awake()
     {
-        if (OnDeath == null)
+        if (OnKO == null)
         {
-            OnDeath = new UnityEvent();
+            OnKO = new UnityEvent();
         }
     }
 
@@ -30,14 +31,14 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            OnDeath.Invoke();
+            OnKO.Invoke();
         }
     }
 
     public void Heal(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth) 
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }

@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/09/25
+ * Date Last Updated: 10/30/25
  * Summary: State allowing player to select which of their units to act
  */
 public class SelectUnitState : BattleState
@@ -36,15 +36,11 @@ public class SelectUnitState : BattleState
 
         if (value > 0)
         {
-            // Select next
-            index = (index + 1) % units.Count;
-            owner.CurrentUnit = units[Alliances.Player][index];
+            SelectNextUnit();
         }
         else if (value < 0)
         {
-            // Select previous
-            index = (index - 1 + units.Count) % units.Count;
-            owner.CurrentUnit = units[Alliances.Player][index];
+            SelectPreviousUnit();
         }
     }
     
@@ -63,13 +59,14 @@ public class SelectUnitState : BattleState
         {
             Unit unit = content.GetComponent<Unit>();
             Alliance alliance = unit.GetComponent<Alliance>();
-            if (alliance != null && alliance.type == Alliances.Player)
+            Health health = unit.GetComponent<Health>();
+            if (alliance != null && alliance.type == Alliances.Player && !health.KOd)
             {
                 owner.CurrentUnit = unit;
                 owner.ChangeState<SelectActionState>();
             }
             
-            // LATER: Should still be able to click on enemies to display their stats
+            // LATER: Should still be able to click on enemies to display their stats (or KOd friendly units)
         }
     }
 
@@ -84,5 +81,23 @@ public class SelectUnitState : BattleState
             // we should pop up a prompt for ending the turn in case they do it on accident, but for now:
             owner.ChangeState<ConfirmEndTurnState>();
         }
+    }
+
+    private void SelectNextUnit()
+    {
+        index = (index + 1) % units.Count;
+        owner.CurrentUnit = units[Alliances.Player][index];
+        Health health = owner.CurrentUnit.GetComponent<Health>();
+        if (health.KOd) 
+            SelectNextUnit();
+    }
+
+    private void SelectPreviousUnit()
+    {
+        index = (index - 1 + units.Count) % units.Count;
+        owner.CurrentUnit = units[Alliances.Player][index];
+        Health health = owner.CurrentUnit.GetComponent<Health>();
+        if (health.KOd) 
+            SelectPreviousUnit();
     }
 }
