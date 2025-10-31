@@ -12,6 +12,7 @@ public class StateMachine : MonoBehaviour
         set { Transition (value); }
     }
     private State _currentState;
+    private State _queuedState;
     private bool _inTransition;
 
     public virtual T GetState<T>() where T : State
@@ -30,8 +31,19 @@ public class StateMachine : MonoBehaviour
         CurrentState =  GetState<T>();
     }
 
+    public virtual void QueueState<T>() where T : State
+    {
+        _queuedState = GetState<T>();
+    }
+
     private void Transition(State newState)
     {
+        if (_queuedState != null)
+        {
+            newState = _queuedState;
+            _queuedState = null;
+        }
+
         if (_currentState == newState || _inTransition)
             return;
         _inTransition = true;

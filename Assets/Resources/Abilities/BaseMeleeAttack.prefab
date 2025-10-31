@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1440791081233537671}
   - component: {fileID: 494608838161273399}
   - component: {fileID: 4898000091258447419}
+  - component: {fileID: -5495957520587398003}
   m_Layer: 0
   m_Name: BaseMeleeAttack
   m_TagString: Untagged
@@ -104,3 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+--- !u!114 &-5495957520587398003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680744097621722787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b8bdcdc78b263439824ef34bc0b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 6263782476919498309, guid: 1fd2749f2a4056446881dce86ed70c39,
+    type: 3}
+  animationTime: 0

@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/15/25
- * Date Last Updated: 10/15/25
+ * Date Last Updated: 10/30/25
  * Summary: A class used to wrap the different parts of an ability (range, effect, target) and perform helpful functions
  */
 public class Ability : MonoBehaviour
@@ -19,6 +21,7 @@ public class Ability : MonoBehaviour
     private AbilityArea _area;
     private AbilityEffectTarget[] _targeters;
     private AbilityEffect _effect;
+    private AbilityParticle _particle;
     private Sigil _sigil;
     [HideInInspector] public bool isSigil => _sigil != null;
 
@@ -32,6 +35,7 @@ public class Ability : MonoBehaviour
         _area = GetComponent<AbilityArea>();
         _targeters = GetComponents<AbilityEffectTarget>();
         _effect = GetComponent<AbilityEffect>();
+        _particle = GetComponent<AbilityParticle>();
         _sigil = GetComponent<Sigil>();
     }
 
@@ -81,6 +85,29 @@ public class Ability : MonoBehaviour
             _effect.Apply(targetsInArea[i]);
 
         _mana.Drain(manaCost);
+    }
+
+    public IEnumerator Animate(Tile target)
+    {
+        if (_particle != null)
+        {
+            _particle.Play(target);
+            yield return new WaitForSeconds(_particle.animationTime + 0.5f);
+        }
+
+        else if (isSigil)
+        {
+            // this will depend on how we want to handle sigils
+            GameObject sigil = PlaceSigil(target);
+            yield return new WaitForSeconds(1f);
+            Destroy(sigil);
+        }
+
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        
     }
 
     public void PreviewSigil(Tile target)

@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/07/25
+ * Date Last Updated: 10/30/25
  * Summary: Base state for the BattleController
  */
 public abstract class BattleState : State
@@ -11,7 +11,7 @@ public abstract class BattleState : State
     protected BattleController owner;
     public TileManager tileManager => owner.tileManager;
     public LevelData levelData => owner.levelData;
-    public List<Unit> units => owner.units;
+    public Dictionary<Alliances, List<Unit>> units => owner.units;
     public AbilityMenuPanelController abilityMenuPanelController => owner.abilityMenuPanelController;
     public Tile HoveredTile => tileManager.HoveredTile;
     private PlayerInput playerInput;

@@ -2,7 +2,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/14/25
- * Date Last Updated: 10/14/25
+ * Date Last Updated: 10/30/25
  * Summary: Targets ally units with less than max health
  */
 public class HealableAbilityEffectTarget : AbilityEffectTarget
@@ -15,7 +15,7 @@ public class HealableAbilityEffectTarget : AbilityEffectTarget
         if (alliance == null || alliance != GetComponentInParent<Alliance>())
             return false;
         Health health = tile.content.GetComponent<Health>();
-        return health != null && health.currentHealth < health.maxHealth;
+        return health != null && !health.KOd && health.currentHealth < health.maxHealth;
     }
 
 }

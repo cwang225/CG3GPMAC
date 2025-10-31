@@ -15,7 +15,7 @@ MonoBehaviour:
   model: Enemy
   alliance: 1
   movementRange: 2
-  health: 60
+  health: 1
   mana: 0
   baseAttackRanged: 1
   abilities:

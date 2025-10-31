@@ -3,7 +3,7 @@ using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/14/25
+ * Date Last Updated: 10/31/25
  * Summary: The main state machine that loads and controls a battle/level
  */
 public class BattleController : StateMachine
@@ -13,8 +13,10 @@ public class BattleController : StateMachine
     public LevelData levelData;
     public AbilityMenuPanelController abilityMenuPanelController;
     public EndTurnDialog endTurnDialog;
-    
-    [HideInInspector] public List<Unit> units = new List<Unit>();
+    public GameObject placeholderLoseScreen;
+    public GameObject placeholderWinScreen;
+
+    [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
         get => _currentUnit;
         set
@@ -49,6 +51,36 @@ public class BattleController : StateMachine
 
     public void CheckForGameOver()
     {
-        // if all units in a faction (Player, Enemy) are dead, the game ends
+        // LATER: make win conditions and lose conditions something checkable from level setup
+        if (CheckWinCondition()) 
+        {
+            QueueState<PlayerWinState>();
+        } 
+        else if (CheckLoseCondition())
+        {
+            QueueState<PlayerLoseState>();
+        }
+    }
+
+    private bool CheckWinCondition()
+    {
+        foreach (Unit unit in units[Alliances.Enemy])
+        {
+            Health health = unit.GetComponent<Health>();
+            if (!health.KOd)
+                return false;
+        }
+        return true;
+    }
+
+    private bool CheckLoseCondition()
+    {
+        foreach (Unit unit in units[Alliances.Player])
+        {
+            Health health = unit.GetComponent<Health>();
+            if (!health.KOd)
+                return false;
+        }
+        return true;
     }
 }
