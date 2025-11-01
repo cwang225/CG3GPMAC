@@ -188,7 +188,7 @@ Units are now Knocked Out (KOd) when their health reaches zero, and they are no 
 
 In addition, the battle can now be won or lost. The player wins a level when all of the enemy units are KOd, and loses the battle when all friendly units are KOd. <img width="406" height="226" alt="image" src="https://github.com/user-attachments/assets/bcf7d3a7-7004-4376-8da4-78503b3fc829" />  
 
-Finally, some placeholder Enemy AI was put in. The Enemies will simply try to move towards the closest foe and then attack if there is a foe in range.
+Finally, some placeholder Enemy AI was put in. The Enemies will simply move to a random tile in range and then attack if there is a foe in range.
 
 ### Dialogue (Alex)
 I added dialogue popups which can be triggered by other game elements. Right now the dialogue is stored in a list of sequences of headshots and text directly in the C# source, and displays via the UI. The dialogue dialog has a "next" button which can be used to advance the dialogue and when it's clicked a final time it closes the dialog.
