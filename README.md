@@ -142,8 +142,6 @@ Level selection is navigated by pressing 'X' and having the levelselection menu 
 ![ezgif com-optimize](https://github.com/user-attachments/assets/ed8e7ee1-15d3-4b7c-a958-d668ae64cc3a)
 
 ## Project Part 2: 3D Scenes and Models  
-### Unit Models and Terrain (Carly)
-
 ### Sigil, Tile, and Magic Visuals (Alex)
 #### Summary of changes
 This portion of the project modifies the Sigil prefab to have a floor texture and a particle system. When sigils are placed, they have a static (i.e. not animated) texture over their area of effect. They also have small inverted crosses which emanate upwards for a short while before being deleted.
@@ -179,6 +177,7 @@ The player will select an ability to use, then click on which unit they want to 
 </div>
 The terrain surround the game was modeled using the Unity Terrain asset and a free rock repeating pattern.
 UI features were digitally drawn, including the new level selection view. The functionality remains the same. Other UI scenes were added as well, such as an end turn scene.
+
 ![ezgif com-optimize (1)](https://github.com/user-attachments/assets/812cc598-f3f5-4aa8-bfa4-9b97ee5eac00)
 
 ## Project Part 3: Lighting and Viusal Effects
@@ -199,8 +198,17 @@ I also added a simple crystal prop which can be used as scenery in the future. (
 
 ![](https://i.ibb.co/VWq5k8Hb/Screenshot-2025-10-31-200816.png)
 
+### Terrain, Shaders, Visual Effects (Carly)
+I worked on the terrain some more to add colors for the various planets. Spot lights were added to all of the crystals to make them look like they were glowing. Crystal models were grabbed from the unity asset store. Chromatic aberration and a vignette were added to give the scenes their own style. Particle systems were added to the crystals to increase their glow and magical like design. Skybox was also added from unity asset store. We used a customizable skybox to help ensure our environment looked good with the terrain. I started to incorporate the actual game into all of the scenes to see how each terrain adds to the overall gameplay. All scenes have gameplay added to them, and we are working on making the level selection navigate to each specific scene.
+
+Crystals:  <a href="https://assetstore.unity.com/packages/3d/props/stylized-crystal-77275">Unity Asset Store</a>
+Skybox:  <a href=" https://assetstore.unity.com/packages/2d/textures-materials/sky/customizable-skybox-174576">Unity Asset Store</a>
+
+Quick View of the 6 Planets :3
+![ezgif com-animated-gif-maker (1)](https://github.com/user-attachments/assets/9d103f53-7441-4c01-a345-dda5a4681bb3)
+
 ## Running Instructions
-Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
+Run the CarlyLevelSelection scene in the UIScenes Folder. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
 - Scrollwheel or left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
