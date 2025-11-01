@@ -183,11 +183,21 @@ UI features were digitally drawn, including the new level selection view. The fu
 
 ## Project Part 3: Lighting and Viusal Effects
 ### Ability Particles, KOs & Battle End, and Enemy AI (Megan)  
-Particles were added to most abilities (from https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565#description) and will play when the ability is performed. In the future, hopefully we can make them render on top of everything else for a better cartoon effect, and they will be tweaked for rotation and position. [screenshot]
-Units are now Knocked Out (KOd) when their health reaches zero, and they are no longer able to take turns and are shown as lying down for now. Later, fun death animation will be added and the unit will become grayed out on death to be clear. [screen shot]
-In addition, the battle can now be won or lost. The player wins a level when all of the enemy units are KOd, and loses the battle when all friendly units are KOd. [screen shot]
+Particles were added to most abilities (from https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-remaster-free-109565#description) and will play when the ability is performed. In the future, hopefully we can make them render on top of everything else for a better cartoon effect, and they will be tweaked for rotation and position. 
+Units are now Knocked Out (KOd) when their health reaches zero, and they are no longer able to take turns and are shown as lying down for now. Later, fun death animation will be added and the unit will become grayed out on death to be clear. <img width="50" height="31" alt="image" src="https://github.com/user-attachments/assets/7b4e1e01-a2f1-4ce8-841d-b0d263e34f9a" />  
+
+In addition, the battle can now be won or lost. The player wins a level when all of the enemy units are KOd, and loses the battle when all friendly units are KOd. <img width="406" height="226" alt="image" src="https://github.com/user-attachments/assets/bcf7d3a7-7004-4376-8da4-78503b3fc829" />  
+
 Finally, some placeholder Enemy AI was put in. The Enemies will simply try to move towards the closest foe and then attack if there is a foe in range.
 
+### Dialogue (Alex)
+I added dialogue popups which can be triggered by other game elements. Right now the dialogue is stored in a list of sequences of headshots and text directly in the C# source, and displays via the UI. The dialogue dialog has a "next" button which can be used to advance the dialogue and when it's clicked a final time it closes the dialog.
+
+![](https://i.ibb.co/PGfMQD3k/Screenshot-2025-10-31-195726.png)
+
+I also added a simple crystal prop which can be used as scenery in the future. (Note that the scale and number have not yet been decided, so for now it's about the size of a few tiles.)
+
+![](https://i.ibb.co/VWq5k8Hb/Screenshot-2025-10-31-200816.png)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
@@ -199,3 +209,4 @@ Controls:
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
+- Click the "next" button when it's on screen to advance through the test dialogue
