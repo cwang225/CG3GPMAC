@@ -193,6 +193,10 @@ I added dialogue popups which can be triggered by other game elements. Right now
 
 ![](https://i.ibb.co/PGfMQD3k/Screenshot-2025-10-31-195726.png)
 
+I also added a simple crystal prop which can be used as scenery in the future. (Note that the scale and number have not yet been decided, so for now it's about the size of a few tiles.)
+
+![](https://i.ibb.co/VWq5k8Hb/Screenshot-2025-10-31-200816.png)
+
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
