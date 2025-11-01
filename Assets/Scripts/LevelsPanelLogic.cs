@@ -98,10 +98,10 @@ public class LevelsPanelLogic : MonoBehaviour
 
         if (randomNumber <= 3)
         {
-            SceneManager.LoadScene("purplePlanet");
+            SceneManager.LoadScene("redPlanet");
         } else
         {
-            SceneManager.LoadScene("redPlanet");
+            SceneManager.LoadScene("purplePlanet");
         }
         
     }
