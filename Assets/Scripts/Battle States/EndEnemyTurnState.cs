@@ -10,6 +10,7 @@ public class EndEnemyTurnState : BattleState
     public override void Enter()
     {
         base.Enter();
+        print("End enemy turn");
         StartCoroutine(EndTurn());
     }
 

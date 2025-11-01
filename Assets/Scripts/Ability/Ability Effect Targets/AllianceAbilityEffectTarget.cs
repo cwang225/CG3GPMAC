@@ -13,7 +13,7 @@ public class AllianceAbilityEffectTarget : AbilityEffectTarget
         if (tile == null || tile.content == null)
             return false;
         Alliance alliance = tile.content.GetComponent<Alliance>();
-        if (alliance == null || !alliance.IsMatch(GetComponent<Alliance>(), target))
+        if (alliance == null || !alliance.IsMatch(GetComponentInParent<Alliance>(), target))
             return false;
         Health health = tile.content.GetComponent<Health>();
         return health != null && !health.KOd;

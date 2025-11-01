@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -13,11 +12,27 @@ public abstract class EnemyAI : MonoBehaviour
     protected Ability baseAttack;
     protected AbilityCatalog catalog;
 
-    private void Awake()
+    protected string actionType; //todo: change to enum or something better
+    protected Tile actionTarget;
+
+    private void Start()
     {
         enemy = GetComponent<Turn>();
         movement = GetComponent<Movement>();
-        
+        baseAttack =  GetComponentInChildren<Ability>();
+        catalog = GetComponentInChildren<AbilityCatalog>();
     }
-    public abstract Ability GetNextAction();
+    
+    public abstract void PlanNextAction(TileManager tileManager);
+
+    public string GetActionType()
+    {
+        return actionType;
+    }
+
+    public Tile GetActionTarget()
+    {
+        return actionTarget;
+    }
+    
 }

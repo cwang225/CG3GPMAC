@@ -11,6 +11,10 @@ public class Alliance : MonoBehaviour
 
     public bool IsMatch(Alliance other, Targets target)
     {
+        if (other == null)
+        {
+            return false;
+        }
         if (target == Targets.Ally)
         {
             return type == other.type;

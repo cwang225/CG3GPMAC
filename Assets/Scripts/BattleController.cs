@@ -41,7 +41,7 @@ public class BattleController : StateMachine
     private Unit _currentUnit;
     [HideInInspector] public Turn turn;
     [HideInInspector] public Ability ability;
-
+    [HideInInspector] public Alliances allianceTurn;
     [HideInInspector] public Tile currentTile;
 
     void Start()
