@@ -26,13 +26,13 @@ public class StupidEnemyAI : EnemyAI
             for (int i = 0; i < attackRange.Count; i++)
             {
                 Tile tile = attackRange[i];
-                List<Tile> attackArea = baseAttack.GetTilesInArea(tileManager, tile);
-                List<Tile> targets = baseAttack.GetTargetsInArea(attackArea);
+                baseAttack.tilesInArea = baseAttack.GetTilesInArea(tileManager, tile);
+                baseAttack.targetsInArea = baseAttack.GetTargetsInArea(baseAttack.tilesInArea);
 
-                if (targets.Count > 0)
+                if (baseAttack.targetsInArea.Count > 0)
                 {
                     actionType = "Attack";
-                    actionTarget = targets[0];
+                    actionTarget = baseAttack.targetsInArea[0];
                     return;
                 }
                 else

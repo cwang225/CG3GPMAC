@@ -16,6 +16,8 @@ public class DamageAbilityEffect : AbilityEffect
     
     public override void Apply(Tile target)
     {
+        Debug.Log("Applying damage to: " + target + 
+                  " | Content: " + (target.content ? target.content.name : "NULL"));
         Health targetHealth = target.content.GetComponent<Health>();
         int damage = Predict(target);
         targetHealth.Damage(damage);
