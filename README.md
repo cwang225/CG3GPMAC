@@ -113,7 +113,8 @@ By Oct 31:
 ### Project Checkpoint 3-4: Sound, UI, and Animation
 By Nov 14:  
 - Interpolate movement and attack animations (Megan)
-- 
+- Game UI Design and Implementation (Carly)
+- Sound Design (Alex)
 
 # Development
 
