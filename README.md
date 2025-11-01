@@ -202,7 +202,8 @@ I also added a simple crystal prop which can be used as scenery in the future. (
 I worked on the terrain some more to add colors for the various planets. Spot lights were added to all of the crystals to make them look like they were glowing. Crystal models were grabbed from the unity asset store. Chromatic aberration and a vignette were added to give the scenes their own style. Particle systems were added to the crystals to increase their glow and magical like design. Skybox was also added from unity asset store. We used a customizable skybox to help ensure our environment looked good with the terrain. I started to incorporate the actual game into all of the scenes to see how each terrain adds to the overall gameplay. All scenes have gameplay added to them, and we are working on making the level selection navigate to each specific scene.
 
 Crystals:  <a href="https://assetstore.unity.com/packages/3d/props/stylized-crystal-77275">Unity Asset Store</a>
-Skybox:  <a href=" https://assetstore.unity.com/packages/2d/textures-materials/sky/customizable-skybox-174576">Unity Asset Store</a>
+<br><br>
+Skybox:  <a href="https://assetstore.unity.com/packages/2d/textures-materials/sky/customizable-skybox-174576">Unity Asset Store</a>
 
 Quick View of the 6 Planets :3
 ![ezgif com-animated-gif-maker (1)](https://github.com/user-attachments/assets/9d103f53-7441-4c01-a345-dda5a4681bb3)
