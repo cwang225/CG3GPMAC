@@ -15,6 +15,8 @@ public class StartPlayerTurnState : BattleState
 
     IEnumerator Setup()
     {
+        owner.allianceTurn = Alliances.Player;
+        
         foreach (Unit unit in units[Alliances.Player])
         {
             Health health = unit.GetComponent<Health>();

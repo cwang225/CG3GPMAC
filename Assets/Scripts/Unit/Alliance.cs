@@ -8,4 +8,17 @@ using UnityEngine;
 public class Alliance : MonoBehaviour
 {
     public Alliances type;
+
+    public bool IsMatch(Alliance other, Targets target)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        if (target == Targets.Ally)
+        {
+            return type == other.type;
+        }
+        return type != other.type;
+    }
 }

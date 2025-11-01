@@ -2,7 +2,7 @@ using System.Collections;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/14/25
+ * Date Last Updated: 10/31/25
  * Summary: A state to allow the current move to animate uninterupted
  */
 public class MoveSequenceState : BattleState
@@ -19,6 +19,10 @@ public class MoveSequenceState : BattleState
         Movement movement = owner.CurrentUnit.GetComponent<Movement>();
         yield return StartCoroutine(movement.Traverse(owner.currentTile));
         tileManager.SelectTile(owner.currentTile);
-        owner.ChangeState<SelectActionState>();
+        
+        if (owner.allianceTurn == Alliances.Player)
+            owner.ChangeState<SelectActionState>();
+        else
+            owner.ChangeState<EnemySelectActionState>();
     }
 }
