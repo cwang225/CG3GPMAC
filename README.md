@@ -188,6 +188,10 @@ Units are now Knocked Out (KOd) when their health reaches zero, and they are no 
 In addition, the battle can now be won or lost. The player wins a level when all of the enemy units are KOd, and loses the battle when all friendly units are KOd. [screen shot]
 Finally, some placeholder Enemy AI was put in. The Enemies will simply try to move towards the closest foe and then attack if there is a foe in range.
 
+### Dialogue (Alex)
+I added dialogue popups which can be triggered by other game elements. Right now the dialogue is stored in a list of sequences of headshots and text directly in the C# source, and displays via the UI. The dialogue dialog has a "next" button which can be used to advance the dialogue and when it's clicked a final time it closes the dialog.
+
+![](https://i.ibb.co/PGfMQD3k/Screenshot-2025-10-31-195726.png)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
@@ -199,6 +203,4 @@ Controls:
 - E to select if using scrollwheel/keyboard
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
-
-### Dialogue (Alex)
-I added dialogue popups which can be triggered by other game elements. Right now the dialogue is stored in a list of sequences of headshots and text directly in the C# source, and displays via the UI. The dialogue dialog has a "next" button which can be used to advance the dialogue and when it's clicked a final time it closes the dialog.
+- Click the "next" button when it's on screen to advance through the test dialogue
