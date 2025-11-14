@@ -1225,6 +1225,7 @@ MonoBehaviour:
   placeholderWinScreen: {fileID: 1227302819}
   turn: {fileID: 0}
   ability: {fileID: 0}
+  allianceTurn: 0
   currentTile: {fileID: 0}
 --- !u!114 &1478504551
 MonoBehaviour:

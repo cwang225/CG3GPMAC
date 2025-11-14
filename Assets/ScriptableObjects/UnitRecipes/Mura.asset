@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8eed3fbd427d1249801c7b0dcfcc3c4, type: 3}
-  m_Name: Cat
+  m_Name: Mura
   m_EditorClassIdentifier: 
-  model: Cat
+  model: Player
   alliance: 0
-  movementRange: 4
-  health: 60
-  mana: 60
+  movementRange: 2
+  health: 100
+  mana: 100
   baseAttackRanged: 0
   abilities:
-  - Whirlwind Slash
+  - Damage Sigil
+  - Heal Self
+  - Heal Sigil

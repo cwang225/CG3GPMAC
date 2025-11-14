@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8eed3fbd427d1249801c7b0dcfcc3c4, type: 3}
-  m_Name: Player
+  m_Name: Knifer
   m_EditorClassIdentifier: 
-  model: Player
-  alliance: 0
+  model: Knifer
+  alliance: 1
   movementRange: 2
-  health: 100
-  mana: 100
+  health: 1
+  mana: 0
   baseAttackRanged: 0
-  abilities:
-  - Damage Sigil
-  - Heal Self
-  - Heal Sigil
+  abilities: []

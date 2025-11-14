@@ -101,6 +101,7 @@ public class LevelTilemapCreator : MonoBehaviour
                 instance.transform.parent = transform;
                 Unit unit = instance.GetComponent<Unit>();
                 unit.Place(tiles[pos]);
+                unit.Match();
                 units.Add(pos, unitToPlace);
             }
         }
