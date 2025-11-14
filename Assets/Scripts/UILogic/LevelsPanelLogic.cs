@@ -7,14 +7,17 @@ using UnityEngine.UI;
 
 /*
 This file controls the level selection scene that allows users to see which level they can choose
+
 */
 
 public class LevelsPanelLogic : MonoBehaviour
 {
     // Gameobject for the entire panel
+    [Header("Panel")]
     public GameObject levelsPanel;
 
     // Buttons for the levels
+    [Header("Level Buttons")]
     public Button levelButton1;
     public Button levelButton2;
     public Button levelButton3;
@@ -22,7 +25,9 @@ public class LevelsPanelLogic : MonoBehaviour
     public Button levelButton5;
     public Button levelButton6;
 
+
     //play button for the next scene
+    [Header("Play Button")]
     public GameObject playButton;
     Boolean isLevelPanelActive = false;
     int clicked = 0;
@@ -79,23 +84,28 @@ public class LevelsPanelLogic : MonoBehaviour
         if (clicked == 0)
         {
             SceneManager.LoadScene("redPlanet");
-        } else if (clicked == 1)
+        }
+        else if (clicked == 1)
         {
             SceneManager.LoadScene("greenPlanet");
-        } else if (clicked == 2)
+        }
+        else if (clicked == 2)
         {
             SceneManager.LoadScene("orangePlanet");
-        } else if (clicked == 3)
+        }
+        else if (clicked == 3)
         {
             SceneManager.LoadScene("blackPlanet");
-        } else if (clicked == 4)
+        }
+        else if (clicked == 4)
         {
             SceneManager.LoadScene("bluePlanet");
-        } else
+        }
+        else
         {
             SceneManager.LoadScene("purplePlanet");
         }
-        
+
     }
 
     void OnDestroy()
