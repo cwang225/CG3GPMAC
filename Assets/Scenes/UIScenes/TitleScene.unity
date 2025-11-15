@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 2004903243}
   - component: {fileID: 2004903242}
   - component: {fileID: 2004903241}
+  - component: {fileID: 2004903244}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -858,6 +859,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004903239}
   m_CullTransparentMesh: 1
+--- !u!114 &2004903244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004903239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2088666723}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!82 &2088666723 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2088046135008854267, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+    type: 3}
+  m_PrefabInstance: {fileID: 5737980220817506224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5737980220817506224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 207
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068116513478235160, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409170652934395591, guid: 238bc4e99fecfc640a5a9ba0a14db623,
+        type: 3}
+      propertyPath: m_Name
+      value: Title Screen Audio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 238bc4e99fecfc640a5a9ba0a14db623, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -866,3 +970,4 @@ SceneRoots:
   - {fileID: 1506387815}
   - {fileID: 952172040}
   - {fileID: 956302291}
+  - {fileID: 5737980220817506224}

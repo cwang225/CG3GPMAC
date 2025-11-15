@@ -28,6 +28,7 @@ public class BattleController : StateMachine
 
     private BattleCameraController battleCameraController;
 
+    public GameObject levelAudio;
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
         get => _currentUnit;
