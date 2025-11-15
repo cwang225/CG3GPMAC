@@ -121,6 +121,11 @@ By Dec 1:
 - Camera zoom in for attack animations (Megan)
 - Better AI (move towards player instead of random) (Megan)
 - Juice attack and sigil animations, camera shake (Megan)
+- Updated UI aesthetics (Carly)
+- More integrated UI with code (Carly)
+- Model Animations ?? (Carly)
+- Battle Music (Alex)
+- Transition Music (Alex)
 
 # Development
 
