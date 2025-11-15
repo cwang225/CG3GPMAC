@@ -20,6 +20,8 @@ public class BattleController : StateMachine
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
     public TMP_Text PlayerMovesLeft;
+    public int counter = 0;
+    public TMP_Text MovesCounter;
     public GameObject enemyTurnPopUp;
     public GameObject playerTurnPopUp;
     public TMP_Text turnStatus;

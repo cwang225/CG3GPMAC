@@ -6347,6 +6347,8 @@ MonoBehaviour:
   playerStatisticsPanel: {fileID: 758580934}
   PlayerHP: {fileID: 758580935}
   PlayerMovesLeft: {fileID: 758580936}
+  counter: 0
+  MovesCounter: {fileID: 1109668595}
   enemyTurnPopUp: {fileID: 1878258460}
   playerTurnPopUp: {fileID: 1872051912}
   turnStatus: {fileID: 1109668594}
@@ -12777,6 +12779,18 @@ PrefabInstance:
 --- !u!114 &1109668594 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9040918306269656086, guid: a8d8fce24a25e8e4fa6edde05faed530,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109668593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1109668595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3030953383643326951, guid: a8d8fce24a25e8e4fa6edde05faed530,
     type: 3}
   m_PrefabInstance: {fileID: 1109668593}
   m_PrefabAsset: {fileID: 0}

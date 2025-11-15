@@ -9,6 +9,7 @@ using UnityEngine;
  */
 public class EndPlayerTurnState : BattleState
 {
+    public TMP_Text movesCounter;
     public override void Enter()
     {
         base.Enter();
@@ -19,6 +20,8 @@ public class EndPlayerTurnState : BattleState
     {
         // later we'll probably add an animation
         yield return null;
+        owner.counter++;
+        owner.MovesCounter.text = "Moves done: " + owner.counter;
         owner.ChangeState<StartEnemyTurnState>();
     }
 }
