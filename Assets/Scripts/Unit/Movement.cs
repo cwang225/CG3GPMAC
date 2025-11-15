@@ -11,15 +11,27 @@ using DG.Tweening;
 public class Movement : MonoBehaviour
 {
     public int range;
+
     private Unit _unit;
     private Alliances _alliance;
     private List<Tile> currentPath;
-    private Tween tween;
+
+    private Transform visualRoot; // child for tilting
+
+    [Header("Movement Settings")]
+    public float tileMoveDuration = 0.25f; // per tile
+    public float pathEaseDurationMultiplier = 1f; // duration = tileMoveDuration * (tiles-1)
+    public float tiltAngle = -10f;
+    public float tiltEaseDuration = 0.1f; // duration for tilt in/out
+    public Ease moveEase = Ease.InOutSine;
+    public float turnDuration = 0.15f;
 
     void Awake()
     {
         _unit = GetComponent<Unit>();
         _alliance = GetComponent<Alliance>().type;
+
+        visualRoot = transform.GetChild(0);
     }
 
     /*
@@ -55,13 +67,14 @@ public class Movement : MonoBehaviour
             if (tiles[i].content != null)
                 tiles.RemoveAt(i);
     }
-    
+
     /*
      * Movement animation
      */
+
     public IEnumerator Traverse(Tile target)
     {
-        // animate the movement by going through the path
+        // Build tile list (same as before)
         currentPath = new List<Tile>();
         while (target != null)
         {
@@ -69,70 +82,107 @@ public class Movement : MonoBehaviour
             target = target.prev;
         }
 
-        //for (int i = 1; i < path.Count; i++)
-        //{
-        //    Tile from = path[i - 1];
-        //    Tile to = path[i];
-        //    Directions dir = to.GetDirection(from);
-        //    if (_unit.dir != dir)
-        //        yield return StartCoroutine(Turn(dir));
-        //    yield return StartCoroutine(Walk(to));
-        //}
-
-        yield return StartCoroutine(TweenPath(currentPath));
+        yield return AnimateSegments(currentPath);
     }
 
-    private IEnumerator TweenPath(List<Tile> path)
+    private IEnumerator AnimateSegments(List<Tile> path)
     {
-        Vector3[] pathNodes = new Vector3[path.Count];
-        for (int i = 0; i < path.Count; i++)
+        List<List<Tile>> segments = SplitIntoStraightSegments(path);
+
+        foreach (var seg in segments)
         {
-            pathNodes[i] = path[i].Center + new Vector3(0, 2.5f, 0);
+            Tile start = seg[0];
+            Tile end = seg[seg.Count - 1];
+
+            // Determine direction for this segment
+            Directions segDir = end.GetDirection(start);
+
+            // Rotate parent toward segment direction if needed
+            if (_unit.dir != segDir)
+            {
+                yield return StartCoroutine(RotateTo(segDir));
+                _unit.dir = segDir;
+            }
+
+            // Move along the segment
+            Vector3[] positions = new Vector3[seg.Count];
+            for (int i = 0; i < seg.Count; i++)
+                positions[i] = seg[i].Center + new Vector3(0, 2.5f, 0);
+
+            float duration = tileMoveDuration * (seg.Count - 1) * pathEaseDurationMultiplier;
+
+            // Create movement tween
+            Tween moveTween = transform.DOPath(positions, duration, PathType.Linear)
+                .SetEase(moveEase);
+
+            // Create tilt sequence that matches movement duration
+            Sequence tiltSeq = DOTween.Sequence();
+            tiltSeq.Append(visualRoot.DOLocalRotate(new Vector3(tiltAngle, 0, 0), tiltEaseDuration).SetEase(Ease.OutSine)); // ease in
+            tiltSeq.AppendInterval(duration - 2 * tiltEaseDuration); // stay tilted
+            tiltSeq.Append(visualRoot.DOLocalRotate(Vector3.zero, tiltEaseDuration).SetEase(Ease.InSine)); // ease out
+
+            // Start both tweens simultaneously
+            moveTween.Play();
+            tiltSeq.Play();
+
+            yield return moveTween.WaitForCompletion();
+
+            // End of segment: place unit, ensure tilt reset
+            _unit.Place(end);
+            visualRoot.localRotation = Quaternion.identity;
+        }
+    }
+
+    // ----------------------
+    // Rotation helper
+    // ----------------------
+    private IEnumerator RotateTo(Directions dir)
+    {
+        Tween rotTween = transform.DORotate(dir.ToEuler(), turnDuration)
+            .SetEase(Ease.OutSine);
+        yield return rotTween.WaitForCompletion();
+    }
+
+    // ----------------------
+    // Split path into straight segments
+    // ----------------------
+    private List<List<Tile>> SplitIntoStraightSegments(List<Tile> path)
+    {
+        List<List<Tile>> result = new List<List<Tile>>();
+        List<Tile> current = new List<Tile>();
+        current.Add(path[0]);
+
+        Directions? lastDir = null;
+
+        for (int i = 1; i < path.Count; i++)
+        {
+            Tile prev = path[i - 1];
+            Tile next = path[i];
+            Directions dir = next.GetDirection(prev);
+
+            if (lastDir == null)
+            {
+                lastDir = dir;
+                current.Add(next);
+            }
+            else if (dir == lastDir)
+            {
+                current.Add(next);
+            }
+            else
+            {
+                result.Add(new List<Tile>(current));
+                current.Clear();
+                current.Add(prev);
+                current.Add(next);
+                lastDir = dir;
+            }
         }
 
-        tween = transform.DOPath(pathNodes, 0.25f * path.Count).OnWaypointChange(AnimateWaypoint);
-        yield return tween.WaitForCompletion();
+        result.Add(current);
+        return result;
     }
 
-    private void AnimateWaypoint(int waypointIndex)
-    {
-        // calculate the direction of the next tile
-        Tile target = currentPath[waypointIndex];
-        Directions dir = target.GetDirection(_unit.tile);
-        // turn if we need to
-        if (_unit.dir != dir)
-        {
-            tween.Pause();
-            StartCoroutine(Turn(dir));
-        }
-        // move to new tile in logic
-        _unit.Place(target);
-        
-    }
 
-    private IEnumerator Walk(Tile target)
-    {
-        // tween this later, for now just teleporting
-        _unit.Place(target);
-        yield return StartCoroutine(TweenMovement(target));
-    }
 
-    private IEnumerator TweenMovement(Tile target)
-    {
-        Tween tween = transform.DOMove(target.Center + new Vector3(0, 2.5f, 0), 0.25f);
-        yield return tween.WaitForCompletion();
-    }
-
-    private IEnumerator Turn(Directions dir)
-    {
-        _unit.dir = dir;
-        yield return StartCoroutine(TweenRotation(dir));
-    }
-
-    private IEnumerator TweenRotation(Directions dir)
-    {
-        Tween tween = transform.DORotate(dir.ToEuler(), 0.15f);
-        yield return tween.WaitForCompletion();
-        tween.TogglePause();
-    }
 }
