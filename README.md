@@ -225,8 +225,13 @@ I also differentiated between Melee and Ranged enemies by adding a gun to the ra
 ### Music and Sound Effects (Alex)
 I added both music and sound effects to this iteration of the project. The main menu, the level select screen, and each level has its own unique piano backing track. There are sound effects for UI and game elements both, including per-attack-type sound effects (melee, harming magic, healing magic, sigils) and sounds for buttons (hover, click.) Each level has an object which stores audio sources for each sound. Sounds can be heard upon starting the level (for music), upon accessing a menu (for buttons) or upon player characters or enemies taking action.
 
+### Updated UI and UI to Code Connections (Carly)
+Worked to enhance the post processing effects in all the scenes, as well as add player and enemy UI to indicate a moves counter and how much HP each unit had left. Players can now see when it is their turn and how many moves they have taken. In the future, we may have restrictions on how many moves should or can be taken to complete a round (aiming to nudge players towards an optimal amount of moves).
+![ezgif com-animated-gif-maker (2)](https://github.com/user-attachments/assets/d3e42158-1340-42c3-b059-c6576d997c9c)
+
+
 ## Running Instructions
-Run the CarlyLevelSelection scene in the UIScenes Folder. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
+Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
 - Scrollwheel or left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
@@ -236,3 +241,5 @@ Controls:
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
 - Click the "next" button when it's on screen to advance through the test dialogue
+Notes: There may be some issues in how the player stats appear (HP and name); for the black cat model, just select attack and click the squares closest to where the model was.
+
