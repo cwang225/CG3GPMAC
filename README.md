@@ -217,10 +217,10 @@ Quick View of the 6 Planets :3
 
 ## Project Checkpoint 3-4:
 ### Movement/Attack Animations and Basic Camera Movement (Megan)
-For movement animations, I adapted the current tile-by-tile movement to instead tween movement through the path of tiles. In addition, the character tilts to look like it's running. (add gif)  
-For attacks/sigils, the animation is mainly the particles (different for each ability) and a bullet added to ranged attacks, and in the future the camera will also zoom in to show it better. I also plan on adding extra juice to these animations, including things like the character flashing red upon taking damage and shaking a bit.   
-For basic camera movement, I set up Cinemachine in our project to allow the player to pan/zoom the camera during their turn. The camera will also snap to the current unit. (gif)  
-I also differentiated between Melee and Ranged enemies by adding a gun to the ranged enemy and sword to the melee enemy. (PICTURE)
+For movement animations, I adapted the current tile-by-tile movement to instead tween movement through the path of tiles. In addition, the character tilts to look like it's running.
+For attacks/sigils, the animation is mainly the particles (different for each ability). In the future I want to add bullets to ranged attacks and have the camera zoom in to show it better. I also plan on adding extra juice to these animations, including things like the character flashing red upon taking damage and shaking a bit.   
+For basic camera movement, I set up Cinemachine in our project to allow the player to pan/zoom the camera during their turn. The camera will also snap to the current unit and follow it's movements. Lots to do still on smoothing it out and making adjustments.
+I also differentiated between Melee and Ranged enemies by adding a gun to the ranged enemy and sword to the melee enemy.
 
 ### Music and Sound Effects (Alex)
 I added both music and sound effects to this iteration of the project. The main menu, the level select screen, and each level has its own unique piano backing track. There are sound effects for UI and game elements both, including per-attack-type sound effects (melee, harming magic, healing magic, sigils) and sounds for buttons (hover, click.) Each level has an object which stores audio sources for each sound. Sounds can be heard upon starting the level (for music), upon accessing a menu (for buttons) or upon player characters or enemies taking action.
@@ -231,9 +231,10 @@ Worked to enhance the post processing effects in all the scenes, as well as add 
 
 
 ## Running Instructions
-Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.
+Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> blackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
+~~Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.~~
 Controls:
-- Scrollwheel or left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
+- Left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
 - Click on an action to select it
 - Hover over tile and click to select tile for movement or ability
@@ -241,5 +242,8 @@ Controls:
 - Right click or Q to cancel
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
 - Click the "next" button when it's on screen to advance through the test dialogue
-Notes: There may be some issues in how the player stats appear (HP and name); for the black cat model, just select attack and click the squares closest to where the model was.
+- WASD to pan camera, scroll wheel to zoom camera
+Notes:
+Have to not be selecting a unit to be able to pan/zoom camera  
+There may be some issues in how the player stats appear (HP and name); for the black cat model, just select attack and click the squares closest to where the model was.
 
