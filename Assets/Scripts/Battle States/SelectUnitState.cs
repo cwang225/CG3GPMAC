@@ -13,7 +13,8 @@ public class SelectUnitState : BattleState
     public override void Enter()
     {
         base.Enter();
-        index = -1;
+        index = 0;
+        owner.CurrentUnit = owner.units[Alliances.Player][0];
         CheckPlayerTurnEnd();
     }
 

@@ -37,6 +37,7 @@ public class EnemySelectUnitState : BattleState
         else
         {
             i = -1;
+            owner.CurrentUnit = null;
             print("Ending enemy turn");
             owner.ChangeState<EndEnemyTurnState>();
         }
