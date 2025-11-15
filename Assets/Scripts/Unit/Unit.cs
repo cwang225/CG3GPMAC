@@ -33,8 +33,6 @@ public class Unit : MonoBehaviour
         {
             target.content = gameObject;
         }
-
-        Match();
     }
 
     // Update visuals for new position/direction

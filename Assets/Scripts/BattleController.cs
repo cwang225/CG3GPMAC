@@ -26,6 +26,7 @@ public class BattleController : StateMachine
     public GameObject playerTurnPopUp;
     public TMP_Text turnStatus;
 
+    private BattleCameraController battleCameraController;
 
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
@@ -44,15 +45,21 @@ public class BattleController : StateMachine
             _currentUnit = value;
 
             // Select new unit if any
-            if (_currentUnit != null) {
+            if (_currentUnit != null)
+            {
                 turn = _currentUnit.GetComponent<Turn>();
                 _currentUnit.selection.SetSelected(true);
                 tileManager.SelectTile(_currentUnit.tile);
                 playerStatisticsPanel.SetActive(true);
                 Health playerHealth = _currentUnit.GetComponent<Health>();
                 PlayerHP.text = "HP: " + playerHealth.currentHealth.ToString() + "/" + playerHealth.maxHealth;
+                battleCameraController.SetFollowTarget(_currentUnit.transform);
             }
-            else tileManager.DeselectTile();
+            else
+            {
+                tileManager.DeselectTile();
+                battleCameraController.ReturnToFreeCamera();
+            }
         }
     }
     private Unit _currentUnit;
@@ -63,6 +70,7 @@ public class BattleController : StateMachine
 
     void Start()
     {
+        battleCameraController = GetComponent<BattleCameraController>();
         ChangeState<LoadBattleState>();
     }
 

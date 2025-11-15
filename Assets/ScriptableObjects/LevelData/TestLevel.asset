@@ -18,7 +18,7 @@ MonoBehaviour:
     isRamp: 0
     rampDirection: 0
   - coord: {x: 1, y: 0}
-    elevation: 0
+    elevation: 2
     isRamp: 0
     rampDirection: 0
   - coord: {x: 2, y: 0}
@@ -1214,11 +1214,15 @@ MonoBehaviour:
     isRamp: 0
     rampDirection: 0
   units:
-  - coord: {x: 2, y: 1}
-    recipe: {fileID: 11400000, guid: 105b0b818a324274ca7224ebafcc321a, type: 2}
-  - coord: {x: 3, y: 3}
+  - coord: {x: 3, y: 4}
     recipe: {fileID: 11400000, guid: 2aefebd9e57d569449e2fcbb2f4b9b45, type: 2}
-  - coord: {x: 4, y: 2}
+  - coord: {x: 4, y: 4}
+    recipe: {fileID: 11400000, guid: 105b0b818a324274ca7224ebafcc321a, type: 2}
+  - coord: {x: 4, y: 8}
+    recipe: {fileID: 11400000, guid: c7e98cdb403107644b320e0306fc41f5, type: 2}
+  - coord: {x: 3, y: 8}
+    recipe: {fileID: 11400000, guid: c7e98cdb403107644b320e0306fc41f5, type: 2}
+  - coord: {x: 5, y: 11}
     recipe: {fileID: 11400000, guid: a8107c55abc1e2a49acb3d0ae6d32f07, type: 2}
-  - coord: {x: 1, y: 1}
+  - coord: {x: 2, y: 11}
     recipe: {fileID: 11400000, guid: a8107c55abc1e2a49acb3d0ae6d32f07, type: 2}

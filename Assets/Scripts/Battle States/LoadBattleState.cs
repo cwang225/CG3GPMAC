@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/30/25
+ * Date Last Updated: 11/14/25
  * Summary: The first state in a battle, loads the LevelData and initializes TileManager
  */
 public class LoadBattleState : BattleState
@@ -19,6 +20,7 @@ public class LoadBattleState : BattleState
     {
         tileManager.Load(levelData);
         SpawnUnits();
+        DOTween.Init();
         yield return null;
         owner.ChangeState<StartPlayerTurnState>();
     }
