@@ -116,6 +116,12 @@ By Nov 14:
 - Game UI Design and Implementation (Carly)
 - Sound Design (Alex)
 
+### Project Part 4: Finishing Touches
+By Dec 1:
+- Camera zoom in for attack animations (Megan)
+- Better AI (move towards player instead of random) (Megan)
+- Juice attack and sigil animations, camera shake (Megan)
+
 # Development
 
 ## Project Checkpoint 1-2:
@@ -208,6 +214,13 @@ Skybox:  <a href="https://assetstore.unity.com/packages/2d/textures-materials/sk
 
 Quick View of the 6 Planets :3
 ![ezgif com-animated-gif-maker (1)](https://github.com/user-attachments/assets/9d103f53-7441-4c01-a345-dda5a4681bb3)
+
+## Project Checkpoint 3-4:
+### Movement/Attack Animations and Basic Camera Movement (Megan)
+For movement animations, I adapted the current tile-by-tile movement to instead tween movement through the path of tiles. In addition, the character tilts to look like it's running. (add gif)  
+For attacks/sigils, the animation is mainly the particles (different for each ability) and a bullet added to ranged attacks, and in the future the camera will also zoom in to show it better. I also plan on adding extra juice to these animations, including things like the character flashing red upon taking damage and shaking a bit.   
+For basic camera movement, I set up Cinemachine in our project to allow the player to pan/zoom the camera during their turn. The camera will also snap to the current unit. (gif)  
+I also differentiated between Melee and Ranged enemies by adding a gun to the ranged enemy and sword to the melee enemy. (PICTURE)
 
 ## Running Instructions
 Run the CarlyLevelSelection scene in the UIScenes Folder. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
