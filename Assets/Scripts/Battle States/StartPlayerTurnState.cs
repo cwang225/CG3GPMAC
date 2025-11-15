@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/07/25
@@ -7,6 +8,7 @@ using System.Collections;
  */
 public class StartPlayerTurnState : BattleState
 {
+    public GameObject playerTurnPopUp;
     public override void Enter()
     {
         base.Enter();
@@ -27,7 +29,9 @@ public class StartPlayerTurnState : BattleState
             }
         }
         // later we'll probably add an animation and change the round if we want to display that
-        yield return null;
+        owner.playerTurnPopUp.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        owner.playerTurnPopUp.SetActive(false);
         owner.ChangeState<SelectUnitState>();
     }
 }

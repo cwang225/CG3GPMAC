@@ -7,6 +7,8 @@ using UnityEngine;
  * Summary: Sets up anything we need for enemy turn and plays an animation
  */
 public class StartEnemyTurnState : BattleState {
+
+    public GameObject enemyTurnPopUp;
     public override void Enter()
     {
         base.Enter();
@@ -26,7 +28,9 @@ public class StartEnemyTurnState : BattleState {
                 turn.ResetTurn();
             }
         }
-        yield return new WaitForSeconds(1f);
+        owner.enemyTurnPopUp.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        owner.enemyTurnPopUp.SetActive(false);
         owner.ChangeState<EnemySelectUnitState>();
     }
 }

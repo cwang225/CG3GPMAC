@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -15,6 +16,13 @@ public class BattleController : StateMachine
     public EndTurnDialog endTurnDialog;
     public GameObject placeholderLoseScreen;
     public GameObject placeholderWinScreen;
+    [Header("UI Components")]
+    public GameObject playerStatisticsPanel;
+    public TMP_Text PlayerHP;
+    public TMP_Text PlayerMovesLeft;
+    public GameObject enemyTurnPopUp;
+    public GameObject playerTurnPopUp;
+
 
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
@@ -25,7 +33,10 @@ public class BattleController : StateMachine
 
             // Deselect current unit if any
             if (_currentUnit != null)
+            {
                 _currentUnit.selection.SetSelected(false);
+                playerStatisticsPanel.SetActive(false);
+            }
 
             _currentUnit = value;
 
@@ -34,6 +45,9 @@ public class BattleController : StateMachine
                 turn = _currentUnit.GetComponent<Turn>();
                 _currentUnit.selection.SetSelected(true);
                 tileManager.SelectTile(_currentUnit.tile);
+                playerStatisticsPanel.SetActive(true);
+                Health playerHealth = _currentUnit.GetComponent<Health>();
+                PlayerHP.text = "HP: " + playerHealth.currentHealth.ToString() + "/" + playerHealth.maxHealth;
             }
             else tileManager.DeselectTile();
         }
