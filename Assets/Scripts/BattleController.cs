@@ -15,6 +15,7 @@ public class BattleController : StateMachine
     public EndTurnDialog endTurnDialog;
     public GameObject placeholderLoseScreen;
     public GameObject placeholderWinScreen;
+    private BattleCameraController battleCameraController;
 
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
@@ -25,17 +26,25 @@ public class BattleController : StateMachine
 
             // Deselect current unit if any
             if (_currentUnit != null)
+            {
                 _currentUnit.selection.SetSelected(false);
+            }
 
             _currentUnit = value;
 
             // Select new unit if any
-            if (_currentUnit != null) {
+            if (_currentUnit != null)
+            {
                 turn = _currentUnit.GetComponent<Turn>();
                 _currentUnit.selection.SetSelected(true);
                 tileManager.SelectTile(_currentUnit.tile);
+                battleCameraController.SetFollowTarget(_currentUnit.transform);
             }
-            else tileManager.DeselectTile();
+            else
+            {
+                tileManager.DeselectTile();
+                battleCameraController.ReturnToFreeCamera();
+            }
         }
     }
     private Unit _currentUnit;
@@ -46,6 +55,7 @@ public class BattleController : StateMachine
 
     void Start()
     {
+        battleCameraController = GetComponent<BattleCameraController>();
         ChangeState<LoadBattleState>();
     }
 
