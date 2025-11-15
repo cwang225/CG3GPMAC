@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -9,6 +10,7 @@ using UnityEngine;
 public class StartEnemyTurnState : BattleState {
 
     public GameObject enemyTurnPopUp;
+    public TMP_Text turnStatus;
     public override void Enter()
     {
         base.Enter();
@@ -17,6 +19,7 @@ public class StartEnemyTurnState : BattleState {
 
     IEnumerator Setup()
     {
+        owner.turnStatus.text = "Enemy's turn";
         // later we'll probably add an animation
         owner.allianceTurn = Alliances.Enemy;
         foreach (Unit unit in units[Alliances.Enemy])

@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -9,6 +10,7 @@ using UnityEngine;
 public class StartPlayerTurnState : BattleState
 {
     public GameObject playerTurnPopUp;
+    public TMP_Text turnStatus;
     public override void Enter()
     {
         base.Enter();
@@ -18,7 +20,7 @@ public class StartPlayerTurnState : BattleState
     IEnumerator Setup()
     {
         owner.allianceTurn = Alliances.Player;
-        
+        owner.turnStatus.text = "Player's Turn";
         foreach (Unit unit in units[Alliances.Player])
         {
             Health health = unit.GetComponent<Health>();

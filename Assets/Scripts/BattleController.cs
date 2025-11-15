@@ -22,6 +22,7 @@ public class BattleController : StateMachine
     public TMP_Text PlayerMovesLeft;
     public GameObject enemyTurnPopUp;
     public GameObject playerTurnPopUp;
+    public TMP_Text turnStatus;
 
 
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
