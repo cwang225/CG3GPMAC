@@ -7,6 +7,8 @@ using UnityEngine.Assertions;
 public class Attack : MonoBehaviour
 {
     // public Unit hoveredUnit;
+
+    public AudioSource sfxMelee;
     public Unit attackTarget;
     public Dictionary<AttackType, int> attackRange = new Dictionary<AttackType, int>();
     public Dictionary<AttackType,int> attackDamages = new Dictionary<AttackType,int>(); // for a sigil, this is damage per turn
@@ -39,6 +41,7 @@ public class Attack : MonoBehaviour
         Debug.Log(attackRange);
         Assert.IsTrue(xDist + yDist <= attackRange[AttackType.Melee]);
         // do some animation probably later
+        sfxMelee.Play();
         Health targetHealth = attackTarget.GetComponent<Health>();
         targetHealth.Damage(attackDamages[AttackType.Melee]);
     }

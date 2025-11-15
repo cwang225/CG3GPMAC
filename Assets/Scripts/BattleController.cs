@@ -15,7 +15,7 @@ public class BattleController : StateMachine
     public EndTurnDialog endTurnDialog;
     public GameObject placeholderLoseScreen;
     public GameObject placeholderWinScreen;
-
+    public GameObject levelAudio;
     [HideInInspector] public Dictionary<Alliances, List<Unit>> units = new Dictionary<Alliances, List<Unit>>();
     public Unit CurrentUnit { 
         get => _currentUnit;

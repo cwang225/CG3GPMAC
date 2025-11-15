@@ -23,6 +23,7 @@ public class Ability : MonoBehaviour
     private AbilityEffect _effect;
     private AbilityParticle _particle;
     private Sigil _sigil;
+    public GameObject levelAudio;
     [HideInInspector] public bool isSigil => _sigil != null;
 
     [HideInInspector] public List<Tile> tilesInArea;
@@ -83,7 +84,14 @@ public class Ability : MonoBehaviour
     {
         for (int i = 0; i < targetsInArea.Count; i++)
             _effect.Apply(targetsInArea[i]);
-
+        var soundIndex = 6;
+        if (_effect is HealAbilityEffect)
+        {
+            soundIndex = 7;
+        }
+        var battleController = gameObject.GetComponentInParent<BattleController>();
+        var sigilAudioSource = battleController.levelAudio.transform.GetChild(soundIndex).GetComponent<AudioSource>(); // index 4 is sigil sound
+        sigilAudioSource.Play();
         _mana.Drain(manaCost);
     }
 
@@ -128,6 +136,9 @@ public class Ability : MonoBehaviour
     {
         if (!isSigil)
             return null;
+        var battleController = gameObject.GetComponentInParent<BattleController>();
+        var sigilAudioSource = battleController.levelAudio.transform.GetChild(4).GetComponent<AudioSource>(); // index 4 is sigil sound
+        sigilAudioSource.Play();
         return _sigil.Place(target);
     }
 }
