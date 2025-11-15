@@ -222,6 +222,9 @@ For attacks/sigils, the animation is mainly the particles (different for each ab
 For basic camera movement, I set up Cinemachine in our project to allow the player to pan/zoom the camera during their turn. The camera will also snap to the current unit. (gif)  
 I also differentiated between Melee and Ranged enemies by adding a gun to the ranged enemy and sword to the melee enemy. (PICTURE)
 
+### Music and Sound Effects (Alex)
+I added both music and sound effects to this iteration of the project. The main menu, the level select screen, and each level has its own unique piano backing track. There are sound effects for UI and game elements both, including per-attack-type sound effects (melee, harming magic, healing magic, sigils) and sounds for buttons (hover, click.) Each level has an object which stores audio sources for each sound. Sounds can be heard upon starting the level (for music), upon accessing a menu (for buttons) or upon player characters or enemies taking action.
+
 ## Running Instructions
 Run the CarlyLevelSelection scene in the UIScenes Folder. Hit 'X' to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
