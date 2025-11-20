@@ -18,6 +18,10 @@ public class AbilityMenuPanelController : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] UIFollowWorldObject panelFollow;
     [SerializeField] GameObject canvas;
+    /* [SerializeField]*/ public AudioSource sfxHover;
+    /* [SerializeField]*/
+    public AudioSource sfxClick;
+    public AudioSource sfxCancel;
     List<AbilityMenuEntry> menuEntries = new List<AbilityMenuEntry>(MenuCount);
     public int selection { get; private set; }
 
@@ -68,10 +72,11 @@ public class AbilityMenuPanelController : MonoBehaviour
             menuEntries[selection].IsSelected = false;
 	
         selection = value;
-	
+
         // Select the new entry
         if (selection >= 0 && selection < menuEntries.Count)
             menuEntries[selection].IsSelected = true;
+            sfxHover.Play();
 	
         return true;
     }
@@ -120,6 +125,7 @@ public class AbilityMenuPanelController : MonoBehaviour
     public void Hide ()
     {
         Clear();
+        sfxCancel.Play();
         canvas.SetActive(false);
     }
     
@@ -134,6 +140,7 @@ public class AbilityMenuPanelController : MonoBehaviour
 
     public void ConfirmSelection()
     {
+        sfxClick.Play();
         selectionConfirmed.Invoke();
     }
 }
