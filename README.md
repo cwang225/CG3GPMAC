@@ -128,6 +128,7 @@ By Dec 1:
 Additions:
 - Restart/replayability function
 - Started level designs for six planets
+- (if all else done) Integrate dialogue
 
 ### Final Project Submission
 - Improved AI (Megan)
