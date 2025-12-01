@@ -124,6 +124,7 @@ By Dec 1:
 - Model Animations ?? (Carly)
 - ~~Battle Music (Alex)~~
 - ~~Transition Music (Alex)~~
+- Music for win and lose scenes (Alex)
 Additions:
 - Restart/replayability function
 - Started level designs for six planets
