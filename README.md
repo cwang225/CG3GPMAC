@@ -137,6 +137,7 @@ Additions:
 - Death animation
 - Lots of debugging
   - When two enemies die at the same time via sigil, one disappears
+  - Ensure heal sigil and heal magic works (it doesn't appear to)
 
 # Development
 
