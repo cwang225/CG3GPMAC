@@ -135,6 +135,7 @@ Additions:
 - Extra attack/sigil animations and juice
 - Death animation
 - Lots of debugging
+  - When two enemies die at the same time via sigil, one disappears
 
 # Development
 
