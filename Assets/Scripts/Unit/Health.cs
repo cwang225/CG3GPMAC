@@ -1,3 +1,6 @@
+using System.Collections;
+using DG.Tweening.Core.Easing;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Events;
 /**
@@ -12,22 +15,29 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public bool KOd => currentHealth == 0;
     public UnityEvent OnKO;
-
-    void Awake()
-    {
-        if (OnKO == null)
-        {
-            OnKO = new UnityEvent();
-        }
-    }
+    private Renderer[] rend;
+    private Color[] originalColors;
+    public Color flashColor = Color.red;
+    public float flashDuration = 1f;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        rend = GetComponentsInChildren<Renderer>();
+        originalColors = new Color[rend.Length];
+        int i = 0;
+        foreach (Renderer render in rend)
+        {
+            originalColors[i] = render.material.color;
+            i++;
+        }
+        
     }
 
     public void Damage(int amount)
-    {
+    {   
+        Flash();
+        Debug.Log("flashed red");
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -49,4 +59,32 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
+
+    private IEnumerator DoFlash()
+    {
+        foreach (Renderer render in rend) {
+            render.material.color = flashColor;
+        }
+        yield return new WaitForSeconds(flashDuration);
+        int i = 0;
+        foreach (Renderer render in rend) {
+            render.material.color = originalColors[i];
+            i++;
+        }
+    }
+
+    private void Flash()
+    {
+        StopAllCoroutines();
+        StartCoroutine(DoFlash());
+    }
+
+    void Awake()
+    {
+        if (OnKO == null)
+        {
+            OnKO = new UnityEvent();
+        }
+    }
+
 }

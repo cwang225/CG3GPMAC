@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -7,6 +8,7 @@ using UnityEngine;
  */
 public class DamageAbilityEffect : AbilityEffect
 {
+
     [SerializeField] private int damage;
     public override int Predict(Tile target)
     {
@@ -19,6 +21,7 @@ public class DamageAbilityEffect : AbilityEffect
         Debug.Log("Applying damage to: " + target + 
                   " | Content: " + (target.content ? target.content.name : "NULL"));
         Health targetHealth = target.content.GetComponent<Health>();
+        // target.content.GameObject = ;
         int damage = Predict(target);
         targetHealth.Damage(damage);
     }

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
@@ -14,17 +17,26 @@ public class BattleController : StateMachine
     public LevelData levelData;
     public AbilityMenuPanelController abilityMenuPanelController;
     public EndTurnDialog endTurnDialog;
-    public GameObject placeholderLoseScreen;
-    public GameObject placeholderWinScreen;
+    public GameObject LoseScreen;
+    public GameObject WinScreen;
     [Header("UI Components")]
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
-    public TMP_Text PlayerMovesLeft;
+    public TMP_Text modelName;
     public int counter = 0;
     public TMP_Text MovesCounter;
     public GameObject enemyTurnPopUp;
     public GameObject playerTurnPopUp;
+    public GameObject playerStatusUI;
+    public GameObject goBackPanel;
     public TMP_Text turnStatus;
+    public GameObject gem;
+
+    public Volume volume;
+
+    [Header("Post Processing")]
+    public AnimationCurve chromeIntensity;
+    public AnimationCurve colorAdjustIntensity;
 
     private BattleCameraController battleCameraController;
 
@@ -54,6 +66,7 @@ public class BattleController : StateMachine
                 playerStatisticsPanel.SetActive(true);
                 Health playerHealth = _currentUnit.GetComponent<Health>();
                 PlayerHP.text = "HP: " + playerHealth.currentHealth.ToString() + "/" + playerHealth.maxHealth;
+                modelName.text = _currentUnit.name;
                 battleCameraController.SetFollowTarget(_currentUnit.transform);
             }
             else
