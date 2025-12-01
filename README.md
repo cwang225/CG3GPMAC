@@ -112,20 +112,31 @@ By Oct 31:
 
 ### Project Checkpoint 3-4: Sound, UI, and Animation
 By Nov 14:  
-- Interpolate movement and attack animations (Megan)
-- Game UI Design and Implementation (Carly)
-- Sound Design (Alex)
+- ~~Interpolate movement and attack animations (Megan)~~
+- ~~Game UI Design and Implementation (Carly)~~
+- ~~Sound Design (Alex)~~
 
 ### Project Part 4: Finishing Touches
 By Dec 1:
-- Camera zoom in for attack animations (Megan)
-- Better AI (move towards player instead of random) (Megan)
-- Juice attack and sigil animations, camera shake (Megan)
-- Updated UI aesthetics (Carly)
-- More integrated UI with code (Carly)
+- ~~Juice attack and sigil animations, camera shake (Megan)~~
+- ~~Updated UI aesthetics (Carly)~~
+- ~~More integrated UI with code (Carly)~~
 - Model Animations ?? (Carly)
-- Battle Music (Alex)
-- Transition Music (Alex)
+- ~~Battle Music (Alex)~~
+- ~~Transition Music (Alex)~~
+- Music for win and lose scenes (Alex)
+Additions:
+- Restart/replayability function
+- Started level designs for six planets
+- (if all else done) Integrate dialogue
+
+### Final Project Submission
+- Improved AI (Megan)
+- Health and mana bars (Megan)
+- Extra attack/sigil animations and juice
+- Death animation
+- Lots of debugging
+  - When two enemies die at the same time via sigil, one disappears
 
 # Development
 
@@ -234,6 +245,15 @@ I added both music and sound effects to this iteration of the project. The main 
 Worked to enhance the post processing effects in all the scenes, as well as add player and enemy UI to indicate a moves counter and how much HP each unit had left. Players can now see when it is their turn and how many moves they have taken. In the future, we may have restrictions on how many moves should or can be taken to complete a round (aiming to nudge players towards an optimal amount of moves).
 ![ezgif com-animated-gif-maker (2)](https://github.com/user-attachments/assets/d3e42158-1340-42c3-b059-c6576d997c9c)
 
+## Project Part 4: Finishing Touches
+### Megan
+Ui fixes, six levels, camera shake
+
+### Carly
+ADD HERE
+
+### Alex
+ADD HERE
 
 ## Running Instructions
 Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> blackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
