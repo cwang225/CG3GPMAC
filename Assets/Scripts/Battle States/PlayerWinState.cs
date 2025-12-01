@@ -12,7 +12,7 @@ public class PlayerWinState : BattleState
     {
         base.Enter();
         // Here we would play a win animation, cut to any end of battle dialogue, and then transition back to the hub/next level
-        owner.LoseScreen.SetActive(true);
+        owner.WinScreen.SetActive(true);
         owner.playerStatusUI.SetActive(false);
         owner.playerTurnPopUp.SetActive(false);
         owner.enemyTurnPopUp.SetActive(false);

@@ -22,28 +22,30 @@ public class PerformAbilityState : BattleState
         base.Enter();
         print("Performing action " + owner.ability.name);
         owner.volume.profile.TryGet(out chrome);
-        // owner.volume.profile.TryGet(out colorAdjustments);
+        owner.volume.profile.TryGet(out colorAdjustments);
         StartCoroutine(Animate());
    }
 
-   private void postProcess()
+IEnumerator AnimatePostProcess()
     {
-        chromeIntensityTime = Time.realtimeSinceStartup;
-        colorAdjustIntensityTime = Time.realtimeSinceStartup;
-        chrome.intensity.value = owner.chromeIntensity.Evaluate(Time.realtimeSinceStartup - chromeIntensityTime);
-        // colorAdjustments.colorFilter.value = newColor(owner.colorAdjustIntensity.Evaluate(Time.realtimeSinceStartup - colorAdjustIntensityTime);
-        // chrome.intensity.value = 0.5f;
-        // Color color = new Color(255f/255, 132f/255, 25f/255);
-        // colorAdjustments.colorFilter.value = color;
-
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            chrome.intensity.value = owner.chromeIntensity.Evaluate(t);
+            colorAdjustments.colorFilter.value = new Color (255f-owner.colorAdjustIntensity.Evaluate(t), 132f-owner.colorAdjustIntensity.Evaluate(t), 83f-owner.colorAdjustIntensity.Evaluate(t));
+            yield return null;
+            }
     }
 
     IEnumerator Animate ()
     {
-        postProcess();
+        StartCoroutine(AnimatePostProcess());
         owner.ability.Perform();
 
         yield return owner.ability.Animate(owner.currentTile);
+        chrome.intensity.value = 0.15f;
+        colorAdjustments.colorFilter.value = new Color(255f/255, 255f/255, 255f/255);
         if (owner.allianceTurn == Alliances.Player)
         
             owner.ChangeState<SelectActionState>();

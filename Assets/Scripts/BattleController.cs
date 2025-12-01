@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -23,6 +24,7 @@ public class BattleController : StateMachine
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
     public TMP_Text modelName;
+    public Image modelPfp;
     public int counter = 0;
     public TMP_Text MovesCounter;
     public GameObject enemyTurnPopUp;
@@ -67,6 +69,9 @@ public class BattleController : StateMachine
                 Health playerHealth = _currentUnit.GetComponent<Health>();
                 PlayerHP.text = "HP: " + playerHealth.currentHealth.ToString() + "/" + playerHealth.maxHealth;
                 modelName.text = _currentUnit.name;
+                
+                // modelPfp = _currentUnit.Pfp;
+
                 battleCameraController.SetFollowTarget(_currentUnit.transform);
             }
             else
