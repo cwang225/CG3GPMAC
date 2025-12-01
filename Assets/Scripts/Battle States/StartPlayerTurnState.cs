@@ -11,6 +11,8 @@ public class StartPlayerTurnState : BattleState
 {
     public GameObject playerTurnPopUp;
     public TMP_Text turnStatus;
+    public TMP_Text movesCounter;
+    public GameObject gem;
     public override void Enter()
     {
         base.Enter();
@@ -21,6 +23,8 @@ public class StartPlayerTurnState : BattleState
     {
         owner.allianceTurn = Alliances.Player;
         owner.turnStatus.text = "Player's Turn";
+        owner.MovesCounter.text = "Moves done: " + owner.counter;
+        owner.gem.SetActive(true);
         foreach (Unit unit in units[Alliances.Player])
         {
             Health health = unit.GetComponent<Health>();
@@ -32,7 +36,7 @@ public class StartPlayerTurnState : BattleState
         }
         // later we'll probably add an animation and change the round if we want to display that
         owner.playerTurnPopUp.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         owner.playerTurnPopUp.SetActive(false);
         owner.ChangeState<SelectUnitState>();
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/31/25
@@ -11,6 +12,22 @@ public class PlayerLoseState : BattleState
     {
         base.Enter();
         // Here we would play an end of battle animation, show a "you died", and give options for resetting
-        owner.placeholderLoseScreen.SetActive(true);
+        owner.LoseScreen.SetActive(true);
+        owner.playerStatusUI.SetActive(false);
+        owner.playerTurnPopUp.SetActive(false);
+        owner.enemyTurnPopUp.SetActive(false);
+        owner.playerStatisticsPanel.SetActive(false);
+        owner.goBackPanel.SetActive(false);
+
+    }
+    public void retry()
+    {
+        Debug.Log("clicked retry");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void goBack()
+    {
+        Debug.Log("clicked goback");
+        SceneManager.LoadScene("LevelSelectionPanel");
     }
 }

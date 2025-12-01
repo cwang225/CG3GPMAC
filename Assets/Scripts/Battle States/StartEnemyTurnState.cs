@@ -11,6 +11,8 @@ public class StartEnemyTurnState : BattleState {
 
     public GameObject enemyTurnPopUp;
     public TMP_Text turnStatus;
+    public TMP_Text movesCounter;
+    public GameObject gem;
     public override void Enter()
     {
         base.Enter();
@@ -20,6 +22,8 @@ public class StartEnemyTurnState : BattleState {
     IEnumerator Setup()
     {
         owner.turnStatus.text = "Enemy's turn";
+        owner.MovesCounter.text = "";
+        owner.gem.SetActive(false);
         // later we'll probably add an animation
         owner.allianceTurn = Alliances.Enemy;
         foreach (Unit unit in units[Alliances.Enemy])
@@ -32,7 +36,7 @@ public class StartEnemyTurnState : BattleState {
             }
         }
         owner.enemyTurnPopUp.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         owner.enemyTurnPopUp.SetActive(false);
         owner.ChangeState<EnemySelectUnitState>();
     }

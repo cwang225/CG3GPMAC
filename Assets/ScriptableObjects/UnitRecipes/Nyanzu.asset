@@ -15,7 +15,7 @@ MonoBehaviour:
   model: Cat
   alliance: 0
   movementRange: 4
-  health: 60
+  health: 5
   mana: 60
   baseAttackRanged: 0
   abilities:

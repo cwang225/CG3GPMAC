@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planets/bluePlanet.unity
     guid: c9eee41020a0f0b4c8267c36a155f186
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/WinScene.unity
+    guid: 88ef8b618c9dfac41a377f93733a30c2
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/LoseScene.unity
+    guid: 9174e87bd3e246d46b43675037483b01
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7f3618f5eaae52c4ebed90e590c5ddd5,
       type: 2}

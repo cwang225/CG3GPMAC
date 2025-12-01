@@ -15,7 +15,7 @@ MonoBehaviour:
   model: Player
   alliance: 0
   movementRange: 2
-  health: 100
+  health: 5
   mana: 100
   baseAttackRanged: 0
   abilities:

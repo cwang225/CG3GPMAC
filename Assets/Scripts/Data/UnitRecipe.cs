@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 /**
  * Author: Megan Lincicum
@@ -14,5 +15,6 @@ public class UnitRecipe : ScriptableObject
     public int health;
     public int mana;
     public bool baseAttackRanged;
+    public Sprite pfp;
     public string[] abilities;
 }
