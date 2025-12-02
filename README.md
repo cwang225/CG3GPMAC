@@ -255,7 +255,7 @@ Ui fixes, six levels, camera shake
 ADD HERE
 
 ### Alex
-ADD HERE
+I added win and lose music to the game. Whenever the player either wins or loses the game, when the win or lose dialogue appears, the background music will stop and new music will play that corresponds to whether the user won or lost.
 
 ## Running Instructions
 Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> blackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
