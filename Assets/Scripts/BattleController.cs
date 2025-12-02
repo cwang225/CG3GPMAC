@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-// using Microsoft.Unity.VisualStudio.Editor;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -24,7 +24,7 @@ public class BattleController : StateMachine
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
     public TMP_Text modelName;
-    // public Sprite modelPfp;
+    public Image modelPfp;
     public int counter = 0;
     public TMP_Text MovesCounter;
     public GameObject enemyTurnPopUp;
@@ -98,10 +98,20 @@ public class BattleController : StateMachine
         // LATER: make win conditions and lose conditions something checkable from level setup
         if (CheckWinCondition()) 
         {
+            var levelMusSource = levelAudio.transform.GetChild(0).GetComponent<AudioSource>(); //index 0 is level music
+            var winSource = levelAudio.transform.GetChild(8).GetComponent<AudioSource>(); //index 8 is win music
+            // levelMusSource.Pause();
+            levelMusSource.Stop();
+            winSource.Play();
             QueueState<PlayerWinState>();
         } 
         else if (CheckLoseCondition())
         {
+            var levelMusSource = levelAudio.transform.GetChild(0).GetComponent<AudioSource>(); //index 0 is level music
+            var loseSource = levelAudio.transform.GetChild(9).GetComponent<AudioSource>(); //index 9 is lose music
+            levelMusSource.Stop();
+            // levelMusSource.Pause();
+            loseSource.Play();
             QueueState<PlayerLoseState>();
         }
     }
