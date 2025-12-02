@@ -252,19 +252,18 @@ Worked to enhance the post processing effects in all the scenes, as well as add 
 
 ## Project Part 4: Finishing Touches
 ### Megan
-Ui fixes, six levels, camera shake
+Fixed where the ability action menu appears and created 6 different levels.
 
 ### Carly
 Updated UI appearances while in active play mode, post-processing scripts for damage, model editing scripts when players and enemies take damage (maybe not as visible with my grenade flash bomb of color adjustment color filter. Added player profile pictures for two of the main characters, and integrated character names into UI.
-https://github.com/user-attachments/assets/208016b0-fac3-406e-b163-b07e9222b029
-
+https://github.com/user-attachments/assets/208016b0-fac3-406e-b163-b07e9222b029  
+Also hooked up win and lose screens, restart, and return to level select.
 
 ### Alex
 I added win and lose music to the game. Whenever the player either wins or loses the game, when the win or lose dialogue appears, the background music will stop and new music will play that corresponds to whether the user won or lost.
 
 ## Running Instructions
-Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> carlyblackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
-~~Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.~~
+Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level. Currently, due to bugs, only Level 4 and Level 6 are properly playable, but all levels can be viewed.
 Controls:
 - Left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
@@ -275,7 +274,8 @@ Controls:
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
 - Click the "next" button when it's on screen to advance through the test dialogue
 - WASD to pan camera, scroll wheel to zoom camera
+- Click on eye in top left corner to bring up pause menu
 Notes:
-Have to not be selecting a unit to be able to pan/zoom camera  
-There may be some issues in how the player stats appear (HP and name); for the black cat model, just select attack and click the squares closest to where the model was.
+Have to not be selecting a unit to be able to pan/zoom camera
+We currently have an unfixed bug in the web build that makes it so the player cannot end their turn. Apologies, on the top of debugging list.
 
