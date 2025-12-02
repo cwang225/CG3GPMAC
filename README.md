@@ -125,6 +125,7 @@ By Dec 1:
 - ~~Battle Music (Alex)~~
 - ~~Transition Music (Alex)~~
 - Music for win and lose scenes (Alex)
+
 Additions:
 - Restart/replayability function
 - Started level designs for six planets
@@ -137,6 +138,7 @@ Additions:
 - Death animation
 - Lots of debugging
   - When two enemies die at the same time via sigil, one disappears
+  - Ensure heal sigil and heal magic works and updates the UI (it doesn't appear to)
 
 # Development
 
