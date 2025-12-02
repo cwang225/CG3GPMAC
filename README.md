@@ -274,7 +274,7 @@ Controls:
 - Right click/Q while not selecting a unit to end the current turn and reset moves/actions
 - Click the "next" button when it's on screen to advance through the test dialogue
 - WASD to pan camera, scroll wheel to zoom camera
-- Click on eye in top left corner to bring up pause menu
+- Click on eye in top left corner to bring up pause menu  
 Notes:
 Have to not be selecting a unit to be able to pan/zoom camera
 We currently have an unfixed bug in the web build that makes it so the player cannot end their turn. Apologies, on the top of debugging list.
