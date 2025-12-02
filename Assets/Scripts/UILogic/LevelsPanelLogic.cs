@@ -95,7 +95,7 @@ public class LevelsPanelLogic : MonoBehaviour
         }
         else if (clicked == 3)
         {
-            SceneManager.LoadScene("blackPlanet");
+            SceneManager.LoadScene("carlyBlackPlanet");
         }
         else if (clicked == 4)
         {
