@@ -26,9 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planets/purplePlanet.unity
     guid: dd57f3a1a05c6f843b1cee26ea283814
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/blackPlanet.unity
     guid: b513c6e42fee56145994e31ebda8e19f
+  - enabled: 1
+    path: Assets/Scenes/Planets/carlyBlackPlanet.unity
+    guid: c7e3406827178ad4d87493877a36d1cb
   - enabled: 1
     path: Assets/Scenes/Planets/greenPlanet.unity
     guid: 2c54eeaf91aada84287e0cef37185cf4

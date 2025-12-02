@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
+// using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -24,7 +24,7 @@ public class BattleController : StateMachine
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
     public TMP_Text modelName;
-    public Image modelPfp;
+    // public Sprite modelPfp;
     public int counter = 0;
     public TMP_Text MovesCounter;
     public GameObject enemyTurnPopUp;
