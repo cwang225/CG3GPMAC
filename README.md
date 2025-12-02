@@ -121,10 +121,10 @@ By Dec 1:
 - ~~Juice attack and sigil animations, camera shake (Megan)~~
 - ~~Updated UI aesthetics (Carly)~~
 - ~~More integrated UI with code (Carly)~~
-- Model Animations ?? (Carly)
+- ~~Model Animations (turning red on damage) (Carly)~~
 - ~~Battle Music (Alex)~~
 - ~~Transition Music (Alex)~~
-- Music for win and lose scenes (Alex)
+- ~~Music for win and lose scenes~~ (Alex)
 
 Additions:
 - Restart/replayability function
@@ -135,6 +135,9 @@ Additions:
 - Improved AI (Megan)
 - Health and mana bars (Megan)
 - Extra attack/sigil animations and juice
+- No more horrible end turn UI (Carly)
+- Finalized UI Designs for all aspects (Carly)
+- Dialogue implementation (Alex)
 - Death animation
 - Lots of debugging
   - When two enemies die at the same time via sigil, one disappears
@@ -252,13 +255,15 @@ Worked to enhance the post processing effects in all the scenes, as well as add 
 Ui fixes, six levels, camera shake
 
 ### Carly
-ADD HERE
+Updated UI appearances while in active play mode, post-processing scripts for damage, model editing scripts when players and enemies take damage (maybe not as visible with my grenade flash bomb of color adjustment color filter. Added player profile pictures for two of the main characters, and integrated character names into UI.
+https://github.com/user-attachments/assets/208016b0-fac3-406e-b163-b07e9222b029
+
 
 ### Alex
 I added win and lose music to the game. Whenever the player either wins or loses the game, when the win or lose dialogue appears, the background music will stop and new music will play that corresponds to whether the user won or lost.
 
 ## Running Instructions
-Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> blackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
+Due to unforseen Lots of Errors and a need to go to sleep, for this checkpoint please go to Scenes -> Planets -> carlyblackPlanet to play. We promise the title scene is also there and cool but the other levels are currently broken.
 ~~Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.~~
 Controls:
 - Left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
