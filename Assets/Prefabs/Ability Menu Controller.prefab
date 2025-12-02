@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 120, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8656963397388823526
@@ -267,5 +267,10 @@ MonoBehaviour:
   entryPrefab: {fileID: 7518063539509644371, guid: 923554c6bd46d8348b3cc4d06034dc7a,
     type: 3}
   panel: {fileID: 91782206216145969}
-  panelFollow: {fileID: 4794052080007254810}
   canvas: {fileID: 4229623878559295873}
+  sfxHover: {fileID: 0}
+  sfxClick: {fileID: 0}
+  sfxCancel: {fileID: 0}
+  selectionConfirmed:
+    m_PersistentCalls:
+      m_Calls: []

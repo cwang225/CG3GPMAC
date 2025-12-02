@@ -1,14 +1,13 @@
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/31/25
+ * Date Last Updated: 12/01/25
  * Summary: The main state machine that loads and controls a battle/level
  */
 public class BattleController : StateMachine
