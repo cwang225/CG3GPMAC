@@ -6354,19 +6354,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 1665849864}
-  levelData: {fileID: 11400000, guid: 14af30ba1c410104c821e20eeb02dcc1, type: 2}
+  levelData: {fileID: 11400000, guid: 6601e6c31743b15428c93b094499dd4f, type: 2}
   abilityMenuPanelController: {fileID: 164998001}
   endTurnDialog: {fileID: 1164200281}
-  placeholderLoseScreen: {fileID: 232515882}
-  placeholderWinScreen: {fileID: 883773909}
+  LoseScreen: {fileID: 232515882}
+  WinScreen: {fileID: 883773909}
   playerStatisticsPanel: {fileID: 758580934}
   PlayerHP: {fileID: 758580935}
-  PlayerMovesLeft: {fileID: 758580936}
+  modelName: {fileID: 758580936}
   counter: 0
   MovesCounter: {fileID: 1109668595}
   enemyTurnPopUp: {fileID: 1878258460}
   playerTurnPopUp: {fileID: 1872051912}
+  playerStatusUI: {fileID: 1109668596}
+  goBackPanel: {fileID: 1808796491}
   turnStatus: {fileID: 1109668594}
+  gem: {fileID: 525531715}
+  volume: {fileID: 1945534691}
+  chromeIntensity:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  colorAdjustIntensity:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   levelAudio: {fileID: 17530908}
   turn: {fileID: 0}
   ability: {fileID: 0}
@@ -6782,7 +6798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &758580936 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 731698837967152667, guid: f9e193a98f3db4648bffa15dd89cdb4b,
+  m_CorrespondingSourceObject: {fileID: 390684015203122906, guid: f9e193a98f3db4648bffa15dd89cdb4b,
     type: 3}
   m_PrefabInstance: {fileID: 758580933}
   m_PrefabAsset: {fileID: 0}
@@ -12885,6 +12901,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1109668596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575201034895373765, guid: a8d8fce24a25e8e4fa6edde05faed530,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109668593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1148200931
 GameObject:
   m_ObjectHideFlags: 0
@@ -25297,6 +25319,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0, type: 3}
+--- !u!1 &1808796491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5004833242559482424, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1808796490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1847472282
 GameObject:
   m_ObjectHideFlags: 0
