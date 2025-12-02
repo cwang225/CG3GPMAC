@@ -22,6 +22,6 @@ public class PlayerWinState : BattleState
 
     public void goBack()
     {
-        SceneManager.LoadScene("LevelSelectionPanel");
+        SceneManager.LoadScene("CarlyLevelSelection");
     }
 }

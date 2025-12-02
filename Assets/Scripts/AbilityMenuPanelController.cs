@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/01/25
+ * Date Last Updated: 12/01/25
  * Summary: UI for an Ability Menu which holds options such as Move, Attack, etc. 
  */
 public class AbilityMenuPanelController : MonoBehaviour
@@ -16,7 +16,6 @@ public class AbilityMenuPanelController : MonoBehaviour
     
     [SerializeField] GameObject entryPrefab;
     [SerializeField] GameObject panel;
-    [SerializeField] UIFollowWorldObject panelFollow;
     [SerializeField] GameObject canvas;
     /* [SerializeField]*/ public AudioSource sfxHover;
     /* [SerializeField]*/
@@ -117,8 +116,7 @@ public class AbilityMenuPanelController : MonoBehaviour
             menuEntries.Add(entry);
         }
         SetSelection(0);
-        
-        panelFollow.ChangeTarget(target);
+
         canvas.SetActive(true);
     }
     

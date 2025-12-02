@@ -8136,7 +8136,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ability Menu Controller (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4794052080007254810, guid: 05ac68229b62ac04e914e615a3f36f38, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
