@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
