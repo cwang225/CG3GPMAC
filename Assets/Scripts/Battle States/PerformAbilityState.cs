@@ -33,7 +33,7 @@ IEnumerator AnimatePostProcess()
         {
             t += Time.deltaTime;
             chrome.intensity.value = owner.chromeIntensity.Evaluate(t);
-            colorAdjustments.colorFilter.value = new Color (255f-owner.colorAdjustIntensity.Evaluate(t), 132f-owner.colorAdjustIntensity.Evaluate(t), 83f-owner.colorAdjustIntensity.Evaluate(t));
+            colorAdjustments.colorFilter.value = new Color (255f-10*owner.colorAdjustIntensity.Evaluate(t), 132f-10*owner.colorAdjustIntensity.Evaluate(t), 83f-10*owner.colorAdjustIntensity.Evaluate(t));
             yield return null;
             }
     }

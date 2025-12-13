@@ -83,7 +83,7 @@ public class SelectUnitState : BattleState
             owner.ChangeState<ConfirmEndTurnState>();
         }
     }
-
+ 
     private void SelectNextUnit()
     {
         index = (index + 1) % units.Count;

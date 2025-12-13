@@ -14,7 +14,7 @@ public class ConfirmEndTurnState : BattleState
         owner.endTurnDialog.HookupEndTurn(ConfirmEndTurn);
         owner.endTurnDialog.HookupCancel(CancelEndTurn);
     }
-
+ 
     public override void Exit()
     {
         base.Exit();
