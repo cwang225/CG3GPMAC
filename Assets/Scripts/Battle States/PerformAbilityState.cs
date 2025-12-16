@@ -28,12 +28,21 @@ public class PerformAbilityState : BattleState
 
 IEnumerator AnimatePostProcess()
     {
+        //Color startColor = Color.white;
+        Color startColor = new Color(0.9176f, 0.2863f, 0.9882f, 1.0f);
+        Color targetColor = new Color(.933f, .565f, .988f, 1f);
         float t = 0f;
+        float duration = 1f;
         while (t < 1f)
         {
+            // t += Time.deltaTime;
             t += Time.deltaTime;
+            float normalizedTime = t / duration;
+            //float intensity = owner.colorAdjustIntensity.Evaluate(t);
+            float intensity = t*2;
+            //float chromeIntensity = owner.chromeIntensity.Evaluate(t);
             chrome.intensity.value = owner.chromeIntensity.Evaluate(t);
-            colorAdjustments.colorFilter.value = new Color (255f-10*owner.colorAdjustIntensity.Evaluate(t), 132f-10*owner.colorAdjustIntensity.Evaluate(t), 83f-10*owner.colorAdjustIntensity.Evaluate(t));
+            colorAdjustments.colorFilter.value = Color.Lerp(targetColor, startColor, normalizedTime);
             yield return null;
             }
     }
