@@ -20,25 +20,25 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UIScenes/PausePanel.unity
     guid: 66c7157b93e9dcf4fa630b14ba1b4de9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/redPlanet.unity
     guid: d556b4272cf80b944b8f92c41a698d8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/purplePlanet.unity
     guid: dd57f3a1a05c6f843b1cee26ea283814
   - enabled: 0
     path: Assets/Scenes/Planets/blackPlanet.unity
     guid: b513c6e42fee56145994e31ebda8e19f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/carlyBlackPlanet.unity
     guid: c7e3406827178ad4d87493877a36d1cb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/greenPlanet.unity
     guid: 2c54eeaf91aada84287e0cef37185cf4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/orangePlanet.unity
     guid: 44f8e16d4ce27b7478ab5d1ed3677cc8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Planets/bluePlanet.unity
     guid: c9eee41020a0f0b4c8267c36a155f186
   - enabled: 0
@@ -47,6 +47,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UIScenes/LoseScene.unity
     guid: 9174e87bd3e246d46b43675037483b01
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level3.unity
+    guid: 36c4d0750d7799d49aa58e58ad6616d8
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level2.unity
+    guid: a37825398ec9dba4ab3adb52e416724c
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level1.unity
+    guid: b16866e6fb9773f4cb2166ac0e58044f
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level4.unity
+    guid: 952c3233c24cb674caa49f77ae6e5093
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level5.unity
+    guid: 6a0c840df3f22294b9840deee2a32c6c
+  - enabled: 1
+    path: Assets/Scenes/Planets/Level6.unity
+    guid: 8935592085185844f8388d1b67fa61e3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7f3618f5eaae52c4ebed90e590c5ddd5,
       type: 2}

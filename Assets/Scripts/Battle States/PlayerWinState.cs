@@ -11,6 +11,7 @@ public class PlayerWinState : BattleState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Win state");
         // Here we would play a win animation, cut to any end of battle dialogue, and then transition back to the hub/next level
         owner.WinScreen.SetActive(true);
         owner.playerStatusUI.SetActive(false);

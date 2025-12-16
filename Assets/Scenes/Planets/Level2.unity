@@ -1348,6 +1348,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f1bac68e47d4d418d04986e6eca315, type: 3}
+--- !u!1 &298215972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3211154528745239526, guid: 17f1bac68e47d4d418d04986e6eca315,
+    type: 3}
+  m_PrefabInstance: {fileID: 298215971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &298215973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5950644561408881043, guid: 17f1bac68e47d4d418d04986e6eca315,
+    type: 3}
+  m_PrefabInstance: {fileID: 298215971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &307034430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13560,12 +13572,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10.762, y: -1.876, z: -11.589}
---- !u!1 &972153847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 84297388576087253, guid: 17f1bac68e47d4d418d04986e6eca315,
-    type: 3}
-  m_PrefabInstance: {fileID: 298215971}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &987246771
 GameObject:
   m_ObjectHideFlags: 3
@@ -13730,8 +13736,8 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: 6601e6c31743b15428c93b094499dd4f, type: 2}
   abilityMenuPanelController: {fileID: 865348568}
   endTurnDialog: {fileID: 1271026715}
-  LoseScreen: {fileID: 972153847}
-  WinScreen: {fileID: 972153847}
+  LoseScreen: {fileID: 298215973}
+  WinScreen: {fileID: 298215972}
   DialogueDialog: {fileID: 87413148}
   LevelID: {fileID: 1859949143}
   GameProgressMan: {fileID: 1115005685}
