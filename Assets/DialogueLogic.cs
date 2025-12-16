@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DialogueLogic : MonoBehaviour
 {
@@ -65,6 +66,16 @@ public class DialogueLogic : MonoBehaviour
                 new DialogueEntry
                 {
                     text = "One planet down, four to go I guess..."
+                },
+            }
+        },
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
                 },
             }
         }
@@ -133,8 +144,9 @@ public class DialogueLogic : MonoBehaviour
         currentDialogueEntry = 0;
         print(dialogueSequences[0]);
         currentDialogueSequence = dialogueSequences[0];
+        Show();
     }
-
+    // test
     // Update is called once per frame
     void Update()
     {
@@ -143,4 +155,12 @@ public class DialogueLogic : MonoBehaviour
             hack = false;
         } */
     }
+
+    /* public class ClickDebug : MonoBehaviour, IPointerClickHandler
+    {
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log("Clicked: " + gameObject.name);
+        }
+    } */
 }
