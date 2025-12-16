@@ -13,7 +13,7 @@ public class DialogueLogic : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject dialog;
-    [SerializeField] Button nextDialogueEntryButton;
+    // [SerializeField] Button nextDialogueEntryButton;
     [SerializeField] GameObject displayedText; // has TextMeshPro - Text (UI)
     [SerializeField] GameObject displayedHeadshot; // has Image
 
