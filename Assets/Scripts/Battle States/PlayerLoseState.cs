@@ -20,14 +20,4 @@ public class PlayerLoseState : BattleState
         owner.goBackPanel.SetActive(false);
 
     }
-    public void retry()
-    {
-        Debug.Log("clicked retry");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    public void goBack()
-    {
-        Debug.Log("clicked goback");
-        SceneManager.LoadScene("LevelSelectionPanel");
-    }
 }

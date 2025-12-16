@@ -1196,5 +1196,3 @@ MonoBehaviour:
     recipe: {fileID: 11400000, guid: a8107c55abc1e2a49acb3d0ae6d32f07, type: 2}
   - coord: {x: 2, y: 3}
     recipe: {fileID: 11400000, guid: 105b0b818a324274ca7224ebafcc321a, type: 2}
-  - coord: {x: 15, y: 10}
-    recipe: {fileID: 11400000, guid: 2aefebd9e57d569449e2fcbb2f4b9b45, type: 2}

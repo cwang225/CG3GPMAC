@@ -1,33 +1,52 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/30/25
+ * Date Last Updated: 12/16/25
  * Summary: State allowing player to select which of their units to act
  */
 public class SelectUnitState : BattleState
 {
     private int index;
+    private Renderer[] rend;
+    private Color[] originalColors;
+    private Color movesDoneColor = Color.gray;
 
     public override void Enter()
     {
         base.Enter();
         index = 0;
         owner.CurrentUnit = owner.units[Alliances.Player][0];
+        rend = owner.CurrentUnit.GetComponentsInChildren<Renderer>();
+        originalColors = new Color[rend.Length];
+        int i = 0;
+        foreach (Renderer render in rend)
+        {
+            originalColors[i] = render.material.color;
+            i++;
+        }
         CheckPlayerTurnEnd();
     }
 
-    void CheckPlayerTurnEnd()
+    IEnumerator CheckPlayerTurnEnd()
     {
         // Turn ends if all units have made their actions
         foreach (Unit unit in units[Alliances.Player])
         {
             Turn turn = unit.GetComponent<Turn>();
-            if (turn.CanAct) return;
+            if (turn.CanAct) yield break;
         }
-        
+        yield return null;
         owner.ChangeState<EndPlayerTurnState>();
+    }
+
+    void turnGrey()
+    {
+        foreach (Renderer render in rend) {
+            render.material.color = movesDoneColor;
+        }
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
@@ -49,7 +68,10 @@ public class SelectUnitState : BattleState
     {
         if (owner.CurrentUnit != null)
         {
-            owner.ChangeState<SelectActionState>();
+            Alliance alliance = owner.CurrentUnit.GetComponent<Alliance>();
+            Health health = owner.CurrentUnit.GetComponent<Health>();
+            if (alliance != null && alliance.type == Alliances.Player && !health.KOd)
+                owner.ChangeState<SelectActionState>();
         }   
     }
 
@@ -68,6 +90,10 @@ public class SelectUnitState : BattleState
             }
             
             // LATER: Should still be able to click on enemies to display their stats (or KOd friendly units)
+            if (alliance != null && alliance.type == Alliances.Enemy)
+            {
+                owner.CurrentUnit = unit;
+            }
         }
     }
 
