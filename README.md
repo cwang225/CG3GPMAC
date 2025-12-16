@@ -320,6 +320,17 @@ The ways in which this game could be extended is to create the previously mentio
 - camera snaps to current unit when unit is selected
 - created varied tilemaps so that 6 truly different levels were created and adjusted the enemies spawned in on each
 
+### Alex
+- all music & sfx
+  - menu music, battle music, win/loss music, UI sound effects, attack + heal sound effects
+- game progress gating 
+- all dialogue UI + logic
+- preproduction camera logic
+- early-development magic bolt
+- crystal asset
+- sigil particles + textures + preproduction sigil editor
+- tile textures
+- assorted bugfixes throughout the semester
 
 ### Carly
 - Create UI Placeholders for necessary aspects
