@@ -68,7 +68,10 @@ public class SelectUnitState : BattleState
     {
         if (owner.CurrentUnit != null)
         {
-            owner.ChangeState<SelectActionState>();
+            Alliance alliance = owner.CurrentUnit.GetComponent<Alliance>();
+            Health health = owner.CurrentUnit.GetComponent<Health>();
+            if (alliance != null && alliance.type == Alliances.Player && !health.KOd)
+                owner.ChangeState<SelectActionState>();
         }   
     }
 
@@ -87,6 +90,10 @@ public class SelectUnitState : BattleState
             }
             
             // LATER: Should still be able to click on enemies to display their stats (or KOd friendly units)
+            if (alliance != null && alliance.type == Alliances.Enemy)
+            {
+                owner.CurrentUnit = unit;
+            }
         }
     }
 
