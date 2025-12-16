@@ -132,16 +132,13 @@ Additions:
 - (if all else done) Integrate dialogue
 
 ### Final Project Submission
-- Improved AI (Megan)
-- Health and mana bars (Megan)
-- Extra attack/sigil animations and juice
-- No more horrible end turn UI (Carly)
-- Finalized UI Designs for all aspects (Carly)
-- Dialogue implementation (Alex)
-- Death animation
-- Lots of debugging
-  - When two enemies die at the same time via sigil, one disappears
-  - Ensure heal sigil and heal magic works and updates the UI (it doesn't appear to)
+- --Improved AI (Megan)--
+- --Extra attack/sigil animations and juice--
+- --No more horrible end turn UI (Carly)--
+- --Finalized UI Designs for all aspects (Carly)--
+- --Dialogue implementation (Alex)--
+- --Death animation--
+- --Lots of debugging--
 
 # Development
 
@@ -255,7 +252,7 @@ Worked to enhance the post processing effects in all the scenes, as well as add 
 Fixed where the ability action menu appears and created 6 different levels.
 
 ### Carly
-Updated UI appearances while in active play mode, post-processing scripts for damage, model editing scripts when players and enemies take damage (maybe not as visible with my grenade flash bomb of color adjustment color filter. Added player profile pictures for two of the main characters, and integrated character names into UI.
+Updated UI appearances while in active play mode, post-processing scripts for damage, model editing scripts when players and enemies take damage (maybe not as visible with my grenade flash bomb of color adjustment color filter). Added player profile pictures for two of the main characters, and integrated character names into UI.
 https://github.com/user-attachments/assets/208016b0-fac3-406e-b163-b07e9222b029  
 Also hooked up win and lose screens, restart, and return to level select.
 
@@ -263,7 +260,7 @@ Also hooked up win and lose screens, restart, and return to level select.
 I added win and lose music to the game. Whenever the player either wins or loses the game, when the win or lose dialogue appears, the background music will stop and new music will play that corresponds to whether the user won or lost.
 
 ## Running Instructions
-Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level. Currently, due to bugs, only Level 4 and Level 6 are properly playable, but all levels can be viewed.
+Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
 - Left/right arrows to change selection (for selecting a unit or selecting an ability in the menu)
 - Click on a unit to select it
@@ -279,3 +276,60 @@ Notes:
 Have to not be selecting a unit to be able to pan/zoom camera
 We currently have an unfixed bug in the web build that makes it so the player cannot end their turn. Apologies, on the top of debugging list.
 
+## Demo
+Video Demo:
+
+## Download
+Itch.io link: 
+
+## Future Work
+The ways in which this game could be extended is to create the previously mentioned Hub World, where characters would be able to interact with NPCs and the story could be further progressed through this outlet instead of just during battle. Another aspect to extend this game would be to add a boss battle to match up with the story we tried to come up with. We would also want to add more colored scenes and we were thinking of animations and maybe also voices to enhance the juicing aspect of our story. Our levels could also be more varied in actual environment with models that represent blocks to the protagonists. While our main recording of how well the player is doing through the number of moves they are doing, an additional way this could be extended is through giving the players a score based on how little moves they used to pass the level.
+
+## Member Contributions
+
+### Megan
+- Editor System for the creation of levels
+- tileMap creator
+- Main creator of the gameplay mechanics and backend in unity
+- Created movement system
+- Created the Battle Controllers that drives the gameplay of all levels
+- Majority of the Game State Creations to ensure smooth running of the game
+- created player abilities and enemy AI
+- created ability menu and system
+- Created Game logic and integrated the combat system with sigils so that players can attack and use magic
+- Created ability particles and level win and lose conditions
+- created movement animations so that models looked better when moving (tile by tile movement)
+- set up the basic cameria movement using the Cinemachine so that the camera was focused on the player and player movement
+- camera snaps to current unit when unit is selected
+- created varied tilemaps so that 6 truly different levels were created and adjusted the enemies spawned in on each
+
+
+### Carly
+- Create UI Placeholders for necessary aspects
+- Created the Terrain used for the 6 levels
+- 3D models the game models in Blender with custom materials and art as custom textures for the model
+- added additional terrain shaders and textures
+- Increase the variability between terrains and environments on different planets (levels) with lighting, particle systems, and post processing effects
+- Used Crystal models (previously cited) in the making of the new level environments
+- added Skybox fromt he Unity asset store (previously cited)
+- connected level selection to all 6 levels
+- integrated current UI for game status, character statistics, and turn changes into all of the levels
+- created more post processing effects that occur when the user deals damage
+- created model effect where models flash red when taking damage
+- Went from Lofi to more Hifi UI appearances for all aspects of the UI.
+- Drew additional art for the Play scene and created custom sprites to be used as buttons and backgrounds, along with custom frames
+- drew player and enemy profile profile pictures to show up in the updated UI and integrated character names into UI
+- Drew Win and Lose screens to replace preivously made screens with methods to return to level selection or play the level again
+- Drew Level selection background art and created chain sprites to represent how a player can't access a level
+- integrated all finalized UI and created color schemas
+
+### Collaborative Efforts
+- Game Design and Main story + Themes
+- Game Play Decisions
+- Level selection Blocker (Alex + Carly)
+- UI Layout in Level + Updated Art (Megan + Carly)
+- Asset Selection
+- Game play visual mechanics (post processing effects) (Megan + Carly)
+- Character Dialog + Profile pictures (Alex + Carly)
+- Character weapon asset selection (Megan + carly)
+- Sigil Implementation + Asset selection (Alex + Megan)
