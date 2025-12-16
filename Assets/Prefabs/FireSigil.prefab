@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3233742491572070813}
   - component: {fileID: 244923026652972589}
   m_Layer: 0
-  m_Name: DamageSigil
+  m_Name: FireSigil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

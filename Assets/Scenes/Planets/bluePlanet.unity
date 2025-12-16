@@ -25032,7 +25032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeCam: {fileID: 1545921274}
-  followCam: {fileID: 0}
+  followCam: {fileID: 1545921274}
   panSpeed: 35
   zoomSpeed: 5
   minZoom: 45

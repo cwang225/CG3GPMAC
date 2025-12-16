@@ -924,7 +924,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &521593679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24377,7 +24377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeCam: {fileID: 1168555518}
-  followCam: {fileID: 0}
+  followCam: {fileID: 1168555518}
   panSpeed: 10
   zoomSpeed: 5
   minZoom: 5
