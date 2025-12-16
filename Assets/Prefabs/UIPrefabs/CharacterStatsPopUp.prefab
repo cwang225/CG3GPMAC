@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2463781431854905665}
   - component: {fileID: 5747219104907410614}
   m_Layer: 5
-  m_Name: LevelStatsPanel
+  m_Name: CharacterStatsPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

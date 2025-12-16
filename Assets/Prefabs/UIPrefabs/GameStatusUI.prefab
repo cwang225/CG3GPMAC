@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7801018306105407941}
   - component: {fileID: 7491727909526761920}
   m_Layer: 5
-  m_Name: PlayerStatusUI
+  m_Name: GameStatusUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

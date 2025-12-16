@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 836078402495551762}
   - component: {fileID: 8394082974463022627}
   m_Layer: 5
-  m_Name: EnemyTurnPopUp
+  m_Name: EnemyTurnSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

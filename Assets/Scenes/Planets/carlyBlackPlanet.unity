@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 5163330946382979875, guid: e9eb6205b900acc4aa4df542cee12dfe,
         type: 3}
       propertyPath: m_Name
-      value: PlayerTurnPopUp Variant
+      value: PlayerTurnSign
       objectReference: {fileID: 0}
     - target: {fileID: 5163330946382979875, guid: e9eb6205b900acc4aa4df542cee12dfe,
         type: 3}
@@ -7110,8 +7110,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2495936920775479033, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.027832
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495936920775479033, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.268982
+      value: -12.269043
       objectReference: {fileID: 0}
     - target: {fileID: 3127245700883058327, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}
@@ -7136,7 +7141,7 @@ PrefabInstance:
     - target: {fileID: 5004833242559482424, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}
       propertyPath: m_Name
-      value: GoBackPanel
+      value: PausePanel
       objectReference: {fileID: 0}
     - target: {fileID: 5004833242559482424, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}
@@ -19093,7 +19098,7 @@ PrefabInstance:
     - target: {fileID: 923346325766550973, guid: f9e193a98f3db4648bffa15dd89cdb4b,
         type: 3}
       propertyPath: m_Name
-      value: LevelStatsPanel
+      value: CharacterStatsPopUp
       objectReference: {fileID: 0}
     - target: {fileID: 923346325766550973, guid: f9e193a98f3db4648bffa15dd89cdb4b,
         type: 3}
@@ -19493,7 +19498,7 @@ PrefabInstance:
     - target: {fileID: 1575201034895373765, guid: a8d8fce24a25e8e4fa6edde05faed530,
         type: 3}
       propertyPath: m_Name
-      value: PlayerStatusUI
+      value: GameStatusUI
       objectReference: {fileID: 0}
     - target: {fileID: 1649616787043183826, guid: a8d8fce24a25e8e4fa6edde05faed530,
         type: 3}
@@ -19792,7 +19797,7 @@ PrefabInstance:
     - target: {fileID: 2098392930634511219, guid: bfe15f7b24de0284187b27d44dc96040,
         type: 3}
       propertyPath: m_Name
-      value: EnemyTurnPopUp
+      value: EnemyTurnSign
       objectReference: {fileID: 0}
     - target: {fileID: 2098392930634511219, guid: bfe15f7b24de0284187b27d44dc96040,
         type: 3}
