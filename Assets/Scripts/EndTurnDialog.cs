@@ -25,11 +25,13 @@ public class EndTurnDialog : MonoBehaviour
 
     public void HookupEndTurn(UnityAction listener)
     {
+        Debug.Log("clicked end turn btn");
         endTurnButton.onClick.AddListener(listener);
     }
 
     public void HookupCancel(UnityAction listener)
     {
+        Debug.Log("clicked cancel turn btn");
         cancelButton.onClick.AddListener(listener);
     }
 }

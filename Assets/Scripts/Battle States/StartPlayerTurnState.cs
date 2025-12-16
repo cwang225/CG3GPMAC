@@ -9,10 +9,9 @@ using UnityEngine;
  */
 public class StartPlayerTurnState : BattleState
 {
-    public GameObject playerTurnPopUp;
-    public TMP_Text turnStatus;
-    public TMP_Text movesCounter;
-    public GameObject gem;
+    //public GameObject playerTurnPopUp;
+    //public TMP_Text turnStatus;
+   // public GameObject gem;
     public override void Enter()
     {
         base.Enter();
