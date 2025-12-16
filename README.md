@@ -259,6 +259,23 @@ Also hooked up win and lose screens, restart, and return to level select.
 ### Alex
 I added win and lose music to the game. Whenever the player either wins or loses the game, when the win or lose dialogue appears, the background music will stop and new music will play that corresponds to whether the user won or lost.
 
+## Final Project Submission
+
+### Megan
+Debugged the levels and fixed player ability and movement issues. Fixed mouse issues and updated levels in a more playable way.
+<img width="404" height="279" alt="image" src="https://github.com/user-attachments/assets/7cf8a311-61b5-44fb-af3a-59d64d3e2fe7" />
+
+
+### Carly
+Drew several art backgrounds and implmeneted final UI Design and created color schema. Worked to fix post processing flash grenade. Drew Game Sprites for level selection features
+<img width="1427" height="777" alt="image" src="https://github.com/user-attachments/assets/029d2d92-ae02-48fa-ba65-8906c1c22b22" />
+
+
+### Alex
+Implemented the Dialogue system into all of the levels + updated sounds and effects
+<img width="264" height="295" alt="image" src="https://github.com/user-attachments/assets/54abf34a-a543-407c-b871-3a54b44cb43e" />
+
+
 ## Running Instructions
 Run the TitleScene scene in the UIScenes Folder. Hit the play button to move to show level select. Click on any level and then 'Play level' to enter the test level.
 Controls:
