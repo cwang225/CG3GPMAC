@@ -1,2 +1,34 @@
 fileFormatVersion: 2
 guid: bd4f665a3759b8545bf7391e8ce47616
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tileManager: {instanceID: 0}
+  - levelData: {instanceID: 0}
+  - abilityMenuPanelController: {instanceID: 0}
+  - endTurnDialog: {instanceID: 0}
+  - LoseScreen: {instanceID: 0}
+  - WinScreen: {instanceID: 0}
+  - DialogueDialog: {instanceID: 0}
+  - playerStatisticsPanel: {instanceID: 0}
+  - PlayerHP: {instanceID: 0}
+  - modelName: {instanceID: 0}
+  - modelPfp: {instanceID: 0}
+  - MovesCounter: {instanceID: 0}
+  - enemyTurnPopUp: {instanceID: 0}
+  - playerTurnPopUp: {instanceID: 0}
+  - playerStatusUI: {instanceID: 0}
+  - goBackPanel: {instanceID: 0}
+  - turnStatus: {instanceID: 0}
+  - gem: {instanceID: 0}
+  - volume: {instanceID: 0}
+  - levelAudio: {instanceID: 0}
+  - turn: {instanceID: 0}
+  - ability: {instanceID: 0}
+  - currentTile: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

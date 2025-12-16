@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 12/01/25
+ * Date Last Updated: 12/13/25 (by Alex Dill)
  * Summary: The main state machine that loads and controls a battle/level
  */
 public class BattleController : StateMachine
@@ -19,6 +19,9 @@ public class BattleController : StateMachine
     public EndTurnDialog endTurnDialog;
     public GameObject LoseScreen;
     public GameObject WinScreen;
+    public GameObject DialogueDialog;
+    public GameObject LevelID;
+    public GameObject GameProgressMan;
     [Header("UI Components")]
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
@@ -90,7 +93,8 @@ public class BattleController : StateMachine
     void Start()
     {
         battleCameraController = GetComponent<BattleCameraController>();
-        ChangeState<LoadBattleState>();
+        StartCoroutine(WaiterStart());
+        // ChangeState<LoadBattleState>();
     }
 
     public void CheckForGameOver()
@@ -103,7 +107,15 @@ public class BattleController : StateMachine
             // levelMusSource.Pause();
             levelMusSource.Stop();
             winSource.Play();
-            QueueState<PlayerWinState>();
+            
+            
+            var gpm = GameProgressMan.GetComponent<GameProgressManager>();
+            var i = LevelID.GetComponent<LevelID>().levelIndex;
+            gpm.levelCompleteStates[i] = true;
+    
+            var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+            dialogueLogic.ShowWithDialogueSequence(1+(3*i)); // each level has start, win, loss dialogue repeating
+            StartCoroutine(WaiterWin());
         } 
         else if (CheckLoseCondition())
         {
@@ -113,7 +125,49 @@ public class BattleController : StateMachine
             // levelMusSource.Pause();
             loseSource.Play();
             QueueState<PlayerLoseState>();
+
+            var i = LevelID.GetComponent<LevelID>().levelIndex;
+
+            var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+            dialogueLogic.ShowWithDialogueSequence(2+(3*i));
+
+            StartCoroutine(WaiterLose());
+
         }
+    }
+
+    // https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
+    IEnumerator<WaitForSeconds> WaiterLose()
+    {
+        var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+        dialogueLogic.ShowWithDialogueSequence(2);
+        while (DialogueDialog.activeInHierarchy) {
+            yield return new WaitForSeconds(3);
+            dialogueLogic.nextDialogueEntryOrHide();
+        };
+        QueueState<PlayerLoseState>();
+    }
+    IEnumerator<WaitForSeconds> WaiterWin()
+    {
+        var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+        dialogueLogic.ShowWithDialogueSequence(1);
+        while (DialogueDialog.activeInHierarchy) {
+            yield return new WaitForSeconds(3);
+            dialogueLogic.nextDialogueEntryOrHide();
+        };
+        QueueState<PlayerWinState>();
+    }
+    IEnumerator<WaitForSeconds> WaiterStart()
+    {
+        var i = LevelID.GetComponent<LevelID>().levelIndex;
+        var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+        dialogueLogic.setDialogueSequence(0+(3*i));
+        dialogueLogic.Show();
+        while (DialogueDialog.activeInHierarchy) {
+            yield return new WaitForSeconds(3);
+            dialogueLogic.nextDialogueEntryOrHide();
+        };
+        ChangeState<LoadBattleState>();
     }
 
     private bool CheckWinCondition()

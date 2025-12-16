@@ -127,10 +127,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1669251951085094361, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5004833242559482424, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}
       propertyPath: m_Name
-      value: GoBackPanel
+      value: PausePanel
       objectReference: {fileID: 0}
     - target: {fileID: 7879185244599151184, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
         type: 3}

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Megan.unity
     guid: 0c01bb447d55680458b58ecb02f4039f
   - enabled: 0
-    path: Assets/Scenes/UIScenes/GoBackToLevel.unity
+    path: Assets/Scenes/UIScenes/PausePanel.unity
     guid: 66c7157b93e9dcf4fa630b14ba1b4de9
   - enabled: 1
     path: Assets/Scenes/Planets/redPlanet.unity
