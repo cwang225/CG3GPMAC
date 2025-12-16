@@ -111,11 +111,13 @@ public class AbilityMenuPanelController : MonoBehaviour
             entry.Reset();
             
             if (lockedStates != null && i < lockedStates.Length)
-                entry.IsLocked = lockedStates[i];
+                SetLocked(entry, i, lockedStates[i]);
             
             menuEntries.Add(entry);
         }
-        SetSelection(0);
+        
+        selection = -1;
+        Next();
 
         canvas.SetActive(true);
     }
@@ -127,11 +129,11 @@ public class AbilityMenuPanelController : MonoBehaviour
         canvas.SetActive(false);
     }
     
-    public void SetLocked (int index, bool value)
+    public void SetLocked (AbilityMenuEntry entry, int index, bool value)
     {
-        if (index < 0 || index >= menuEntries.Count)
+        if (entry == null)
             return;
-        menuEntries[index].IsLocked = value;
+        entry.IsLocked = value;
         if (value && selection == index)
             Next();
     }
