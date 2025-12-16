@@ -205,7 +205,6 @@ public class TileManager : MonoBehaviour
         }
     }
 
-
     public void ClearTileDisplay()
     {
         foreach (Tile tile in tiles.Values)

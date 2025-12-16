@@ -24827,6 +24827,7 @@ MonoBehaviour:
   moveColor: {r: 0.08284855, g: 1, b: 0, a: 0.34117648}
   pathColor: {r: 1, g: 0.5883081, b: 0, a: 0.34117648}
   rangeColor: {r: 1, g: 1, b: 1, a: 0.34117648}
+  gameplayCamera: {fileID: 1273718192}
 --- !u!4 &1841034074
 Transform:
   m_ObjectHideFlags: 0

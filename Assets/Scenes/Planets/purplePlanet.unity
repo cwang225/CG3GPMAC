@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeCam: {fileID: 2901975}
-  followCam: {fileID: 0}
+  followCam: {fileID: 2901975}
   panSpeed: 10
   zoomSpeed: 5
   minZoom: 5
@@ -12471,6 +12471,7 @@ MonoBehaviour:
   moveColor: {r: 0.08284855, g: 1, b: 0, a: 0.34117648}
   pathColor: {r: 1, g: 0.5883081, b: 0, a: 0.34117648}
   rangeColor: {r: 1, g: 1, b: 1, a: 0.34117648}
+  gameplayCamera: {fileID: 1505628553}
 --- !u!4 &1113007163
 Transform:
   m_ObjectHideFlags: 0
@@ -17656,7 +17657,7 @@ PrefabInstance:
     - target: {fileID: 6663533520554688893, guid: 91155cf4c84d1924db008671ea4d5660,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7953590955293953026, guid: 91155cf4c84d1924db008671ea4d5660,
         type: 3}
