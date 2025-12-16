@@ -44,7 +44,7 @@ public class SelectActionState : BattleState
         abilityMenuPanelController.Show(owner.CurrentUnit.transform, menuOptions, locks);
         
         // maybe here we check if all options are locked, and go to select unit state instead
-        if (!(owner.turn.CanMove || owner.turn.CanAct)) owner.ChangeState<SelectUnitState>();
+        if (!owner.turn.CanAct) owner.QueueState<SelectUnitState>();
     }
 
     void SelectAction()

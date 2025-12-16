@@ -56,8 +56,10 @@ IEnumerator AnimatePostProcess()
         chrome.intensity.value = 0.15f;
         colorAdjustments.colorFilter.value = new Color(255f/255, 255f/255, 255f/255);
         if (owner.allianceTurn == Alliances.Player)
-        
-            owner.ChangeState<SelectActionState>();
+            if (owner.turn.CanAct)
+                owner.ChangeState<SelectActionState>();
+            else
+                owner.ChangeState<SelectUnitState>();
         else
             owner.ChangeState<EnemySelectActionState>();
     }
