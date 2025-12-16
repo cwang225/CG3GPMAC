@@ -19,15 +19,4 @@ public class GameProgressManager : MonoBehaviour
         }
         levelCompleteStates[0] = true;
     }
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

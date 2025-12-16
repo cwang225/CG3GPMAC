@@ -25,6 +25,18 @@ public class LevelGater : MonoBehaviour
         var gpm = GameProgressManager.GetComponent<GameProgressManager>();
         if (gpm.levelCompleteStates[0])
         {
+            levelOneButton.GetComponent<Image>().raycastTarget = true;
+            levelOneButton.GetComponent<Button>().interactable = true;
+            levelOneChains.SetActive(false);
+        }
+        else
+        {
+            levelOneButton.GetComponent<Image>().raycastTarget = false;
+            levelOneButton.GetComponent<Button>().interactable = false;
+            levelOneChains.SetActive(true);
+        }
+        if (gpm.levelCompleteStates[1])
+        {
             levelTwoButton.GetComponent<Image>().raycastTarget = true;
             levelTwoButton.GetComponent<Button>().interactable = true;
             levelTwoChains.SetActive(false);
@@ -35,7 +47,7 @@ public class LevelGater : MonoBehaviour
             levelTwoChains.SetActive(true);
         }
 
-        if (gpm.levelCompleteStates[1])
+        if (gpm.levelCompleteStates[2])
         {
             levelThreeButton.GetComponent<Image>().raycastTarget = true;
             levelThreeButton.GetComponent<Button>().interactable = true;
@@ -47,7 +59,7 @@ public class LevelGater : MonoBehaviour
             levelThreeChains.SetActive(true);
         }
 
-        if (gpm.levelCompleteStates[2])
+        if (gpm.levelCompleteStates[3])
         {
             levelFourButton.GetComponent<Image>().raycastTarget = true;
             levelFourButton.GetComponent<Button>().interactable = true;
@@ -59,7 +71,7 @@ public class LevelGater : MonoBehaviour
             levelFourChains.SetActive(true);
         }
 
-        if (gpm.levelCompleteStates[3])
+        if (gpm.levelCompleteStates[4])
         {
             levelFiveButton.GetComponent<Image>().raycastTarget = true;
             levelFiveButton.GetComponent<Button>().interactable = true;
@@ -71,7 +83,7 @@ public class LevelGater : MonoBehaviour
             levelFiveChains.SetActive(true);
         }
 
-        if (gpm.levelCompleteStates[4])
+        if (gpm.levelCompleteStates[5])
         {
             levelSixButton.GetComponent<Image>().raycastTarget = true;
             levelSixButton.GetComponent<Button>().interactable = true;

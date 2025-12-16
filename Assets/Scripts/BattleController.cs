@@ -139,7 +139,7 @@ public class BattleController : StateMachine
     // https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
     IEnumerator<WaitForSeconds> WaiterLose()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
         dialogueLogic.ShowWithDialogueSequence(2);
         while (DialogueDialog.activeInHierarchy) {
@@ -152,15 +152,13 @@ public class BattleController : StateMachine
     }
     IEnumerator<WaitForSeconds> WaiterWin()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
         dialogueLogic.ShowWithDialogueSequence(1);
         while (DialogueDialog.activeInHierarchy) {
             yield return new WaitForSeconds(3);
-            Debug.Log("Next dialogue loop");
             dialogueLogic.nextDialogueEntryOrHide();
         };
-        Debug.Log("Changing state");
         ChangeState<PlayerWinState>();
     }
     IEnumerator<WaitForSeconds> WaiterStart()
