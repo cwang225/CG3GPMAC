@@ -83,27 +83,27 @@ public class LevelsPanelLogic : MonoBehaviour
     {
         if (clicked == 0)
         {
-            SceneManager.LoadScene("redPlanet");
+            SceneManager.LoadScene("Level1");
         }
         else if (clicked == 1)
         {
-            SceneManager.LoadScene("greenPlanet");
+            SceneManager.LoadScene("Level2");
         }
         else if (clicked == 2)
         {
-            SceneManager.LoadScene("orangePlanet");
+            SceneManager.LoadScene("Level3");
         }
         else if (clicked == 3)
         {
-            SceneManager.LoadScene("carlyBlackPlanet");
+            SceneManager.LoadScene("Level4");
         }
         else if (clicked == 4)
         {
-            SceneManager.LoadScene("bluePlanet");
+            SceneManager.LoadScene("Level 5");
         }
         else
         {
-            SceneManager.LoadScene("purplePlanet");
+            SceneManager.LoadScene("Level 6");
         }
 
     }

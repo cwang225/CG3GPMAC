@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: Player
   alliance: 0
-  movementRange: 2
+  movementRange: 4
   health: 50
   mana: 100
   baseAttackRanged: 0

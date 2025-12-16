@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: Cat
   alliance: 0
-  movementRange: 4
+  movementRange: 5
   health: 50
   mana: 60
   baseAttackRanged: 0
