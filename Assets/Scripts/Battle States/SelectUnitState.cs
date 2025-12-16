@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 /**
  * Author: Megan Lincicum
  * Date Created: 10/01/25
- * Date Last Updated: 10/30/25
+ * Date Last Updated: 12/16/25
  * Summary: State allowing player to select which of their units to act
  */
 public class SelectUnitState : BattleState
@@ -29,7 +30,7 @@ public class SelectUnitState : BattleState
         CheckPlayerTurnEnd();
     }
 
-    void CheckPlayerTurnEnd()
+    IEnumerator CheckPlayerTurnEnd()
     {
         // Turn ends if all units have made their actions
         foreach (Unit unit in units[Alliances.Player])
@@ -43,7 +44,7 @@ public class SelectUnitState : BattleState
                 owner.ChangeState<EndPlayerTurnState>();
             }
         }
-        
+        yield return null;
         owner.ChangeState<EndPlayerTurnState>();
     }
 
