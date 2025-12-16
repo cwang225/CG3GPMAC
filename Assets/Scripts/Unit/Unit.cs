@@ -13,6 +13,8 @@ public class Unit : MonoBehaviour
     public Directions dir;
     public Selectable selection;
 
+    public Sprite headshot;
+
     private void Awake()
     {
         selection = GetComponent<Selectable>();

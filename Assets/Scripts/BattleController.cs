@@ -67,6 +67,7 @@ public class BattleController : StateMachine
                 playerStatisticsPanel.SetActive(true);
                 Health playerHealth = _currentUnit.GetComponent<Health>();
                 PlayerHP.text = "HP: " + playerHealth.currentHealth.ToString() + "/" + playerHealth.maxHealth;
+                modelPfp.sprite = _currentUnit.headshot;
                 modelName.text = _currentUnit.name;
                 
                 // modelPfp = _currentUnit.Pfp;

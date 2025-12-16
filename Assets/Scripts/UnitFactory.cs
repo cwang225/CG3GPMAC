@@ -13,7 +13,7 @@ public static class UnitFactory
         GameObject obj = InstantiatePrefab("Units/" + recipe.model);
         obj.name = recipe.name;
         obj.AddComponent<Selectable>();
-        obj.AddComponent<Unit>();
+        AddUnit(obj, recipe.pfp);
         obj.AddComponent<Turn>();
         AddAlliance(obj, recipe.alliance);
         AddMovement(obj, recipe.movementRange);
@@ -33,6 +33,12 @@ public static class UnitFactory
         }
         GameObject instance = GameObject.Instantiate(prefab);
         return instance;
+    }
+
+    static void AddUnit(GameObject obj, Sprite headshot)
+    {
+        Unit unit = obj.AddComponent<Unit>();
+        unit.headshot = headshot;
     }
     
     static void AddAlliance (GameObject obj, Alliances type)
