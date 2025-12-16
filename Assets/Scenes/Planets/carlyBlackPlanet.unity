@@ -1683,18 +1683,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f1bac68e47d4d418d04986e6eca315, type: 3}
---- !u!1 &298215972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3211154528745239526, guid: 17f1bac68e47d4d418d04986e6eca315,
-    type: 3}
-  m_PrefabInstance: {fileID: 298215971}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &298215973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5950644561408881043, guid: 17f1bac68e47d4d418d04986e6eca315,
-    type: 3}
-  m_PrefabInstance: {fileID: 298215971}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &359007484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5004833242559482424, guid: 9e9fbe04c4c4fb0428042bf6bd31f1f0,
@@ -7093,9 +7081,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6122446, y: 2.6122446, z: 2.6122446}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2079288865}
-  m_Father: {fileID: 781159050}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7226,9 +7213,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6122446, y: 2.6122446, z: 2.6122446}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 68880892}
-  m_Father: {fileID: 815546228}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8255,6 +8241,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953077957}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &972153847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 84297388576087253, guid: 17f1bac68e47d4d418d04986e6eca315,
+    type: 3}
+  m_PrefabInstance: {fileID: 298215971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &987246771
 GameObject:
   m_ObjectHideFlags: 3
@@ -13335,8 +13327,8 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: 3c8491c7143961b4c8343f5111af5c56, type: 2}
   abilityMenuPanelController: {fileID: 865348568}
   endTurnDialog: {fileID: 1271026715}
-  LoseScreen: {fileID: 781159049}
-  WinScreen: {fileID: 815546227}
+  LoseScreen: {fileID: 972153847}
+  WinScreen: {fileID: 972153847}
   DialogueDialog: {fileID: 87413148}
   LevelID: {fileID: 1859949143}
   GameProgressMan: {fileID: 1115005685}
@@ -27742,3 +27734,9 @@ SceneRoots:
   - {fileID: 1493172283}
   - {fileID: 6286792}
   - {fileID: 1473880380}
+  - {fileID: 22084987}
+  - {fileID: 87413149}
+  - {fileID: 661124216}
+  - {fileID: 668989687}
+  - {fileID: 1115005687}
+  - {fileID: 1859949145}
