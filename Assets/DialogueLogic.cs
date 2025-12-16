@@ -129,16 +129,15 @@ public class DialogueLogic : MonoBehaviour
     }
     void Start()
     {
-        hack = true;
         // sequence 0 (start of battle)
         // print("headshot: " + dialogueSequences[0].entries[0].headshot);
-        dialogueSequences[0].entries[0].headshot = Resources.Load<Sprite>("headshot1");
-        dialogueSequences[0].entries[1].headshot = Resources.Load<Sprite>("headshot2");
-        dialogueSequences[0].entries[2].headshot = Resources.Load<Sprite>("headshot1");
-        dialogueSequences[0].entries[3].headshot = Resources.Load<Sprite>("headshot2");
+        dialogueSequences[0].entries[0].headshot = Resources.Load<Sprite>("muraPFP");
+        dialogueSequences[0].entries[1].headshot = Resources.Load<Sprite>("enemyPFP");
+        dialogueSequences[0].entries[2].headshot = Resources.Load<Sprite>("muraPFP");
+        dialogueSequences[0].entries[3].headshot = Resources.Load<Sprite>("enemyPFP");
 
-        dialogueSequences[1].entries[0].headshot = Resources.Load<Sprite>("headshot1");
-        dialogueSequences[1].entries[1].headshot = Resources.Load<Sprite>("headshot1");
+        dialogueSequences[1].entries[0].headshot = Resources.Load<Sprite>("muraPFP");
+        dialogueSequences[1].entries[1].headshot = Resources.Load<Sprite>("muraPFP");
         
 
         currentDialogueEntry = 0;

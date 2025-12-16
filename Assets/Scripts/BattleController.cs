@@ -20,6 +20,8 @@ public class BattleController : StateMachine
     public GameObject LoseScreen;
     public GameObject WinScreen;
     public GameObject DialogueDialog;
+    public GameObject LevelID;
+    public GameObject GameProgressMan;
     [Header("UI Components")]
     public GameObject playerStatisticsPanel;
     public TMP_Text PlayerHP;
@@ -108,8 +110,10 @@ public class BattleController : StateMachine
             
             var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
             dialogueLogic.ShowWithDialogueSequence(1);
-
-           StartCoroutine(WaiterWin());
+            var gpm = GameProgressMan.GetComponent<GameProgressManager>();
+            var i = LevelID.GetComponent<LevelID>().levelIndex;
+            gpm.levelCompleteStates[i] = true;
+            StartCoroutine(WaiterWin());
         } 
         else if (CheckLoseCondition())
         {
