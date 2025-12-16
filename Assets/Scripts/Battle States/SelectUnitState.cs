@@ -9,12 +9,23 @@ using UnityEngine.InputSystem;
 public class SelectUnitState : BattleState
 {
     private int index;
+    private Renderer[] rend;
+    private Color[] originalColors;
+    private Color movesDoneColor = Color.gray;
 
     public override void Enter()
     {
         base.Enter();
         index = 0;
         owner.CurrentUnit = owner.units[Alliances.Player][0];
+        rend = owner.CurrentUnit.GetComponentsInChildren<Renderer>();
+        originalColors = new Color[rend.Length];
+        int i = 0;
+        foreach (Renderer render in rend)
+        {
+            originalColors[i] = render.material.color;
+            i++;
+        }
         CheckPlayerTurnEnd();
     }
 
@@ -25,9 +36,22 @@ public class SelectUnitState : BattleState
         {
             Turn turn = unit.GetComponent<Turn>();
             if (turn.CanAct) return;
+            else if (!turn.CanAct && !turn.CanMove)
+            {
+                turnGrey();
+                Debug.Log("turned grey");
+                owner.ChangeState<EndPlayerTurnState>();
+            }
         }
         
         owner.ChangeState<EndPlayerTurnState>();
+    }
+
+    void turnGrey()
+    {
+        foreach (Renderer render in rend) {
+            render.material.color = movesDoneColor;
+        }
     }
     
     protected override void HandleMoveSelection(InputAction.CallbackContext context)
