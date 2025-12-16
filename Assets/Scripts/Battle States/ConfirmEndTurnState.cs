@@ -23,11 +23,13 @@ public class ConfirmEndTurnState : BattleState
 
     public void ConfirmEndTurn()
     {
+        Debug.Log("Confirm end turn");
         owner.ChangeState<EndPlayerTurnState>();
     }
 
     public void CancelEndTurn()
     {
+        Debug.Log("Cancel end turn");
         owner.ChangeState<SelectUnitState>();
     }
 
