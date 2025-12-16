@@ -36,13 +36,7 @@ public class SelectUnitState : BattleState
         foreach (Unit unit in units[Alliances.Player])
         {
             Turn turn = unit.GetComponent<Turn>();
-            if (turn.CanAct) return;
-            else if (!turn.CanAct && !turn.CanMove)
-            {
-                turnGrey();
-                Debug.Log("turned grey");
-                owner.ChangeState<EndPlayerTurnState>();
-            }
+            if (turn.CanAct) yield break;
         }
         yield return null;
         owner.ChangeState<EndPlayerTurnState>();
