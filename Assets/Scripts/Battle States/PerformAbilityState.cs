@@ -15,9 +15,6 @@ public class PerformAbilityState : BattleState
 {
     private ChromaticAberration chrome;
     private ColorAdjustments colorAdjustments;
-    private Renderer[] rend;
-    private Color[] originalColors;
-    private Color movesDoneColor = Color.gray;
 
    public override void Enter()
    {
@@ -30,14 +27,12 @@ public class PerformAbilityState : BattleState
 
 IEnumerator AnimatePostProcess()
     {
-        //Color startColor = Color.white;
         Color startColor = new Color(0.9176f, 0.2863f, 0.9882f, 1.0f);
         Color targetColor = new Color(.933f, .565f, .988f, 1f);
         float t = 0f;
         float duration = 1f;
         while (t < 1f)
         {
-            // t += Time.deltaTime;
             t += Time.deltaTime;
             float normalizedTime = t / duration;
             chrome.intensity.value = owner.chromeIntensity.Evaluate(t);
@@ -46,19 +41,11 @@ IEnumerator AnimatePostProcess()
             }
     }
 
-    private void turnGrey()
-    {
-        foreach (Renderer render in rend) {
-            render.material.color = movesDoneColor;
-        }
-    }
-
 
     IEnumerator Animate ()
     {
         StartCoroutine(AnimatePostProcess());
         owner.ability.Perform();
-
         yield return owner.ability.Animate(owner.currentTile);
         chrome.intensity.value = 0.15f;
         colorAdjustments.colorFilter.value = new Color(255f/255, 255f/255, 255f/255);
