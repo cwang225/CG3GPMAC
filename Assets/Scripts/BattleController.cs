@@ -108,11 +108,13 @@ public class BattleController : StateMachine
             levelMusSource.Stop();
             winSource.Play();
             
-            var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
-            dialogueLogic.ShowWithDialogueSequence(1);
+            
             var gpm = GameProgressMan.GetComponent<GameProgressManager>();
             var i = LevelID.GetComponent<LevelID>().levelIndex;
             gpm.levelCompleteStates[i] = true;
+    
+            var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
+            dialogueLogic.ShowWithDialogueSequence(1+(3*i)); // each level has start, win, loss dialogue repeating
             StartCoroutine(WaiterWin());
         } 
         else if (CheckLoseCondition())
@@ -124,8 +126,10 @@ public class BattleController : StateMachine
             loseSource.Play();
             QueueState<PlayerLoseState>();
 
+            var i = LevelID.GetComponent<LevelID>().levelIndex;
+
             var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
-            dialogueLogic.ShowWithDialogueSequence(2);
+            dialogueLogic.ShowWithDialogueSequence(2+(3*i));
 
             StartCoroutine(WaiterLose());
 
@@ -155,8 +159,9 @@ public class BattleController : StateMachine
     }
     IEnumerator<WaitForSeconds> WaiterStart()
     {
+        var i = LevelID.GetComponent<LevelID>().levelIndex;
         var dialogueLogic = DialogueDialog.GetComponent<DialogueLogic>();
-        dialogueLogic.setDialogueSequence(0);
+        dialogueLogic.setDialogueSequence(0+(3*i));
         dialogueLogic.Show();
         while (DialogueDialog.activeInHierarchy) {
             yield return new WaitForSeconds(3);

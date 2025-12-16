@@ -54,7 +54,7 @@ public class DialogueLogic : MonoBehaviour
                     text = "Very well. We'll consider this an invasion."
                 },
             },
-        },
+        }, // level 1 start (0)
         new DialogueSequence
         {
             entries = new DialogueEntry[]
@@ -68,7 +68,7 @@ public class DialogueLogic : MonoBehaviour
                     text = "One planet down, four to go I guess..."
                 },
             }
-        },
+        }, // level 1 win (1)
         new DialogueSequence
         {
             entries = new DialogueEntry[]
@@ -78,7 +78,186 @@ public class DialogueLogic : MonoBehaviour
                     text = "Fall back, fall back!"
                 },
             }
-        }
+        }, // level 1 fail (2)
+        new DialogueSequence
+        {
+            entries =
+            new DialogueEntry[]{
+                // dialogue 0: generic start of battle
+                new DialogueEntry
+                {
+                    text = "placeholder level 2 start dialogue"
+                },
+            },
+        }, // level 2 start (3)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 2 win dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 2 win (4)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
+                },
+            }
+        }, // level 2 fail (5)
+        new DialogueSequence
+        {
+            entries =
+            new DialogueEntry[]{
+                // dialogue 0: generic start of battle
+                new DialogueEntry
+                {
+                    text = "placeholder level 3 start dialogue"
+                },
+            },
+        }, // level 3 start (6)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 3 win dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 3 win (7)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
+                },
+            }
+        }, // level 3 fail (8)
+        new DialogueSequence
+        {
+            entries =
+            new DialogueEntry[]{
+                // dialogue 0: generic start of battle
+                new DialogueEntry
+                {
+                    text = "placeholder level 4 start dialogue"
+                },
+            },
+        }, // level 4 start (9)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 4 win dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 4 win (10)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
+                },
+            }
+        }, // level 4 fail (11)
+        new DialogueSequence
+        {
+            entries =
+            new DialogueEntry[]{
+                // dialogue 0: generic start of battle
+                new DialogueEntry
+                {
+                    text = "placeholder level 5 start dialogue"
+                },
+            },
+        }, // level 5 start (12)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 5 win dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 5 win (13)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
+                },
+            }
+        }, // level 5 fail (14)
+       
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 6 start dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 6 start (15)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "level 6 win dialogue"
+                },
+                new DialogueEntry
+                {
+                    text = "replace for final submission"
+                },
+            }
+        }, // level 6 win (16)
+        new DialogueSequence
+        {
+            entries = new DialogueEntry[]
+            {
+                new DialogueEntry
+                {
+                    text = "Fall back, fall back!"
+                },
+            }
+        } // level 6 fail (17)
     };
 
     public void Show()
@@ -129,16 +308,19 @@ public class DialogueLogic : MonoBehaviour
     }
     void Start()
     {
-        // sequence 0 (start of battle)
+        // sequence 0 (start of battle on level 1)
         // print("headshot: " + dialogueSequences[0].entries[0].headshot);
         dialogueSequences[0].entries[0].headshot = Resources.Load<Sprite>("muraPFP");
         dialogueSequences[0].entries[1].headshot = Resources.Load<Sprite>("enemyPFP");
         dialogueSequences[0].entries[2].headshot = Resources.Load<Sprite>("muraPFP");
         dialogueSequences[0].entries[3].headshot = Resources.Load<Sprite>("enemyPFP");
 
+        // victory on level 1
         dialogueSequences[1].entries[0].headshot = Resources.Load<Sprite>("muraPFP");
         dialogueSequences[1].entries[1].headshot = Resources.Load<Sprite>("muraPFP");
         
+        // loss on level 1
+        dialogueSequences[2].entries[0].headshot = Resources.Load<Sprite>("nyanzuPFP");
 
         currentDialogueEntry = 0;
         print(dialogueSequences[0]);
