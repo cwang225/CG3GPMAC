@@ -20,8 +20,4 @@ public class PlayerWinState : BattleState
         owner.goBackPanel.SetActive(false);
     }
 
-    public void goBack()
-    {
-        SceneManager.LoadScene("CarlyLevelSelection");
-    }
 }

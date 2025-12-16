@@ -12,7 +12,7 @@ public class Turn : MonoBehaviour
 
     public bool CanMove => !(hasMoved || hasActed);
     public bool CanAct => !hasActed; // later we may want to expand this for status effects?
-
+    
     public void ResetTurn()
     {
         hasMoved = false;
