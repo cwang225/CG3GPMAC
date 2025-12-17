@@ -294,10 +294,10 @@ Have to not be selecting a unit to be able to pan/zoom camera
 We currently have an unfixed bug in the web build that makes it so the player cannot end their turn. Apologies, on the top of debugging list.
 
 ## Demo
-Video Demo:
+Video Demo: https://drive.google.com/file/d/1hzfIqbJg5IMs8ZfiwEgjpWNz8SKBiQK1/view?usp=sharing
 
 ## Download
-Itch.io link: 
+Itch.io link: https://laserdice.itch.io/planet-six
 
 ## Future Work
 The ways in which this game could be extended is to create the previously mentioned Hub World, where characters would be able to interact with NPCs and the story could be further progressed through this outlet instead of just during battle. Another aspect to extend this game would be to add a boss battle to match up with the story we tried to come up with. We would also want to add more colored scenes and we were thinking of animations and maybe also voices to enhance the juicing aspect of our story. Our levels could also be more varied in actual environment with models that represent blocks to the protagonists. While our main recording of how well the player is doing through the number of moves they are doing, an additional way this could be extended is through giving the players a score based on how little moves they used to pass the level.
@@ -361,3 +361,7 @@ The ways in which this game could be extended is to create the previously mentio
 - Character Dialog + Profile pictures (Alex + Carly)
 - Character weapon asset selection (Megan + carly)
 - Sigil Implementation + Asset selection (Alex + Megan)
+
+### Resources Included
+- All SFX came from here: https://jdsherbert.itch.io/ultimate-ui-sfx-pack
+- Music came from here: https://alkakrab.itch.io/piano-instrumental
