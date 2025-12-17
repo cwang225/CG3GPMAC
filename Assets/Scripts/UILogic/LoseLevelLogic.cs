@@ -13,6 +13,6 @@ public class LoseLevelLogic : MonoBehaviour
     public void goBack()
     {
         Debug.Log("clicked goback");
-        SceneManager.LoadScene("LevelSelectionPanel");
+        SceneManager.LoadScene("CarlyLevelSelection");
     }
 }

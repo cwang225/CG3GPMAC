@@ -1,13 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
-using Mono.Cecil.Cil;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class DialogueLogic : MonoBehaviour
 {
