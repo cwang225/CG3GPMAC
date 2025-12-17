@@ -361,3 +361,7 @@ The ways in which this game could be extended is to create the previously mentio
 - Character Dialog + Profile pictures (Alex + Carly)
 - Character weapon asset selection (Megan + carly)
 - Sigil Implementation + Asset selection (Alex + Megan)
+
+### Resources Included
+- All SFX came from here: https://jdsherbert.itch.io/ultimate-ui-sfx-pack
+- Music came from here: https://alkakrab.itch.io/piano-instrumental
